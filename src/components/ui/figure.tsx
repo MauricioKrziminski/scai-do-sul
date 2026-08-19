@@ -25,7 +25,9 @@ function Placeholder({ label }: { label: string }) {
     <div className="blueprint absolute inset-0 bg-ink-2">
       <div className="hatch absolute inset-0 opacity-60" />
       <div className="absolute inset-0 flex items-end p-4">
-        <span className="label-tech text-paper/40">{label}</span>
+        {/* leading solto: o rotulo costuma quebrar em duas linhas e com
+            line-height 1 a segunda linha corta no rodape da caixa. */}
+        <span className="label-tech text-paper/40 leading-[1.6]">{label}</span>
       </div>
       <div className="absolute top-4 right-4 h-3 w-3 border-t border-r border-paper/20" />
       <div className="absolute bottom-4 left-4 h-3 w-3 border-b border-l border-paper/20" />
