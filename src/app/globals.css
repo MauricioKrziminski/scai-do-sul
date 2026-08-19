@@ -93,10 +93,12 @@
   --text-h1--line-height: 0.94;
   --text-h1--letter-spacing: -0.034em;
 
-  /* O minimo do clamp precisa caber em 390px de tela com a Archivo expandida.
-     Palavra de 11 letras (INDUSTRIAIS) a 48px ja estourava a margem e criava
-     rolagem horizontal. */
-  --text-display: clamp(2.5rem, 0.5rem + 7vw, 6rem);
+  /* Dois limites reais, nao chutados. O minimo precisa caber em 390px de tela
+     com a Archivo expandida: INDUSTRIAIS, 11 letras, a 48px ja estourava a
+     margem e criava rolagem horizontal. E o fator de vw precisa deixar
+     E CONEXOES caber numa linha so em 1024px, senao o E fica sozinho na
+     linha, que e o pior tipo de quebra. */
+  --text-display: clamp(2.5rem, 0.5rem + 6.2vw, 6rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.04em;
 

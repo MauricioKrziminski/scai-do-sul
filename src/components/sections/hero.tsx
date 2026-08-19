@@ -23,8 +23,12 @@ export function Hero({ src }: { src?: string }) {
       <MidiaFundo src={src} priority />
 
       <Container>
-        <div className="flex min-h-[calc(100svh-5rem)] flex-col justify-between gap-16 py-14 md:py-20">
-          <div className="grid grid-cols-12 gap-x-6 gap-y-8">
+        {/* Altura descontando o cabecalho (5rem) e a tira de dados (~6.5rem),
+            para a tira encostar no fim da tela em vez de cair abaixo da dobra.
+            Os rotulos ficam no topo e o bloco principal centraliza no que
+            sobra, senao o titulo parece ter escorregado para o rodape. */}
+        <div className="flex min-h-[calc(100svh-11.5rem)] flex-col py-12 md:py-14">
+          <div className="grid shrink-0 grid-cols-12 gap-x-6 gap-y-8">
             <div className="col-span-12 md:col-span-6">
               <Label inverted>
                 {site.razaoSocial} · Porto Alegre RS · Desde {site.fundacao}
@@ -36,7 +40,7 @@ export function Hero({ src }: { src?: string }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-12 gap-x-6 gap-y-12">
+          <div className="grid flex-1 grid-cols-12 items-center gap-x-6 gap-y-12 py-16">
             <div className="col-span-12 lg:col-span-8">
               <h1 className="font-display expanded text-display font-bold uppercase">
                 Válvulas
@@ -46,7 +50,7 @@ export function Hero({ src }: { src?: string }) {
               </h1>
             </div>
 
-            <div className="col-span-12 flex flex-col justify-end gap-9 lg:col-span-4">
+            <div className="col-span-12 flex flex-col justify-center gap-9 lg:col-span-4">
               <p className="text-lead max-w-[42ch] text-paper/75">
                 {anosDeCasa} anos abastecendo indústria e saneamento em todo o Brasil.
                 Especificação conferida antes do orçamento, para o material chegar
