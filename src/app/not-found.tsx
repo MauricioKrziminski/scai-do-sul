@@ -14,6 +14,7 @@ export default function NaoEncontrada() {
     <>
       <FaixaHero
         alto
+        src="/img/temp/faixa-estoque.jpg"
         fotoLabel="Estoque, corredor de prateleiras"
         numeral="404"
         rotulo="Endereço não encontrado"

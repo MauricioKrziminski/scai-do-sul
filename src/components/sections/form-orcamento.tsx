@@ -42,7 +42,10 @@ function Campo({
 
 export function FormOrcamento() {
   const searchParams = useSearchParams();
-  const [estado, formAction, pendente] = useActionState(enviarOrcamento, estadoInicial);
+  const [estado, formAction, pendente] = useActionState(
+    enviarOrcamento,
+    estadoInicial,
+  );
   const [produtoSelecionado, setProdutoSelecionado] = useState(
     searchParams.get("produto") ?? "",
   );
@@ -58,7 +61,9 @@ export function FormOrcamento() {
         <h3 className="font-display expanded text-h3 mt-8 font-bold uppercase">
           Pedido recebido
         </h3>
-        <p className="text-body-lg text-steel mt-6 max-w-[44ch]">{estado.mensagem}</p>
+        <p className="text-body-lg text-steel mt-6 max-w-[44ch]">
+          {estado.mensagem}
+        </p>
       </div>
     );
   }
@@ -70,7 +75,10 @@ export function FormOrcamento() {
           role="alert"
           className="border-brand-deep text-body-sm flex gap-3 border p-5"
         >
-          <AlertTriangle aria-hidden className="text-brand-deep mt-0.5 size-4 shrink-0" />
+          <AlertTriangle
+            aria-hidden
+            className="text-brand-deep mt-0.5 size-4 shrink-0"
+          />
           <span>{estado.mensagem}</span>
         </div>
       )}
@@ -114,7 +122,12 @@ export function FormOrcamento() {
           />
         </Campo>
 
-        <Campo id="telefone" rotulo="Telefone com DDD" obrigatorio erro={invalido("telefone")}>
+        <Campo
+          id="telefone"
+          rotulo="Telefone com DDD"
+          obrigatorio
+          erro={invalido("telefone")}
+        >
           <input
             id="telefone"
             name="telefone"
@@ -124,8 +137,13 @@ export function FormOrcamento() {
             placeholder="(51) 90000-0000"
             defaultValue={valor("telefone")}
             aria-invalid={Boolean(invalido("telefone"))}
-            aria-describedby={invalido("telefone") ? "telefone-erro" : undefined}
-            className={cn(campoBase, invalido("telefone") && "border-brand-deep")}
+            aria-describedby={
+              invalido("telefone") ? "telefone-erro" : undefined
+            }
+            className={cn(
+              campoBase,
+              invalido("telefone") && "border-brand-deep",
+            )}
           />
         </Campo>
       </div>
@@ -161,14 +179,27 @@ export function FormOrcamento() {
           placeholder="Diâmetro, classe de pressão, fluido da linha e quantidade. Se não tiver esses dados, descreva a aplicação."
           aria-invalid={Boolean(invalido("mensagem"))}
           aria-describedby={invalido("mensagem") ? "mensagem-erro" : undefined}
-          className={cn(campoBase, "resize-y", invalido("mensagem") && "border-brand-deep")}
+          className={cn(
+            campoBase,
+            "resize-y",
+            invalido("mensagem") && "border-brand-deep",
+          )}
         />
       </Campo>
 
       {/* Armadilha de spam. Fora da tela e fora da ordem de tabulação. */}
-      <div aria-hidden className="absolute left-[-9999px] h-px w-px overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute left-[-9999px] h-px w-px overflow-hidden"
+      >
         <label htmlFor="site">Não preencha este campo</label>
-        <input id="site" name="site" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="site"
+          name="site"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
       <div className="flex flex-col gap-6 pt-2">
@@ -183,9 +214,12 @@ export function FormOrcamento() {
         {/* Texto corrido, nao label-tech: tracking de 0.2em serve para rotulo
             de duas palavras, nao para frase que precisa ser lida. */}
         <p className="text-body-sm text-steel max-w-[54ch]">
-          Ao enviar, você concorda com o uso dos seus dados apenas para responder a
-          este contato, conforme a nossa{" "}
-          <a href="/privacidade" className="text-ink hover:text-brand-deep underline underline-offset-4">
+          Ao enviar, você concorda com o uso dos seus dados apenas para
+          responder a este contato, conforme a nossa{" "}
+          <a
+            href="/privacidade"
+            className="text-ink hover:text-brand-deep underline underline-offset-4"
+          >
             política de privacidade
           </a>
           .

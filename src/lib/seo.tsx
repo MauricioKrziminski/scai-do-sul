@@ -71,7 +71,12 @@ export function trilhaJsonLd(produto: Produto) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Início", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Produtos", item: `${site.url}/produtos` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Produtos",
+        item: `${site.url}/produtos`,
+      },
       {
         "@type": "ListItem",
         position: 3,

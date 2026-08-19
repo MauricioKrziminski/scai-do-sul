@@ -22,9 +22,9 @@ export function Footer() {
           <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <Logo inverted />
             <p className="text-body-sm mt-7 max-w-[34ch] text-paper/60">
-              Distribuidora técnica de válvulas, flanges, conexões e instrumentação
-              para indústria e saneamento. {anosDeCasa} anos de Porto Alegre para todo
-              o Brasil.
+              Distribuidora técnica de válvulas, flanges, conexões e
+              instrumentação para indústria e saneamento. {anosDeCasa} anos de
+              Porto Alegre para todo o Brasil.
             </p>
           </div>
 
@@ -65,7 +65,11 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-body-sm hover:text-brand flex gap-3 text-paper/75 transition-none"
                 >
-                  <MapPin aria-hidden className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
+                  <MapPin
+                    aria-hidden
+                    className="mt-0.5 size-4 shrink-0"
+                    strokeWidth={1.5}
+                  />
                   <span>
                     {endereco.logradouro}, {endereco.bairro}
                     <br />
@@ -78,7 +82,11 @@ export function Footer() {
                   href={`tel:${site.contato.telefoneRaw}`}
                   className="text-body-sm hover:text-brand flex items-center gap-3 text-paper/75 transition-none"
                 >
-                  <Phone aria-hidden className="size-4 shrink-0" strokeWidth={1.5} />
+                  <Phone
+                    aria-hidden
+                    className="size-4 shrink-0"
+                    strokeWidth={1.5}
+                  />
                   {site.contato.telefone}
                 </a>
               </li>
@@ -87,7 +95,11 @@ export function Footer() {
                   href={`mailto:${site.contato.email}`}
                   className="text-body-sm hover:text-brand flex items-center gap-3 break-all text-paper/75 transition-none"
                 >
-                  <Mail aria-hidden className="size-4 shrink-0" strokeWidth={1.5} />
+                  <Mail
+                    aria-hidden
+                    className="size-4 shrink-0"
+                    strokeWidth={1.5}
+                  />
                   {site.contato.email}
                 </a>
               </li>

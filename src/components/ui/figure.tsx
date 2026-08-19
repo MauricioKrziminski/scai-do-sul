@@ -61,7 +61,12 @@ export function Figure({
 }) {
   return (
     <figure className={cn("w-full", className)}>
-      <div className={cn("relative isolate w-full overflow-hidden bg-ink-2", RATIOS[ratio])}>
+      <div
+        className={cn(
+          "relative isolate w-full overflow-hidden bg-ink-2",
+          RATIOS[ratio],
+        )}
+      >
         {src ? (
           <Image
             src={src}
@@ -76,7 +81,9 @@ export function Figure({
         )}
       </div>
       {caption ? (
-        <figcaption className="label-tech mt-3 text-steel">{caption}</figcaption>
+        <figcaption className="label-tech mt-3 text-steel">
+          {caption}
+        </figcaption>
       ) : null}
     </figure>
   );

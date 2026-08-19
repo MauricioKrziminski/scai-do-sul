@@ -14,7 +14,11 @@ import { orcamentoWhatsapp } from "@/lib/whatsapp";
  * Faixa escura sangrando de ponta a ponta. Enquanto a foto real não chega,
  * entra a grade de projeto. Ver docs/lista-de-fotos.md, item 02.
  */
-export function Hero({ src }: { src?: string }) {
+export function Hero({
+  src = "/img/temp/faixa-estoque.jpg",
+}: {
+  src?: string;
+}) {
   return (
     <section
       className="bg-ink text-paper relative isolate overflow-hidden"
@@ -52,15 +56,19 @@ export function Hero({ src }: { src?: string }) {
 
             <div className="col-span-12 flex flex-col justify-center gap-9 lg:col-span-4">
               <p className="text-lead max-w-[42ch] text-paper/75">
-                {anosDeCasa} anos abastecendo indústria e saneamento em todo o Brasil.
-                Especificação conferida antes do orçamento, para o material chegar
-                certo na primeira vez.
+                {anosDeCasa} anos abastecendo indústria e saneamento em todo o
+                Brasil. Especificação conferida antes do orçamento, para o
+                material chegar certo na primeira vez.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button href="/produtos" variant="inverted">
                   Ver linhas de produto
                 </Button>
-                <Button href={orcamentoWhatsapp()} variant="ghostInverted" arrow={false}>
+                <Button
+                  href={orcamentoWhatsapp()}
+                  variant="ghostInverted"
+                  arrow={false}
+                >
                   Falar no WhatsApp
                 </Button>
               </div>

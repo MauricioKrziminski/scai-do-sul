@@ -29,14 +29,19 @@ export function Header() {
         <div className="flex h-20 items-center justify-between gap-8">
           <Logo />
 
-          <nav aria-label="Principal" className="hidden items-center gap-9 lg:flex">
+          <nav
+            aria-label="Principal"
+            className="hidden items-center gap-9 lg:flex"
+          >
             {navegacao.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "label-tech transition-none",
-                  ativo(item.href) ? "text-brand-deep" : "text-ink hover:text-brand-deep",
+                  ativo(item.href)
+                    ? "text-brand-deep"
+                    : "text-ink hover:text-brand-deep",
                 )}
               >
                 {item.rotulo}
@@ -69,7 +74,10 @@ export function Header() {
       </Container>
 
       {aberto && (
-        <div id="menu-mobile" className="border-rule bg-paper border-t lg:hidden">
+        <div
+          id="menu-mobile"
+          className="border-rule bg-paper border-t lg:hidden"
+        >
           <Container>
             <nav aria-label="Principal, celular" className="flex flex-col py-4">
               {navegacao.map((item) => (

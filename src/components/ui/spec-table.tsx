@@ -21,7 +21,9 @@ export function SpecTable({
   return (
     <table className={cn("w-full border-collapse text-body-sm", className)}>
       {caption ? (
-        <caption className="label-tech pb-4 text-left text-steel">{caption}</caption>
+        <caption className="label-tech pb-4 text-left text-steel">
+          {caption}
+        </caption>
       ) : null}
       <thead>
         <tr className="border-y border-ink">
@@ -47,7 +49,9 @@ export function SpecTable({
                 key={c}
                 className={cn(
                   "py-4 align-baseline tabular-nums",
-                  c === 0 ? "pr-6 text-left font-medium text-ink" : "text-right text-steel",
+                  c === 0
+                    ? "pr-6 text-left font-medium text-ink"
+                    : "text-right text-steel",
                 )}
               >
                 {cell}
@@ -80,7 +84,12 @@ export function SpecList({
             inverted ? "bg-ink" : "bg-paper",
           )}
         >
-          <dt className={cn("label-tech", inverted ? "text-paper/50" : "text-steel")}>
+          <dt
+            className={cn(
+              "label-tech",
+              inverted ? "text-paper/50" : "text-steel",
+            )}
+          >
             {item.label}
           </dt>
           <dd

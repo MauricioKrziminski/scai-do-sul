@@ -10,6 +10,12 @@ import Image from "next/image";
  * A regra do site é essa e vale em todo lugar: **grade quadriculada significa
  * foto pendente**. Não existe grade decorativa que não vá virar imagem.
  * Ver docs/lista-de-fotos.md para a lista do que falta.
+ *
+ * O gradiente nunca desce de 0.84 de opacidade. Isso não é gosto, é o piso
+ * calculado para o pior caso possível, uma foto quase branca: abaixo disso o
+ * título em verde cai de 3:1 e o texto de apoio cai de 4.5:1. Como as fotos
+ * quem manda é o cliente, o overlay precisa garantir sozinho a legibilidade,
+ * sem depender de a imagem ser escura.
  */
 export function MidiaFundo({
   src,
@@ -31,7 +37,7 @@ export function MidiaFundo({
           sizes="100vw"
           className="duotone absolute inset-0 -z-20 object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(18,42,30,0.94)_0%,rgba(18,42,30,0.62)_50%,rgba(18,42,30,0.42)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(18,42,30,0.97)_0%,rgba(18,42,30,0.89)_55%,rgba(18,42,30,0.84)_100%)]" />
       </>
     );
   }

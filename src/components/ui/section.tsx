@@ -39,7 +39,9 @@ export function Section({
       id={id}
       className={cn(
         "relative border-t py-section",
-        inverted ? "border-rule-inv bg-ink text-paper" : "border-rule bg-paper text-ink",
+        inverted
+          ? "border-rule-inv bg-ink text-paper"
+          : "border-rule bg-paper text-ink",
         className,
       )}
     >
@@ -66,7 +68,9 @@ export function Section({
 
             <div className="col-span-12 md:col-span-8 md:col-start-5">
               {title && (
-                <h2 className="font-display expanded text-h2 uppercase">{title}</h2>
+                <h2 className="font-display expanded text-h2 uppercase">
+                  {title}
+                </h2>
               )}
               {intro && (
                 <div
@@ -88,7 +92,9 @@ export function Section({
         (bleed ? (
           <div className={cn(hasHeader && "mt-16 md:mt-24")}>{children}</div>
         ) : (
-          <Container className={cn(hasHeader && "mt-16 md:mt-24")}>{children}</Container>
+          <Container className={cn(hasHeader && "mt-16 md:mt-24")}>
+            {children}
+          </Container>
         ))}
     </section>
   );

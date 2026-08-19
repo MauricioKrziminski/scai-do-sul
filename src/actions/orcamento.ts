@@ -31,7 +31,6 @@ const schema = z.object({
   site: z.string().optional(),
 });
 
-
 export async function enviarOrcamento(
   _anterior: EstadoOrcamento,
   formData: FormData,
@@ -43,14 +42,22 @@ export async function enviarOrcamento(
     const erros: NonNullable<EstadoOrcamento["erros"]> = {};
     // O honeypot "site" fica de fora: ele nao tem campo visivel para mostrar
     // erro, e apontar para ele entregaria a armadilha.
-    const visiveis = ["nome", "empresa", "email", "telefone", "produto", "mensagem"] as const;
+    const visiveis = [
+      "nome",
+      "empresa",
+      "email",
+      "telefone",
+      "produto",
+      "mensagem",
+    ] as const;
     type CampoVisivel = (typeof visiveis)[number];
 
     for (const issue of parsed.error.issues) {
       const campo = issue.path[0];
       if (typeof campo !== "string") continue;
       if (!visiveis.includes(campo as CampoVisivel)) continue;
-      if (!erros[campo as CampoVisivel]) erros[campo as CampoVisivel] = issue.message;
+      if (!erros[campo as CampoVisivel])
+        erros[campo as CampoVisivel] = issue.message;
     }
     return {
       status: "erro",
@@ -99,7 +106,9 @@ export async function enviarOrcamento(
   try {
     const resend = new Resend(chave);
     const { error } = await resend.emails.send({
-      from: process.env.ORCAMENTO_FROM ?? "Site Scai do Sul <onboarding@resend.dev>",
+      from:
+        process.env.ORCAMENTO_FROM ??
+        "Site Scai do Sul <onboarding@resend.dev>",
       to: process.env.ORCAMENTO_TO ?? site.contato.email,
       replyTo: dados.email,
       subject: `Orçamento pelo site: ${nomeLinha} · ${dados.nome}`,

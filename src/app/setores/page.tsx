@@ -31,6 +31,7 @@ export default function SetoresPage() {
     <>
       <FaixaHero
         alto
+        src="/img/temp/faixa-tubulacao.jpg"
         fotoLabel="Planta industrial, tubulação com válvulas"
         rotulo={`Setores · ${setores.length} mercados`}
         titulo={
@@ -108,6 +109,7 @@ export default function SetoresPage() {
             <Figure
               ratio="16/9"
               alt="Tubulação industrial"
+              src="/img/temp/faixa-tubulacao.jpg"
               label="Planta industrial · tubulação com válvulas"
               caption="Aplicação em campo"
             />
@@ -116,6 +118,7 @@ export default function SetoresPage() {
             <Figure
               ratio="4/3"
               alt="Estação de tratamento"
+              src="/img/temp/apoio-manifold.jpg"
               label="Estação de tratamento · barrilete"
               caption="Saneamento"
             />

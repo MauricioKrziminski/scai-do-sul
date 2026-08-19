@@ -23,6 +23,7 @@ export default function ContatoPage() {
   return (
     <>
       <FaixaHero
+        src="/img/temp/faixa-balcao.jpg"
         fotoLabel="Balcão de atendimento"
         rotulo="Contato e orçamento"
         titulo={

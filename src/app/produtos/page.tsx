@@ -21,6 +21,7 @@ export default function ProdutosPage() {
   return (
     <>
       <FaixaHero
+        src="/img/temp/faixa-prateleira.jpg"
         fotoLabel="Estoque, prateleira de válvulas"
         rotulo={`Catálogo · ${produtos.length} linhas`}
         titulo="Linhas de produto"

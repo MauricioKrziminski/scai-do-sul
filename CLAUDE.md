@@ -249,6 +249,18 @@ Dois componentes, mesma lógica:
 
 Zero bytes de rede, e numa reunião lê como ficha técnica em vez de imagem quebrada.
 
+**O overlay das faixas nunca desce de 0.84 de opacidade.** Não é gosto, é o piso
+calculado para o pior caso, uma foto quase branca. Abaixo disso o título em verde cai
+de 3:1 (limite de texto grande) e o texto de apoio cai de 4.5:1. Como quem manda as
+fotos é o cliente, o overlay precisa garantir sozinho a legibilidade, sem depender de
+a imagem ser escura. Pelo mesmo motivo, `Label inverted` subiu de `paper/55` para
+`paper/70`: sobre foto clara o 55 dava 3.84.
+
+**Fotos temporárias em `public/img/temp/`.** São do banco livre Pexels, só para o
+cliente ver o site com imagem de verdade. Todas devem sair antes da publicação.
+Ver `public/img/temp/LEIA-ME.md`, que lista o que cada uma representa e as três que
+não batem exatamente com o rótulo.
+
 **Proibido:** `source.unsplash.com` (morto desde 2024, retorna 503), foto de banco
 aleatória (o cliente passa a reunião discutindo a foto em vez do design) e imagem
 gerada por IA (com cliente industrial conservador isso derruba a confiança na entrega

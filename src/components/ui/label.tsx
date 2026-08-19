@@ -14,7 +14,7 @@ export function Label({
     <span
       className={cn(
         "label-tech block",
-        inverted ? "text-paper/55" : "text-steel",
+        inverted ? "text-paper/70" : "text-steel",
         className,
       )}
     >

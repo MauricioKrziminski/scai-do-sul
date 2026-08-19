@@ -38,6 +38,11 @@ export type Produto = {
   marcas: string[];
   /** Descreve a foto que entra aqui. Ver docs/lista-de-fotos.md */
   fotoLabel: string;
+  /**
+   * Foto da linha. TEMPORARIA, do banco livre Pexels, so para visualizacao.
+   * Trocar pela foto real da peca. Ver public/img/temp/LEIA-ME.md
+   */
+  foto?: string;
 };
 
 export const produtos: Produto[] = [
@@ -74,10 +79,16 @@ export const produtos: Produto[] = [
       "Recalque e sucção de bomba",
       "Reservatório e barrilete",
     ],
-    materiais: ["Ferro fundido nodular", "Ferro fundido cinzento", "Vedação EPDM", "Haste em inox"],
+    materiais: [
+      "Ferro fundido nodular",
+      "Ferro fundido cinzento",
+      "Vedação EPDM",
+      "Haste em inox",
+    ],
     normas: ["ABNT NBR 15167", "ABNT NBR 14788", "ABNT NBR 14176"],
     marcas: ["SCAI", "DRAKO", "GENEBRE"],
     fotoLabel: "Válvula gaveta em ferro nodular, com volante",
+    foto: "/img/temp/produto-saneamento.jpg",
   },
 
   {
@@ -113,17 +124,24 @@ export const produtos: Produto[] = [
       "Óleo e linha hidráulica",
       "Instalação predial e manutenção industrial",
     ],
-    materiais: ["Bronze TC", "Latão forjado", "Vedação em PTFE", "Haste em latão"],
+    materiais: [
+      "Bronze TC",
+      "Latão forjado",
+      "Vedação em PTFE",
+      "Haste em latão",
+    ],
     normas: ["ABNT NBR 12430", "ABNT NBR 14477"],
     marcas: ["DECA", "SCAI", "GENEBRE"],
     fotoLabel: "Registro de esfera em bronze, com alavanca",
+    foto: "/img/temp/produto-bronze.jpg",
   },
 
   {
     slug: "valvulas-borboleta",
     indice: "03",
     nome: "Válvulas borboleta",
-    resumo: "Wafer, lug e flangeada, em diâmetro grande com pouco espaço de linha",
+    resumo:
+      "Wafer, lug e flangeada, em diâmetro grande com pouco espaço de linha",
     descricao: [
       "Borboleta é a escolha quando o diâmetro é grande e o espaço entre flanges é pouco. Ela pesa uma fração de uma gaveta equivalente, custa menos e fecha em um quarto de volta.",
       "A montagem wafer entra prensada entre dois flanges. A lug tem furação roscada e permite desmontar a tubulação de um lado só, sem despressurizar o outro, que é o que se pede em ramal com manutenção frequente.",
@@ -151,17 +169,24 @@ export const produtos: Produto[] = [
       "Papel e celulose",
       "Ramal com manutenção frequente",
     ],
-    materiais: ["Corpo em ferro fundido nodular", "Disco em inox 304 e 316", "Sede EPDM, NBR e Viton", "Eixo em inox"],
+    materiais: [
+      "Corpo em ferro fundido nodular",
+      "Disco em inox 304 e 316",
+      "Sede EPDM, NBR e Viton",
+      "Eixo em inox",
+    ],
     normas: ["ABNT NBR 14788", "API 609"],
     marcas: ["GENEBRE", "DRAKO", "SCAI"],
     fotoLabel: "Válvula borboleta wafer com alavanca",
+    foto: "/img/temp/produto-borboleta.jpg",
   },
 
   {
     slug: "valvulas-esfera",
     indice: "04",
     nome: "Válvulas de esfera",
-    resumo: "Bipartida, tripartida e monobloco, para bloqueio rápido e vedação estanque",
+    resumo:
+      "Bipartida, tripartida e monobloco, para bloqueio rápido e vedação estanque",
     descricao: [
       "Esfera é a válvula de bloqueio mais usada na indústria: fecha em um quarto de volta, veda de forma estanque e tem perda de carga próxima de zero quando a passagem é plena.",
       "A tripartida é a que vale a pena em linha de processo, porque abre para manutenção sem tirar o corpo da tubulação. A bipartida atende bem utilidade e ar comprimido, e a monobloco resolve o ponto onde só se precisa de bloqueio barato e confiável.",
@@ -189,17 +214,24 @@ export const produtos: Produto[] = [
       "Ar comprimido e utilidades",
       "Vapor e água quente",
     ],
-    materiais: ["Inox AISI 304 e 316", "Latão forjado", "Aço carbono", "Sede e vedação em PTFE"],
+    materiais: [
+      "Inox AISI 304 e 316",
+      "Latão forjado",
+      "Aço carbono",
+      "Sede e vedação em PTFE",
+    ],
     normas: ["ABNT NBR 14968", "API 6D"],
     marcas: ["GENEBRE", "SCAI", "MICROMAZZA"],
     fotoLabel: "Válvula esfera tripartida em inox, DN 150",
+    foto: "/img/temp/produto-esfera.jpg",
   },
 
   {
     slug: "conexoes-ferro-maleavel",
     indice: "05",
     nome: "Conexões de ferro maleável",
-    resumo: "Cotovelo, tê, luva, união, niple e bucha, no padrão brasileiro TUPY",
+    resumo:
+      "Cotovelo, tê, luva, união, niple e bucha, no padrão brasileiro TUPY",
     descricao: [
       "Conexão de ferro fundido maleável é o padrão da tubulação roscada no Brasil, e a linha TUPY é a referência do mercado. Trabalhamos com a linha completa, em galvanizado e em preto.",
       "O galvanizado atende água, ar comprimido e instalação exposta. O preto atende linha de vapor, óleo e combate a incêndio, onde a pintura de acabamento cobre a proteção.",
@@ -216,9 +248,24 @@ export const produtos: Produto[] = [
       rows: [
         ["Cotovelo 90 e 45", '1/2" a 4"', "150 / 300", "Galvanizado / preto"],
         ["Tê e cruzeta", '1/2" a 4"', "150 / 300", "Galvanizado / preto"],
-        ["Luva e luva de redução", '1/2" a 4"', "150 / 300", "Galvanizado / preto"],
-        ["União com assento cônico", '1/2" a 3"', "150 / 300", "Galvanizado / preto"],
-        ["Niple e bucha de redução", '1/2" a 4"', "150 / 300", "Galvanizado / preto"],
+        [
+          "Luva e luva de redução",
+          '1/2" a 4"',
+          "150 / 300",
+          "Galvanizado / preto",
+        ],
+        [
+          "União com assento cônico",
+          '1/2" a 3"',
+          "150 / 300",
+          "Galvanizado / preto",
+        ],
+        [
+          "Niple e bucha de redução",
+          '1/2" a 4"',
+          "150 / 300",
+          "Galvanizado / preto",
+        ],
       ],
     },
     aplicacoes: [
@@ -228,17 +275,23 @@ export const produtos: Produto[] = [
       "Vapor e condensado",
       "Instalação predial e manutenção",
     ],
-    materiais: ["Ferro fundido maleável", "Galvanização a fogo", "Acabamento preto"],
+    materiais: [
+      "Ferro fundido maleável",
+      "Galvanização a fogo",
+      "Acabamento preto",
+    ],
     normas: ["ABNT NBR 6943", "ASME B16.3"],
     marcas: ["TUPY"],
     fotoLabel: "Tê, cotovelo e luva de ferro maleável, galvanizados",
+    foto: "/img/temp/produto-conexoes.jpg",
   },
 
   {
     slug: "flanges-conexoes",
     indice: "06",
     nome: "Flanges e conexões",
-    resumo: "Sobreposto, com pescoço, cego, roscado e solto, em aço carbono e inox",
+    resumo:
+      "Sobreposto, com pescoço, cego, roscado e solto, em aço carbono e inox",
     descricao: [
       "Flange é o ponto onde a tubulação se abre para manutenção, e onde erro de furação para a obra. Trabalhamos as duas famílias de padrão que convivem no Brasil: a métrica PN, comum em saneamento, e a americana ANSI, comum em processo industrial e refinaria.",
       "PN 16 e ANSI 150# não são intercambiáveis, mesmo quando o diâmetro bate. A furação e a espessura mudam. Antes de fechar, confirme qual padrão está na tubulação existente. A gente confere junto.",
@@ -253,11 +306,26 @@ export const produtos: Produto[] = [
     tabela: {
       columns: ["Tipo", "DN (mm)", "Padrão", "Material"],
       rows: [
-        ["Sobreposto (slip on)", "15 a 600", "PN 10 / 16", "Aço carbono ASTM A105"],
-        ["Com pescoço (welding neck)", "15 a 600", "ANSI 150# / 300#", "Aço carbono ASTM A105"],
+        [
+          "Sobreposto (slip on)",
+          "15 a 600",
+          "PN 10 / 16",
+          "Aço carbono ASTM A105",
+        ],
+        [
+          "Com pescoço (welding neck)",
+          "15 a 600",
+          "ANSI 150# / 300#",
+          "Aço carbono ASTM A105",
+        ],
         ["Cego", "15 a 600", "PN 16 / ANSI 150#", "Aço carbono / inox 304"],
         ["Roscado", "15 a 150", "PN 16 / ANSI 150#", "Aço carbono / inox 316"],
-        ["Solto com virola", "25 a 300", "PN 10 / 16", "Aço carbono / inox 304"],
+        [
+          "Solto com virola",
+          "25 a 300",
+          "PN 10 / 16",
+          "Aço carbono / inox 304",
+        ],
       ],
     },
     aplicacoes: [
@@ -267,10 +335,15 @@ export const produtos: Produto[] = [
       "Rede de saneamento",
       "Montagem e reforma de planta",
     ],
-    materiais: ["Aço carbono ASTM A105", "Inox AISI 304 e 316", "Junta em papelão hidráulico e PTFE"],
+    materiais: [
+      "Aço carbono ASTM A105",
+      "Inox AISI 304 e 316",
+      "Junta em papelão hidráulico e PTFE",
+    ],
     normas: ["ABNT NBR 15827", "ASME B16.5"],
     marcas: ["SCAI", "MONTANA"],
     fotoLabel: "Flange com pescoço em aço carbono, vista de frente",
+    foto: "/img/temp/produto-flanges.jpg",
   },
 
   {
@@ -294,7 +367,12 @@ export const produtos: Produto[] = [
       rows: [
         ["Cotovelo 90 e 45", '1/8" a 4"', "3000 / 6000", "Socket weld / NPT"],
         ["Tê e cruzeta", '1/8" a 4"', "3000 / 6000", "Socket weld / NPT"],
-        ["Luva e meia luva", '1/8" a 4"', "3000 / 6000 / 9000", "Socket weld / NPT"],
+        [
+          "Luva e meia luva",
+          '1/8" a 4"',
+          "3000 / 6000 / 9000",
+          "Socket weld / NPT",
+        ],
         ["União", '1/4" a 2"', "3000 / 6000", "Socket weld / NPT"],
         ["Bucha e niple", '1/8" a 3"', "3000 / 6000", "NPT"],
       ],
@@ -306,17 +384,23 @@ export const produtos: Produto[] = [
       "Refinaria e petroquímica",
       "Caldeira e utilidades",
     ],
-    materiais: ["Aço carbono forjado ASTM A105", "Inox AISI 304 e 316", "Aço liga"],
+    materiais: [
+      "Aço carbono forjado ASTM A105",
+      "Inox AISI 304 e 316",
+      "Aço liga",
+    ],
     normas: ["ASME B16.11", "ASTM A105", "ASTM A182"],
     marcas: ["SCAI", "MONTANA"],
     fotoLabel: "Conexão forjada em inox, rosca NPT visível",
+    foto: "/img/temp/produto-alta-pressao.jpg",
   },
 
   {
     slug: "manometros-termometros",
     indice: "08",
     nome: "Manômetros e termômetros",
-    resumo: "Instrumentação de pressão e temperatura, com acessório de instalação",
+    resumo:
+      "Instrumentação de pressão e temperatura, com acessório de instalação",
     descricao: [
       "Instrumento é o que transforma a linha em informação. Trabalhamos manômetro tipo Bourdon em caixa de 63, 100 e 150 milímetros, seco ou com glicerina, e termômetro bimetálico de haste em inox.",
       "Glicerina resolve o problema mais comum de campo: ponteiro tremendo por vibração de bomba ou por golpe de aríete. O amortecimento aumenta muito a vida útil do instrumento e mantém a leitura legível.",
@@ -332,10 +416,20 @@ export const produtos: Produto[] = [
       columns: ["Instrumento", "Caixa (mm)", "Faixa", "Conexão"],
       rows: [
         ["Manômetro seco", "63 / 100", "0 a 400 bar", '1/4" / 1/2" BSP'],
-        ["Manômetro com glicerina", "63 / 100 / 150", "0 a 400 bar", '1/4" / 1/2" BSP'],
+        [
+          "Manômetro com glicerina",
+          "63 / 100 / 150",
+          "0 a 400 bar",
+          '1/4" / 1/2" BSP',
+        ],
         ["Manovacuômetro", "63 / 100", "1 a 0 a 25 bar", '1/4" / 1/2" BSP'],
         ["Termômetro bimetálico", "63 / 100", "0 a 500 °C", '1/2" BSP'],
-        ["Poço termométrico", "Haste 50 a 250 mm", "Inox 304 / 316", '1/2" / 3/4" BSP'],
+        [
+          "Poço termométrico",
+          "Haste 50 a 250 mm",
+          "Inox 304 / 316",
+          '1/2" / 3/4" BSP',
+        ],
       ],
     },
     aplicacoes: [
@@ -345,17 +439,23 @@ export const produtos: Produto[] = [
       "Compressor e ar comprimido",
       "Processo químico e alimentício",
     ],
-    materiais: ["Caixa em inox e aço", "Elemento em bronze fosforoso e inox", "Enchimento em glicerina"],
+    materiais: [
+      "Caixa em inox e aço",
+      "Elemento em bronze fosforoso e inox",
+      "Enchimento em glicerina",
+    ],
     normas: ["ABNT NBR 14105", "EN 837"],
     marcas: ["SCAI", "MICROMAZZA"],
     fotoLabel: "Manômetro com glicerina, mostrador legível",
+    foto: "/img/temp/produto-manometros.jpg",
   },
 
   {
     slug: "equipamentos-incendio",
     indice: "09",
     nome: "Equipamentos para incêndio",
-    resumo: "Hidrante, registro angular, esguicho, mangueira e válvula de recalque",
+    resumo:
+      "Hidrante, registro angular, esguicho, mangueira e válvula de recalque",
     descricao: [
       "Rede de combate a incêndio é item de aprovação do Corpo de Bombeiros, então material fora de especificação simplesmente não passa na vistoria. A linha cobre o conjunto: registro globo angular, esguicho, mangueira, adaptador engate rápido, abrigo e válvula de recalque.",
       "As bitolas de rede predial são as usuais, 1 e 1/2 e 2 e 1/2 polegadas, com engate rápido tipo Storz, que é o padrão que o caminhão do Bombeiro usa.",
@@ -370,10 +470,30 @@ export const produtos: Produto[] = [
     tabela: {
       columns: ["Item", "Bitola (pol)", "Material", "Observação"],
       rows: [
-        ["Registro globo angular 45°", '1 1/2" / 2 1/2"', "Bronze", "Volante em alumínio"],
-        ["Adaptador e tampão Storz", '1 1/2" / 2 1/2"', "Alumínio / bronze", "Engate rápido"],
-        ["Esguicho regulável e agulheta", '1 1/2" / 2 1/2"', "Alumínio / latão", "Jato pleno e neblina"],
-        ["Mangueira de incêndio", '1 1/2" / 2 1/2"', "Poliéster com revestimento", "15 e 30 m"],
+        [
+          "Registro globo angular 45°",
+          '1 1/2" / 2 1/2"',
+          "Bronze",
+          "Volante em alumínio",
+        ],
+        [
+          "Adaptador e tampão Storz",
+          '1 1/2" / 2 1/2"',
+          "Alumínio / bronze",
+          "Engate rápido",
+        ],
+        [
+          "Esguicho regulável e agulheta",
+          '1 1/2" / 2 1/2"',
+          "Alumínio / latão",
+          "Jato pleno e neblina",
+        ],
+        [
+          "Mangueira de incêndio",
+          '1 1/2" / 2 1/2"',
+          "Poliéster com revestimento",
+          "15 e 30 m",
+        ],
         ["Válvula de recalque", '2 1/2"', "Bronze", "Com tampão e corrente"],
       ],
     },
@@ -388,6 +508,7 @@ export const produtos: Produto[] = [
     normas: ["ABNT NBR 13932", "ABNT NBR 11861", "ABNT NBR 14349"],
     marcas: ["SCAI", "DECA"],
     fotoLabel: "Registro globo angular e esguicho de incêndio",
+    foto: "/img/temp/produto-incendio.jpg",
   },
 ];
 

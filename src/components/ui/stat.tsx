@@ -32,9 +32,21 @@ export function Stat({
         )}
       </p>
       <div>
-        <p className={cn("label-tech", inverted ? "text-paper/55" : "text-steel")}>{label}</p>
+        <p
+          className={cn(
+            "label-tech",
+            inverted ? "text-paper/70" : "text-steel",
+          )}
+        >
+          {label}
+        </p>
         {note && (
-          <p className={cn("mt-3 max-w-[26ch] text-body-sm", inverted ? "text-paper/60" : "text-steel")}>
+          <p
+            className={cn(
+              "mt-3 max-w-[26ch] text-body-sm",
+              inverted ? "text-paper/60" : "text-steel",
+            )}
+          >
             {note}
           </p>
         )}

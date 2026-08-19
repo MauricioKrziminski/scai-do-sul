@@ -13,11 +13,16 @@ export function Marcas() {
   return (
     <div className="bg-rule grid grid-cols-2 gap-px md:grid-cols-4">
       {marcas.map((marca) => (
-        <div key={marca.nome} className="bg-paper flex flex-col gap-4 p-7 md:p-8">
+        <div
+          key={marca.nome}
+          className="bg-paper flex flex-col gap-4 p-7 md:p-8"
+        >
           <span className="font-display semi-expanded text-h5 font-bold tracking-[-0.02em] uppercase">
             {marca.nome}
           </span>
-          <span className="text-body-sm text-steel max-w-[24ch]">{marca.linha}</span>
+          <span className="text-body-sm text-steel max-w-[24ch]">
+            {marca.linha}
+          </span>
         </div>
       ))}
     </div>

@@ -24,6 +24,7 @@ export function LinhasProduto() {
         >
           <Figure
             ratio="4/3"
+            src={produto.foto}
             alt={produto.nome}
             label={produto.fotoLabel}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

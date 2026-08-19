@@ -51,6 +51,7 @@ export default async function ProdutoPage({
           A faixa aceita foto de fundo: enquanto não chega, mostra a grade,
           que no site inteiro significa foto pendente. */}
       <FaixaHero
+        src={produto.foto}
         fotoLabel={produto.fotoLabel}
         numeral={produto.indice}
         titulo={produto.nome}
@@ -59,7 +60,7 @@ export default async function ProdutoPage({
           <nav aria-label="Trilha" className="flex items-center gap-2 py-5">
             <Link
               href="/produtos"
-              className="label-tech hover:text-brand text-paper/55 transition-none"
+              className="label-tech hover:text-brand text-paper/70 transition-none"
             >
               Produtos
             </Link>
@@ -85,6 +86,7 @@ export default async function ProdutoPage({
             <div className="lg:sticky lg:top-28">
               <Figure
                 ratio="4/3"
+                src={produto.foto}
                 alt={produto.nome}
                 label={produto.fotoLabel}
                 caption="Imagem ilustrativa"
@@ -193,7 +195,7 @@ export default async function ProdutoPage({
                 href={`/produtos/${anterior.slug}`}
                 className="hover:bg-ink hover:text-paper group border-rule flex flex-col gap-4 py-12 transition-none md:border-r md:pr-8"
               >
-                <Label className="group-hover:text-paper/55">
+                <Label className="group-hover:text-paper/70">
                   {anterior.indice} · Linha anterior
                 </Label>
                 <span className="font-display semi-expanded text-h4 font-bold uppercase">
@@ -209,7 +211,7 @@ export default async function ProdutoPage({
                 href={`/produtos/${proximo.slug}`}
                 className="hover:bg-ink hover:text-paper group flex flex-col gap-4 py-12 transition-none md:items-end md:pl-8 md:text-right"
               >
-                <Label className="group-hover:text-paper/55">
+                <Label className="group-hover:text-paper/70">
                   {proximo.indice} · Próxima linha
                 </Label>
                 <span className="font-display semi-expanded text-h4 font-bold uppercase">
@@ -221,7 +223,7 @@ export default async function ProdutoPage({
                 href="/produtos"
                 className="hover:bg-ink hover:text-paper group flex flex-col gap-4 py-12 transition-none md:items-end md:pl-8 md:text-right"
               >
-                <Label className="group-hover:text-paper/55">Catálogo</Label>
+                <Label className="group-hover:text-paper/70">Catálogo</Label>
                 <span className="font-display semi-expanded text-h4 font-bold uppercase">
                   Ver todas as linhas
                 </span>

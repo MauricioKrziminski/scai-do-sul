@@ -13,11 +13,23 @@ export type Marca = {
 
 export const marcas: Marca[] = [
   { nome: "SCAI", linha: "Linha própria da casa", confirmada: true },
-  { nome: "TUPY", linha: "Conexões de ferro fundido maleável", confirmada: true },
+  {
+    nome: "TUPY",
+    linha: "Conexões de ferro fundido maleável",
+    confirmada: true,
+  },
   { nome: "DECA", linha: "Registros e metais sanitários", confirmada: true },
-  { nome: "GENEBRE", linha: "Válvulas esfera, borboleta e inox", confirmada: true },
+  {
+    nome: "GENEBRE",
+    linha: "Válvulas esfera, borboleta e inox",
+    confirmada: true,
+  },
   { nome: "DRAKO", linha: "Válvulas industriais", confirmada: true },
-  { nome: "ISOVER", linha: "Lã de vidro e isolamento térmico", confirmada: true },
+  {
+    nome: "ISOVER",
+    linha: "Lã de vidro e isolamento térmico",
+    confirmada: true,
+  },
   { nome: "MICROMAZZA", linha: "Válvulas e equipamentos", confirmada: true },
   { nome: "MONTANA", linha: "Materiais industriais", confirmada: false },
 ];

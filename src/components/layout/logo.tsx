@@ -24,10 +24,18 @@ export function Logo({
       className={cn("inline-flex items-center gap-3.5", className)}
     >
       <MarcaScai
-        className={cn("h-11 w-auto shrink-0", inverted ? "text-paper" : "text-brand-deep")}
+        className={cn(
+          "h-11 w-auto shrink-0",
+          inverted ? "text-paper" : "text-brand-deep",
+        )}
       />
       <span className="flex flex-col gap-1.5">
-        <span className={cn("label-tech", inverted ? "text-paper/55" : "text-steel")}>
+        <span
+          className={cn(
+            "label-tech",
+            inverted ? "text-paper/55" : "text-steel",
+          )}
+        >
           Metalúrgica
         </span>
         <span

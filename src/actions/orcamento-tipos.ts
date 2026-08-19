@@ -8,7 +8,12 @@
 export type EstadoOrcamento = {
   status: "inicial" | "ok" | "erro";
   mensagem?: string;
-  erros?: Partial<Record<"nome" | "empresa" | "email" | "telefone" | "produto" | "mensagem", string>>;
+  erros?: Partial<
+    Record<
+      "nome" | "empresa" | "email" | "telefone" | "produto" | "mensagem",
+      string
+    >
+  >;
   /** Preserva o que o usuario digitou quando a validacao falha. */
   valores?: Record<string, string>;
 };

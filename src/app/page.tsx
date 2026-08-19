@@ -64,6 +64,7 @@ export default function Home() {
             <Figure
               ratio="16/9"
               alt="Fachada da Metalúrgica Scai do Sul na Avenida Cairú"
+              src="/img/temp/faixa-fachada.jpg"
               label="Fachada · Av. Cairú, 525"
               caption="Porto Alegre RS · desde 1975"
             />
@@ -75,6 +76,7 @@ export default function Home() {
             <Figure
               ratio="4/3"
               alt="Estoque de válvulas e conexões"
+              src="/img/temp/apoio-valvulas-azuis.jpg"
               label="Estoque · prateleira de conexões"
               caption="Pronta entrega"
             />
@@ -163,6 +165,7 @@ export default function Home() {
             <Figure
               ratio="4/3"
               alt="Tubulação industrial com válvulas instaladas"
+              src="/img/temp/faixa-tubulacao.jpg"
               label="Planta industrial · tubulação com válvulas"
               caption="Aplicação em campo"
             />

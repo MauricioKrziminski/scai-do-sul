@@ -43,7 +43,10 @@ export function Processo({ inverted = false }: { inverted?: boolean }) {
       {ETAPAS.map((etapa) => (
         <li
           key={etapa.indice}
-          className={cn("flex flex-col gap-7 p-8 md:p-9", inverted ? "bg-ink" : "bg-paper")}
+          className={cn(
+            "flex flex-col gap-7 p-8 md:p-9",
+            inverted ? "bg-ink" : "bg-paper",
+          )}
         >
           <span
             className={cn(

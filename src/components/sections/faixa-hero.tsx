@@ -77,9 +77,13 @@ export function FaixaHero({
                 {rotulo}
               </Label>
             )}
-            <h1 className="font-display expanded text-h1 font-bold uppercase">{titulo}</h1>
+            <h1 className="font-display expanded text-h1 font-bold uppercase">
+              {titulo}
+            </h1>
             {texto && (
-              <div className="text-lead mt-8 max-w-[54ch] text-paper/70">{texto}</div>
+              <div className="text-lead mt-8 max-w-[54ch] text-paper/70">
+                {texto}
+              </div>
             )}
             {acoes && <div className="mt-11 flex flex-wrap gap-3">{acoes}</div>}
           </div>
@@ -99,7 +103,11 @@ export function FaixaHero({
  * Tira de dados do rodapé da faixa. Rótulo mono em cima, valor em display
  * embaixo. Dado técnico logo na entrada vale mais que frase de efeito.
  */
-export function TiraDados({ itens }: { itens: { label: string; value: string }[] }) {
+export function TiraDados({
+  itens,
+}: {
+  itens: { label: string; value: string }[];
+}) {
   return (
     <dl className="grid grid-cols-2 md:grid-cols-4">
       {itens.map((item, i) => (
@@ -113,7 +121,7 @@ export function TiraDados({ itens }: { itens: { label: string; value: string }[]
             i === 3 && "md:pl-6",
           )}
         >
-          <dt className="label-tech text-paper/55">{item.label}</dt>
+          <dt className="label-tech text-paper/70">{item.label}</dt>
           <dd className="font-display semi-expanded text-h5 mt-3 font-bold uppercase">
             {item.value}
           </dd>

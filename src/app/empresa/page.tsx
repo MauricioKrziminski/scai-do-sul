@@ -54,6 +54,7 @@ export default function EmpresaPage() {
     <>
       <FaixaHero
         alto
+        src="/img/temp/faixa-fachada.jpg"
         fotoLabel="Fachada, Av. Cairú 525"
         rotulo={`A empresa · desde ${site.fundacao}`}
         titulo={
@@ -101,6 +102,7 @@ export default function EmpresaPage() {
             <Figure
               ratio="16/9"
               alt="Fachada da Metalúrgica Scai do Sul"
+              src="/img/temp/faixa-fachada.jpg"
               label="Fachada · Av. Cairú, 525"
               caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
             />
@@ -109,6 +111,7 @@ export default function EmpresaPage() {
             <Figure
               ratio="1/1"
               alt="Balcão de atendimento"
+              src="/img/temp/apoio-atendimento.jpg"
               label="Balcão · atendimento técnico"
               caption="Atendimento no balcão"
             />
