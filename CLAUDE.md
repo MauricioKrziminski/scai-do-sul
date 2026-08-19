@@ -415,6 +415,9 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Marcas refeitas a partir da foto da placa | Evidência atual vale mais que catálogo de 2018. Caíram GENEBRE, DRAKO e MONTANA; entraram DEXCO, KLINGER, TUPER e LUPATECH MIPEL |
 | 2026-08-19 | Hero da home encolhido para o ticker caber | Pedido do Mauricio. Altura medida no navegador: cabeçalho mais hero mais ticker somavam 905px numa janela de 863 |
 | 2026-08-19 | CTA de orçamento ganhou foto de fundo e canais de contato | Era da mesma cor do rodapé logo abaixo, então os dois viravam um bloco escuro só. E a coluna estreita estava vazia |
+| 2026-08-19 | Mapa do Google embutido em contato e empresa | Pedido do Mauricio. Vai por coordenada e não por endereço: a busca do Google por "Av. Cairú, 525" centra uma quadra fora e trava um card de carregamento sobre o mapa |
+| 2026-08-19 | Política de privacidade passou a declarar o mapa | O iframe é conteúdo de terceiro e o Google grava cookie ao carregar. A política afirmava que não havia rastreamento de terceiro, o que deixou de ser verdade |
+| 2026-08-19 | Foto da fachada na empresa passou a ocupar a largura toda | Com a saída da foto do balcão, sozinha num terço da grade ela ficaria encolhida com um vão ao lado, que leria como esquecimento e não como respiro |
 | 2026-08-19 | Faixas de tags removidas de todas as páginas | Pedido do Mauricio. Eram redundantes: a tira de dados no pé do hero já traz diâmetro, classes, padrões e entrega |
 | 2026-08-19 | Heroes ocupam a tela inteira, com altura calculada por flexbox | Pedido do Mauricio. Constante fixa para trilha e tira de dados erraria, porque a altura delas muda com a largura |
 | 2026-08-19 | Verde saiu dos títulos sobre foto | Medido: o verde dá 2.40:1 sobre a foto da home e 3:1 é o mínimo. Manter o verde exigiria um overlay que apaga a imagem |
@@ -442,6 +445,8 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | Número de WhatsApp comercial | Usando o fixo por ora |
 | ISO 9001 | Não confirmada. **Não afirmar sem checar** |
 | Acesso ao domínio | Resolve mas não serve nada. Confirmar titularidade no registro.br |
+| **Coordenada exata do mapa** | O pino usa `-30.0055368, -51.1968666`, geocodificado no OpenStreetMap. A busca do Google por "Av. Cairú, 525" cai uma quadra fora, na Av. Brasil, porque o número não está na base deles. O CEP que a geocodificação devolveu é 90230-030 e o da empresa é 90230-031, então é a quadra certa mas pode não ser a porta exata. Confirmar com o Eduardo |
+| Ficha no Google Meu Negócio | Se a empresa tiver ficha cadastrada, dá para trocar o embed pelo iframe oficial de "Compartilhar, incorporar um mapa", que traz o nome e a foto do estabelecimento no pino |
 | Fornecedor público | CNPJ aparece no Portal da Transparência. Verificar antes de usar como credencial |
 
 Ver também `docs/lista-de-fotos.md`, a lista numerada de fotos para entregar ao cliente.

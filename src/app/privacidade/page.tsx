@@ -42,6 +42,7 @@ const SECOES = [
     titulo: "Com quem compartilhamos",
     paragrafos: [
       "Apenas com os prestadores de serviço necessários para o site funcionar: o serviço de hospedagem e o serviço de envio de e-mail que entrega a mensagem do formulário à nossa caixa de entrada. Esses prestadores atuam como operadores e não usam os dados para finalidade própria.",
+      "As páginas de contato e da empresa exibem um mapa do Google com a nossa localização. Esse mapa é carregado a partir dos servidores do Google, que pode registrar o seu endereço de IP e gravar cookies próprios quando o mapa aparece na tela. Isso é do Google, não nosso, e segue a política de privacidade deles. Se você não quiser esse carregamento, o endereço também está escrito por extenso nas duas páginas e no rodapé.",
       "Podemos compartilhar dados quando houver obrigação legal ou determinação de autoridade competente.",
     ],
   },
@@ -57,6 +58,7 @@ const SECOES = [
     titulo: "Cookies e medição de acesso",
     paragrafos: [
       "O site não usa cookie de publicidade nem rastreamento entre sites. Utilizamos apenas medição de acesso para saber quantas pessoas visitam o site e quais páginas são mais vistas, de forma agregada.",
+      "A exceção é o mapa do Google embutido nas páginas de contato e da empresa: ele é carregado direto do Google e pode gravar cookies próprios. É o único conteúdo de terceiro do site.",
     ],
   },
   {

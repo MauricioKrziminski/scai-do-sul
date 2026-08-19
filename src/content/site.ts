@@ -44,6 +44,19 @@ export const site = {
   },
 
   maps: "https://www.google.com/maps/search/?api=1&query=Av.+Cair%C3%BA+525+Navegantes+Porto+Alegre+RS",
+
+  /**
+   * Coordenada da Av. Cairu, quadra do numero 525.
+   *
+   * Obtida por geocodificacao no OpenStreetMap, nao pelo Google: a busca por
+   * "Av. Cairu, 525" no Google cai uma quadra fora, na Av. Brasil, porque o
+   * numero nao esta na base deles. Com a coordenada o mapa centra certo.
+   *
+   * PENDENTE: o CEP que a geocodificacao devolveu e 90230-030 e o da empresa e
+   * 90230-031, entao e a quadra certa mas pode nao ser a porta exata. Confirmar
+   * com o Eduardo. Ver tambem CLAUDE.md secao 9 sobre o pino nomeado.
+   */
+  coordenadas: { lat: -30.0055368, lng: -51.1968666 },
 } as const;
 
 export const anosDeCasa = new Date().getFullYear() - site.fundacao;

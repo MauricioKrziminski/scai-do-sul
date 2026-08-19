@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/section";
 import { Label } from "@/components/ui/label";
 import { Figure } from "@/components/ui/figure";
 import { SpecList } from "@/components/ui/spec-table";
+import { MapaGoogle } from "@/components/ui/mapa-google";
 import { Stat } from "@/components/ui/stat";
 import { Marcas } from "@/components/sections/marcas";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
@@ -84,27 +85,19 @@ export default function EmpresaPage() {
           </>
         }
       >
-        <div className="grid grid-cols-12 gap-x-6 gap-y-8">
-          <div className="col-span-12 md:col-span-8">
-            <Figure
-              ratio="16/9"
-              alt="Fachada da Metalúrgica Scai do Sul"
-              src="/img/scai-sul-local.jpg"
-              posicao="50% 34%"
-              label="Fachada · Av. Cairú, 525"
-              caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
-            />
-          </div>
-          <div className="col-span-12 md:col-span-3 md:col-start-10 md:self-end">
-            <Figure
-              ratio="1/1"
-              alt="Balcão de atendimento"
-              src="/img/temp/apoio-atendimento.jpg"
-              label="Balcão · atendimento técnico"
-              caption="Atendimento no balcão"
-            />
-          </div>
-        </div>
+        {/* Uma foto só, ocupando a largura toda. Com duas, a segunda coluna
+            equilibrava a composição; sozinha num terço da grade a imagem
+            ficaria encolhida com um vão de quatro colunas ao lado, que leria
+            como esquecimento e não como respiro. */}
+        <Figure
+          ratio="16/9"
+          alt="Placa da Metalúrgica Scai do Sul na Avenida Cairú, com as marcas representadas"
+          src="/img/scai-sul-local.jpg"
+          posicao="50% 34%"
+          sizes="(max-width: 768px) 100vw, 92vw"
+          label="Fachada · Av. Cairú, 525"
+          caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
+        />
       </Section>
 
       <Section
@@ -210,14 +203,7 @@ export default function EmpresaPage() {
           <div className="col-span-12 md:col-span-4 md:col-start-9">
             <Label>Endereço</Label>
             <p className="text-body-lg mt-6 max-w-[28ch]">{enderecoLinha}</p>
-            <a
-              href={site.maps}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="label-tech text-brand-deep mt-7 inline-block transition-none hover:text-ink"
-            >
-              Abrir no Google Maps
-            </a>
+            <MapaGoogle ratio="4/3" className="mt-7" />
           </div>
         </div>
       </Section>

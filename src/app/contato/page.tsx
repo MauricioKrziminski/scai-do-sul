@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Label, LabelRule } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { MapaGoogle } from "@/components/ui/mapa-google";
 import { FormOrcamento } from "@/components/sections/form-orcamento";
 import { site, enderecoLinha } from "@/content/site";
 import { orcamentoWhatsapp } from "@/lib/whatsapp";
@@ -145,18 +146,7 @@ export default function ContatoPage() {
 
             <div className="mt-12">
               <Label>Como chegar</Label>
-              <a
-                href={site.maps}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="blueprint border-rule bg-ink mt-6 flex aspect-[4/3] items-end border p-5 transition-none hover:border-ink"
-              >
-                <span className="label-tech text-paper/55 leading-[1.6]">
-                  Abrir no Google Maps
-                  <br />
-                  {endereco.logradouro}, {endereco.bairro}
-                </span>
-              </a>
+              <MapaGoogle ratio="4/3" className="mt-6" />
             </div>
           </aside>
         </div>
