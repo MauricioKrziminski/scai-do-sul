@@ -108,7 +108,7 @@ export default async function ProdutoPage({
                     (i === 3 ? "md:pl-6 " : "")
                   }
                 >
-                  <dt className="label-tech text-paper/45">{item.label}</dt>
+                  <dt className="label-tech text-paper/55">{item.label}</dt>
                   <dd className="font-display semi-expanded text-h5 mt-3 font-bold uppercase">
                     {item.value}
                   </dd>

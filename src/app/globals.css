@@ -16,8 +16,9 @@
   --color-ink-2: #1c1917;
   --color-ink-3: #292524;
 
-  --color-steel: #78716c;
-  --color-steel-2: #a8a29b;
+  /* #78716c dava 4.10:1 sobre o papel, abaixo do AA. Escurecido para 4.97. */
+  --color-steel: #6b645e;
+  --color-steel-2: #8b847d;
   --color-steel-3: #cfcac1;
 
   --color-molten: #c8321e;
@@ -77,12 +78,15 @@
   --text-h1--line-height: 0.94;
   --text-h1--letter-spacing: -0.034em;
 
-  --text-display: clamp(3rem, 1rem + 8vw, 6rem);
+  /* O minimo do clamp precisa caber em 390px de tela com a Archivo expandida.
+     Palavra de 11 letras (INDUSTRIAIS) a 48px ja estourava a margem e criava
+     rolagem horizontal. */
+  --text-display: clamp(2.5rem, 0.5rem + 7vw, 6rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.04em;
 
   /* Numeral gigante das paredes de estatistica. */
-  --text-numeral: clamp(3.5rem, 1rem + 10vw, 8rem);
+  --text-numeral: clamp(3rem, 0.5rem + 9vw, 8rem);
   --text-numeral--line-height: 0.82;
   --text-numeral--letter-spacing: -0.045em;
 

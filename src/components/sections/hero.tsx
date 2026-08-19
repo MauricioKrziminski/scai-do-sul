@@ -103,7 +103,7 @@ export function Hero({ src }: { src?: string }) {
                   (i === 3 ? "md:pl-6 " : "")
                 }
               >
-                <dt className="label-tech text-paper/45">{item.label}</dt>
+                <dt className="label-tech text-paper/55">{item.label}</dt>
                 <dd className="font-display semi-expanded mt-3 text-h5 font-bold uppercase">
                   {item.value}
                 </dd>

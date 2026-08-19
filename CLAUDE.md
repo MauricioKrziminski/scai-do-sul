@@ -212,6 +212,10 @@ chamada e índice de seção em destaque. Nada além disso.
 - Grão fixo em `body::after`, `position: fixed`, para não rolar junto. É o que faz
   ler como impresso.
 - Toda imagem técnica leva legenda em mono. É o que separa engenharia de folheto.
+- **Contraste conferido em AA.** Os valores foram calculados, não estimados:
+  `--color-steel` sobre papel dá 4.97:1, `--color-molten` 4.57:1, e nas faixas
+  escuras o mínimo usado é `text-paper/55`, que dá 5.49:1. O antigo `#78716c`
+  dava 4.10 e reprovava. Se mudar cor, recalcular antes de commitar.
 
 ### Imagens
 
@@ -288,7 +292,7 @@ Rodapé expõe CNPJ, endereço com link para o Maps, telefone e e-mail. Dado de 
 | 4 | Empresa e Setores | **CONCLUIDA** |
 | 5 | Contato: Server Action com Resend, WhatsApp, LGPD | **CONCLUIDA** |
 | 6 | SEO: metadata por rota, OG dinâmico, JSON-LD, sitemap | **CONCLUIDA** |
-| 7 | Acabamento: a11y, responsivo, deploy | pendente |
+| 7 | Acabamento: a11y, responsivo, 404, README | **CONCLUIDA** |
 
 Cada fase termina em commit próprio, `npm run build` limpo e atualização desta tabela.
 

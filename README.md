@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site institucional · Metalúrgica Scai do Sul
 
-## Getting Started
+Site institucional e catálogo da Metalúrgica Scai do Sul Ltda., distribuidora técnica
+de válvulas, flanges, conexões e instrumentação em Porto Alegre desde 1975.
 
-First, run the development server:
+Desenvolvido pela SoftCode. O arquivo central do projeto é o [CLAUDE.md](./CLAUDE.md):
+toda decisão, dado confirmado e pendência com o cliente está registrada lá.
+
+## Stack
+
+Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS 4 ·
+Lucide React · Resend · Zod. Deploy na Vercel.
+
+Tudo estático, sem banco e sem CMS. O conteúdo vive tipado em `src/content/`.
+
+## Rodando
 
 ```bash
+npm install
+cp .env.example .env.local   # preencher RESEND_API_KEY para o formulário enviar
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O styleguide vivo fica em `/styleguide`, marcado como `noindex`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev      # desenvolvimento
+npm run build    # build de produção
+npm run lint     # eslint
+npx tsc --noEmit # checagem de tipo
+```
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/          rotas, metadata, sitemap, robots, imagens de prévia de link
+  components/   ui (primitivos), layout (casca), sections (blocos de página)
+  content/      site, produtos, setores, marcas, navegação
+  lib/          cn, whatsapp, seo, og
+  actions/      Server Action do formulário de orçamento
+docs/
+  lista-de-fotos.md   lista numerada de fotos para pedir ao cliente
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pendências
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O site está funcional com placeholders de marca no lugar das fotos. A lista completa
+do que falta receber do cliente está na seção 9 do [CLAUDE.md](./CLAUDE.md) e em
+[docs/lista-de-fotos.md](./docs/lista-de-fotos.md).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Atenção especial: **as especificações técnicas das linhas de produto são provisórias**
+e precisam ser conferidas contra o catálogo real antes da publicação.

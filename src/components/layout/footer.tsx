@@ -97,17 +97,17 @@ export function Footer() {
 
         {/* Folga extra embaixo para o botao fixo do WhatsApp nao cobrir o texto. */}
         <div className="border-rule-inv flex flex-col gap-5 border-t pt-8 pb-28 md:flex-row md:items-center md:justify-between md:pb-24">
-          <p className="label-tech text-paper/45">
+          <p className="label-tech text-paper/55">
             {site.razaoSocial} · CNPJ {site.cnpj}
           </p>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             <Link
               href="/privacidade"
-              className="label-tech text-paper/45 hover:text-paper transition-none"
+              className="label-tech text-paper/55 hover:text-paper transition-none"
             >
               Privacidade
             </Link>
-            <p className="label-tech text-paper/45">
+            <p className="label-tech text-paper/55">
               &copy; {new Date().getFullYear()} · Site por SoftCode
             </p>
           </div>
