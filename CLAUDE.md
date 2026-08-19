@@ -282,7 +282,7 @@ Rodapé expõe CNPJ, endereço com link para o Maps, telefone e e-mail. Dado de 
 | # | Fase | Estado |
 |---|---|---|
 | 0 | Fundação: scaffold, design system, primitivos, styleguide | **CONCLUÍDA** |
-| 1 | Casca: header, footer, FAB WhatsApp, metadata | pendente |
+| 1 | Casca: header, footer, FAB WhatsApp, metadata | **CONCLUIDA** |
 | 2 | Home: as nove seções com conteúdo real | pendente |
 | 3 | Produtos: índice, template `[slug]`, 9 linhas | pendente |
 | 4 | Empresa e Setores | pendente |

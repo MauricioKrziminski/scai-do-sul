@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo, Instrument_Sans, Geist_Mono } from "next/font/google";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -52,8 +55,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${archivo.variable} ${instrument.variable} ${geistMono.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col bg-paper text-ink">
-        {children}
+      <body className="bg-paper text-ink flex min-h-full flex-col">
+        <a
+          href="#conteudo"
+          className="label-tech bg-ink text-paper sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:px-4 focus:py-3"
+        >
+          Pular para o conteúdo
+        </a>
+        <Header />
+        <main id="conteudo" className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppFab />
       </body>
     </html>
   );

@@ -38,7 +38,7 @@ const SCALE: [string, string, string][] = [
 
 export default function Styleguide() {
   return (
-    <main>
+    <div>
       <Container as="header" className="py-20">
         <LabelRule>Documento interno, não indexado</LabelRule>
         <h1 className="font-display expanded text-h1 mt-8 uppercase">Styleguide</h1>
@@ -254,6 +254,6 @@ export default function Styleguide() {
           </Button>
         </div>
       </Section>
-    </main>
+    </div>
   );
 }
