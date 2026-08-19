@@ -276,12 +276,19 @@ Dois componentes, mesma lógica:
 
 Zero bytes de rede, e numa reunião lê como ficha técnica em vez de imagem quebrada.
 
-**O overlay das faixas nunca desce de 0.84 de opacidade.** Não é gosto, é o piso
-calculado para o pior caso, uma foto quase branca. Abaixo disso o título em verde cai
-de 3:1 (limite de texto grande) e o texto de apoio cai de 4.5:1. Como quem manda as
-fotos é o cliente, o overlay precisa garantir sozinho a legibilidade, sem depender de
-a imagem ser escura. Pelo mesmo motivo, `Label inverted` subiu de `paper/55` para
-`paper/70`: sobre foto clara o 55 dava 3.84.
+**Sobre foto, texto claro e sólido. Verde nunca.** Essa regra saiu de medição, não de
+gosto. O verde da marca é um meio-tom: para ele bater 3:1 contra uma foto clara, o
+overlay precisa ir a 0.84 e esmagar a imagem para uns 40 níveis de tom. Foi o que
+aconteceu com a fachada da empresa, que sumiu atrás de um verde chapado.
+
+A troca: o overlay caiu para 0.68 no topo e 0.93 no pé, a foto aparece com o dobro de
+faixa tonal, e o texto sobre ela é `text-paper` sólido, sem opacidade. Medido na tela
+real, o pior fundo do hero da home dá 6.18:1 para o título e 5.63:1 para o texto de
+apoio. O verde continua sendo o acento em tudo que está sobre fundo chapado, que é a
+maior parte do site.
+
+Por isso `Label inverted` é sólido e o lead dos heroes não tem opacidade. Se alguém
+"melhorar" isso pondo `text-paper/70` de volta, quebra sobre foto clara.
 
 **Fotos temporárias em `public/img/temp/`.** São do banco livre Pexels, só para o
 cliente ver o site com imagem de verdade. Todas devem sair antes da publicação.
@@ -323,6 +330,29 @@ src/
 Todo dado de conteúdo vive em `src/content/`. Nenhum texto solto dentro de componente.
 
 ---
+
+## 5.1 FAIXAS DE TELA CHEIA
+
+Todos os heroes ocupam a tela inteira. "Tela inteira" aqui não é `100svh`: é `100svh`
+menos o cabeçalho fixo e menos o que vem logo depois da faixa, senão o elemento
+seguinte fica cortado na dobra.
+
+O que a própria faixa renderiza por dentro (trilha de navegação e tira de dados) **não
+é descontado por número fixo**, porque a altura real deles muda com a largura: a tira
+de dados mede 83px em 390, 128px em 768 e 104px em 1440. Um valor fixo erraria em
+todas menos uma. Quem resolve é o flexbox: a seção recebe a altura alvo, trilha e tira
+ficam com o tamanho natural e a área de conteúdo absorve o resto.
+
+`svh` e não `vh`: no celular a barra do navegador entra e sai, e `vh` mede a altura sem
+a barra, o que corta o pé da faixa.
+
+Verificado por medição em 7 rotas × 7 tamanhos: **49 de 49 fecham exato**, de 390x844
+a 1920x1080. A exceção conhecida é 360x640, onde o conteúdo genuinamente não cabe e a
+faixa cresce além da tela, que é o comportamento correto de um `min-height`.
+
+Telas baixas de notebook (1024x700, 1280x720) são resolvidas por media query de
+**altura**, não de largura: ali a largura é de desktop mas a altura é de celular, e
+breakpoint de largura não enxerga esse caso.
 
 ## 6. ARQUITETURA DA HOME
 
@@ -380,6 +410,9 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Marcas refeitas a partir da foto da placa | Evidência atual vale mais que catálogo de 2018. Caíram GENEBRE, DRAKO e MONTANA; entraram DEXCO, KLINGER, TUPER e LUPATECH MIPEL |
 | 2026-08-19 | Hero da home encolhido para o ticker caber | Pedido do Mauricio. Altura medida no navegador: cabeçalho mais hero mais ticker somavam 905px numa janela de 863 |
 | 2026-08-19 | CTA de orçamento ganhou foto de fundo e canais de contato | Era da mesma cor do rodapé logo abaixo, então os dois viravam um bloco escuro só. E a coluna estreita estava vazia |
+| 2026-08-19 | Heroes ocupam a tela inteira, com altura calculada por flexbox | Pedido do Mauricio. Constante fixa para trilha e tira de dados erraria, porque a altura delas muda com a largura |
+| 2026-08-19 | Verde saiu dos títulos sobre foto | Medido: o verde dá 2.40:1 sobre a foto da home e 3:1 é o mínimo. Manter o verde exigiria um overlay que apaga a imagem |
+| 2026-08-19 | Marcas só em /empresa, Processo só em /produtos | As duas seções apareciam idênticas nas duas páginas. Marcas é assunto institucional, Processo é fluxo de compra. A home mantém as duas resumidas, que é o papel dela |
 | 2026-08-19 | A foto da placa é a única sem duotone | Testei as duas. Em cor, ao lado de uma foto em preto e branco, destoava como retrato de celular. Em duotone ela lê como documento e entra na mesma família visual |
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |

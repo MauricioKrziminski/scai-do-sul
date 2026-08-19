@@ -30,7 +30,7 @@ export function CtaOrcamento({
 
   return (
     <section className="bg-ink text-paper border-rule-inv relative isolate overflow-hidden border-t">
-      <MidiaFundo src="/img/temp/apoio-atendimento.jpg" />
+      <MidiaFundo src="/img/temp/apoio-valvulas-azuis.jpg" />
 
       <Container>
         <div className="py-section grid grid-cols-12 gap-x-6 gap-y-14">
@@ -43,7 +43,11 @@ export function CtaOrcamento({
                   href={`tel:${site.contato.telefoneRaw}`}
                   className="text-body-sm hover:text-brand flex items-center gap-3 text-paper/80 transition-none"
                 >
-                  <Phone aria-hidden className="size-4 shrink-0" strokeWidth={1.5} />
+                  <Phone
+                    aria-hidden
+                    className="size-4 shrink-0"
+                    strokeWidth={1.5}
+                  />
                   {site.contato.telefone}
                 </a>
               </li>
@@ -52,7 +56,11 @@ export function CtaOrcamento({
                   href={`mailto:${site.contato.email}`}
                   className="text-body-sm hover:text-brand flex items-center gap-3 break-all text-paper/80 transition-none"
                 >
-                  <Mail aria-hidden className="size-4 shrink-0" strokeWidth={1.5} />
+                  <Mail
+                    aria-hidden
+                    className="size-4 shrink-0"
+                    strokeWidth={1.5}
+                  />
                   {site.contato.email}
                 </a>
               </li>
@@ -63,7 +71,11 @@ export function CtaOrcamento({
                   rel="noopener noreferrer"
                   className="text-body-sm hover:text-brand flex gap-3 text-paper/80 transition-none"
                 >
-                  <MapPin aria-hidden className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
+                  <MapPin
+                    aria-hidden
+                    className="mt-0.5 size-4 shrink-0"
+                    strokeWidth={1.5}
+                  />
                   <span>
                     {endereco.logradouro}
                     <br />
@@ -75,7 +87,9 @@ export function CtaOrcamento({
           </div>
 
           <div className="col-span-12 md:col-span-8 md:col-start-5">
-            <h2 className="font-display expanded text-h2 font-bold uppercase">{titulo}</h2>
+            <h2 className="font-display expanded text-h2 font-bold uppercase">
+              {titulo}
+            </h2>
             <p className="text-lead mt-7 max-w-[46ch] text-paper/80">{texto}</p>
 
             <div className="mt-11 flex flex-wrap gap-3">

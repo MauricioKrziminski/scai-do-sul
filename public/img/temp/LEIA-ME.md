@@ -26,8 +26,8 @@ foto que falta. Nada quebra.
 | Arquivo | Onde entra | Foto real que substitui |
 |---|---|---|
 | `faixa-estoque.jpg` | Hero da home, topo do 404 | Item 02 da lista |
-| `faixa-fachada.jpg` | Topo da página da empresa | Item 01 |
-| `faixa-balcao.jpg` | Topo da página de contato | Item 03 |
+| `faixa-fachada.jpg` | Sem uso: substituída pela foto real `scai-sul-local2.jpg` | Item 01, entregue |
+| `faixa-balcao.jpg` | Figura "Pronta entrega" na home | Item 02 |
 | `faixa-prateleira.jpg` | Topo da página de produtos | Item 04 |
 | `faixa-tubulacao.jpg` | Topo da página de setores | Item 05 |
 | `produto-saneamento.jpg` | Linha 01 | Item 07 |
@@ -39,8 +39,8 @@ foto que falta. Nada quebra.
 | `produto-alta-pressao.jpg` | Linha 07 | Item 13 |
 | `produto-manometros.jpg` | Linha 08 | Item 14 |
 | `produto-incendio.jpg` | Linha 09 | Item 15 |
-| `apoio-atendimento.jpg` | Figura na página da empresa | Item 03 |
-| `apoio-valvulas-azuis.jpg` | Figura na home | Item 02 |
+| `apoio-atendimento.jpg` | Topo da página de contato e figura na empresa | Item 03 |
+| `apoio-valvulas-azuis.jpg` | Fundo da chamada de orçamento | Item 16 |
 | `apoio-manifold.jpg` | Figura na página de setores | Item 20 |
 
 ## Ressalvas técnicas, para não passar batido

@@ -2,7 +2,7 @@ import { Container } from "@/components/ui/container";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { MidiaFundo } from "@/components/ui/midia-fundo";
-import { TiraDados } from "./faixa-hero";
+import { TiraDados, alturaDaFaixa } from "./faixa-hero";
 import { site, anosDeCasa } from "@/content/site";
 import { orcamentoWhatsapp } from "@/lib/whatsapp";
 
@@ -21,42 +21,42 @@ export function Hero({
 }) {
   return (
     <section
-      className="bg-ink text-paper relative isolate overflow-hidden"
+      className="bg-ink text-paper relative isolate flex flex-col overflow-hidden"
+      style={{ minHeight: alturaDaFaixa(true) }}
       data-foto={src ? undefined : "Estoque, corredor de prateleiras"}
     >
       <MidiaFundo src={src} priority />
 
-      <Container>
-        {/* Altura descontando tudo que precisa caber junto na primeira tela:
-            cabecalho (5rem), a tira de dados do rodape do hero (6.5rem) e o
-            ticker que vem logo abaixo (2.6rem). Medido no navegador, nao
-            chutado. Os rotulos ficam no topo e o bloco principal centraliza no
-            que sobra, senao o titulo parece ter escorregado para o rodape. */}
-        <div className="flex min-h-[calc(100svh-14.25rem)] flex-col py-10 md:py-12">
+      {/* Mesma mecanica das faixas das paginas internas: a secao recebe a
+          altura alvo e esta area absorve o que sobra depois da tira de dados.
+          Os rotulos ficam no topo e o bloco principal centraliza no que sobra,
+          senao o titulo parece escorregar para o rodape. */}
+      <Container className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col py-8 md:py-10 lg:py-12 [@media(max-height:780px)]:py-4 [@media(max-height:900px)]:py-8">
           <div className="grid shrink-0 grid-cols-12 gap-x-6 gap-y-8">
             <div className="col-span-12 md:col-span-6">
               <Label inverted>
                 {site.razaoSocial} · Porto Alegre RS · Desde {site.fundacao}
               </Label>
             </div>
-            <div className="col-span-12 flex flex-col gap-2.5 md:col-span-4 md:col-start-9 md:items-end">
+            <div className="col-span-12 hidden flex-col gap-2.5 md:col-span-4 md:col-start-9 md:flex md:items-end">
               <Label inverted>Distribuidora técnica</Label>
               <Label inverted>Linha própria SCAI</Label>
             </div>
           </div>
 
-          <div className="grid flex-1 grid-cols-12 items-center gap-x-6 gap-y-12 py-10">
+          <div className="grid flex-1 grid-cols-12 items-center gap-x-6 gap-y-8 py-6 md:gap-y-10 md:py-7 lg:gap-y-12 lg:py-10 [@media(max-height:780px)]:gap-y-6 [@media(max-height:780px)]:py-2">
             <div className="col-span-12 lg:col-span-8">
               <h1 className="font-display expanded text-display font-bold uppercase">
                 Válvulas
                 <br />e conexões
                 <br />
-                <span className="text-brand">industriais</span>
+                industriais
               </h1>
             </div>
 
-            <div className="col-span-12 flex flex-col justify-center gap-9 lg:col-span-4">
-              <p className="text-lead max-w-[42ch] text-paper/75">
+            <div className="col-span-12 flex flex-col justify-center gap-6 md:gap-9 lg:col-span-4">
+              <p className="text-body-lg md:text-lead max-w-[42ch] text-paper">
                 {anosDeCasa} anos abastecendo indústria e saneamento em todo o
                 Brasil. Especificação conferida antes do orçamento, para o
                 material chegar certo na primeira vez.

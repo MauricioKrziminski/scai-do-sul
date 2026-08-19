@@ -83,7 +83,7 @@ export default function Home() {
             <Figure
               ratio="4/3"
               alt="Estoque de válvulas e conexões"
-              src="/img/temp/apoio-valvulas-azuis.jpg"
+              src="/img/temp/faixa-balcao.jpg"
               label="Estoque · prateleira de conexões"
               caption="Pronta entrega"
             />
@@ -170,10 +170,10 @@ export default function Home() {
         <div className="grid grid-cols-12 gap-x-6 gap-y-12">
           <div className="col-span-12 lg:col-span-5">
             <Figure
-              ratio="4/3"
-              alt="Tubulação industrial com válvulas instaladas"
-              src="/img/temp/faixa-tubulacao.jpg"
-              label="Planta industrial · tubulação com válvulas"
+              ratio="16/9"
+              alt="Casa de bombas com válvulas e manômetros instalados"
+              src="/img/bombas-pressao.jpg"
+              label="Casa de bombas · válvulas e instrumentação"
               caption="Aplicação em campo"
             />
           </div>

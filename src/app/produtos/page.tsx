@@ -6,7 +6,6 @@ import { LinhasProduto } from "@/components/sections/linhas-produto";
 import { Processo } from "@/components/sections/processo";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { produtos } from "@/content/produtos";
-import { marcas } from "@/content/marcas";
 import { FaixaHero } from "@/components/sections/faixa-hero";
 
 export const metadata: Metadata = {
@@ -21,6 +20,7 @@ export default function ProdutosPage() {
   return (
     <>
       <FaixaHero
+        temTicker
         src="/img/temp/faixa-prateleira.jpg"
         fotoLabel="Estoque, prateleira de válvulas"
         rotulo={`Catálogo · ${produtos.length} linhas`}
@@ -48,26 +48,6 @@ export default function ProdutosPage() {
 
       <Section
         index="01"
-        label="Marcas"
-        title="Procedência, não só preço"
-        intro={`Trabalhamos ${marcas.length} marcas além da linha própria SCAI. Peça sem origem clara é a que falha primeiro, e em linha de processo a falha custa muito mais que a economia do pedido.`}
-      >
-        <ul className="border-rule grid grid-cols-2 border-t border-l md:grid-cols-4">
-          {marcas.map((marca) => (
-            <li key={marca.nome} className="border-rule border-r border-b p-7">
-              <span className="font-display semi-expanded text-h5 font-bold uppercase">
-                {marca.nome}
-              </span>
-              <span className="text-body-sm text-steel mt-3 block max-w-[24ch]">
-                {marca.linha}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section
-        index="02"
         label="Como comprar"
         title="Não precisa saber o código do produto"
         intro="Traga a lista, o memorial ou a foto da peça. A especificação a gente confere junto."

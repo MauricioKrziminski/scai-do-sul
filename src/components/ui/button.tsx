@@ -40,7 +40,7 @@ export function Button({
     href.startsWith("tel:") ||
     href.startsWith("mailto:");
   const classes = cn(
-    "label-tech group inline-flex items-center gap-3 border px-6 py-4 transition-none",
+    "label-tech group inline-flex items-center gap-3 border px-5 py-3.5 transition-none md:px-6 md:py-4",
     VARIANTS[variant],
     className,
   );

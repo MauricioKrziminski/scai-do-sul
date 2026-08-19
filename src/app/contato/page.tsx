@@ -23,14 +23,15 @@ export default function ContatoPage() {
   return (
     <>
       <FaixaHero
-        src="/img/temp/faixa-balcao.jpg"
+        temTicker
+        src="/img/temp/apoio-atendimento.jpg"
         fotoLabel="Balcão de atendimento"
         rotulo="Contato e orçamento"
         titulo={
           <>
             Fale com quem
             <br />
-            <span className="text-brand">especifica</span>
+            <span>especifica</span>
           </>
         }
         texto="Você não precisa saber o código do produto para pedir orçamento. Descreva a aplicação, mande a lista da obra ou a foto da peça que quebrou. A especificação a gente confere junto."

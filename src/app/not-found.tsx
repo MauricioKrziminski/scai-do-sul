@@ -13,7 +13,6 @@ export default function NaoEncontrada() {
   return (
     <>
       <FaixaHero
-        alto
         src="/img/temp/faixa-estoque.jpg"
         fotoLabel="Estoque, corredor de prateleiras"
         numeral="404"

@@ -7,7 +7,6 @@ import { SpecList } from "@/components/ui/spec-table";
 import { Stat } from "@/components/ui/stat";
 import { Ticker } from "@/components/ui/ticker";
 import { Marcas } from "@/components/sections/marcas";
-import { Processo } from "@/components/sections/processo";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { site, anosDeCasa, enderecoLinha } from "@/content/site";
 import { produtos } from "@/content/produtos";
@@ -53,15 +52,15 @@ export default function EmpresaPage() {
   return (
     <>
       <FaixaHero
-        alto
-        src="/img/temp/faixa-fachada.jpg"
+        temTicker
+        src="/img/scai-sul-local2.jpg"
         fotoLabel="Fachada, Av. Cairú 525"
         rotulo={`A empresa · desde ${site.fundacao}`}
         titulo={
           <>
             Meio século
             <br />
-            na Avenida <span className="text-brand">Cairú</span>
+            na Avenida <span>Cairú</span>
           </>
         }
         texto={`A Scai do Sul abriu as portas em 2 de janeiro de ${site.fundacao} e nunca mudou de endereço. São ${anosDeCasa} anos no mercado de válvulas e conexões, atendendo a indústria gaúcha e enviando material para todo o Brasil.`}
@@ -102,7 +101,8 @@ export default function EmpresaPage() {
             <Figure
               ratio="16/9"
               alt="Fachada da Metalúrgica Scai do Sul"
-              src="/img/temp/faixa-fachada.jpg"
+              src="/img/scai-sul-local.jpg"
+              posicao="50% 34%"
               label="Fachada · Av. Cairú, 525"
               caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
             />
@@ -193,22 +193,10 @@ export default function EmpresaPage() {
         <Marcas />
       </Section>
 
-      <Section
-        index="04"
-        label="Atendimento"
-        title="Do pedido à entrega"
-        intro="O mesmo processo vale para a compra de uma peça de reposição e para a lista inteira de uma obra."
-        bleed
-      >
-        <Container>
-          <Processo />
-        </Container>
-      </Section>
-
       {/* Dados cadastrais à mostra. Padrão de credibilidade industrial: vale
           mais que qualquer selo genérico. */}
       <Section
-        index="05"
+        index="04"
         label="Dados cadastrais"
         title="Tudo à mostra"
         intro="Se você precisa cadastrar a Scai do Sul como fornecedor, os dados estão aqui. Documentação fiscal completa sai junto com o orçamento."

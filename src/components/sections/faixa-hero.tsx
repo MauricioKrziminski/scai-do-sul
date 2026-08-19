@@ -4,6 +4,31 @@ import { MidiaFundo } from "@/components/ui/midia-fundo";
 import { cn } from "@/lib/cn";
 
 /**
+ * Alturas de elementos que ficam FORA da faixa e precisam caber na mesma tela.
+ * Medidas no navegador, não estimadas.
+ *
+ * Só entram aqui as externas. O que a faixa renderiza por dentro (trilha e
+ * tira de dados) não é descontado por número fixo: a altura real deles muda
+ * com a largura da tela, porque o texto quebra em mais linhas. A tira de
+ * dados, por exemplo, mede 83px em 390, 128px em 768 e 104px em 1440. Um
+ * único valor fixo erraria em todas menos uma.
+ *
+ * Quem resolve isso é o flexbox: a seção recebe a altura alvo, a trilha e a
+ * tira ficam com o tamanho natural, e a área de conteúdo absorve o resto.
+ */
+const ALTURA = {
+  cabecalho: 5.0625, // header h-20 mais 1px de fio
+  ticker: 2.5625, // faixa escura de specs que vem logo abaixo
+} as const;
+
+/** Altura alvo da faixa: a tela menos o que vem antes e depois dela. */
+export function alturaDaFaixa(temTicker: boolean) {
+  // svh e não vh de propósito: no celular a barra do navegador entra e sai,
+  // e vh mede a altura sem a barra, o que corta o pé da faixa.
+  return `calc(100svh - ${ALTURA.cabecalho + (temTicker ? ALTURA.ticker : 0)}rem)`;
+}
+
+/**
  * Cabeçalho escuro das páginas internas.
  *
  * Aceita foto de fundo pelo mesmo caminho do hero da home. Enquanto a imagem
@@ -23,7 +48,7 @@ export function FaixaHero({
   acoes,
   trilha,
   rodape,
-  alto = false,
+  temTicker = false,
 }: {
   /** Foto de fundo. Ausente ativa a grade de projeto. */
   src?: string;
@@ -39,11 +64,13 @@ export function FaixaHero({
   trilha?: React.ReactNode;
   /** Tira de dados no rodapé da faixa. */
   rodape?: React.ReactNode;
-  alto?: boolean;
+  /** Marque quando existe um Ticker logo depois da faixa, para ele caber. */
+  temTicker?: boolean;
 }) {
   return (
     <section
-      className="bg-ink text-paper relative isolate overflow-hidden"
+      className="bg-ink text-paper relative isolate flex flex-col overflow-hidden"
+      style={{ minHeight: alturaDaFaixa(temTicker) }}
       data-foto={src ? undefined : fotoLabel}
     >
       <MidiaFundo src={src} priority />
@@ -54,38 +81,40 @@ export function FaixaHero({
         </Container>
       )}
 
-      <Container>
-        <div
-          className={cn(
-            "grid grid-cols-12 gap-x-6 gap-y-10",
-            alto ? "py-section-lg" : "py-section",
-          )}
-        >
-          <div className="col-span-12 md:col-span-3">
-            {numeral ? (
-              <span className="font-display condensed text-numeral text-brand block leading-none font-bold">
-                {numeral}
-              </span>
-            ) : rotulo ? (
-              <Label inverted>{rotulo}</Label>
-            ) : null}
-          </div>
+      {/* flex-1: esta area absorve o que sobrar depois da trilha e da tira,
+          entao a secao fecha exatamente na altura alvo sem depender de eu
+          adivinhar quanto elas medem. */}
+      <Container className="flex flex-1 flex-col justify-center">
+        <div className="py-10 md:py-12 lg:py-16 [@media(max-height:780px)]:py-4 [@media(max-height:900px)]:py-8">
+          <div className="grid grid-cols-12 gap-x-6 gap-y-6 md:gap-y-10">
+            <div className="col-span-12 md:col-span-3">
+              {numeral ? (
+                <span className="font-display condensed text-brand block text-[3.5rem] leading-none font-bold md:text-numeral">
+                  {numeral}
+                </span>
+              ) : rotulo ? (
+                <Label inverted>{rotulo}</Label>
+              ) : null}
+            </div>
 
-          <div className="col-span-12 md:col-span-8 md:col-start-5">
-            {numeral && rotulo && (
-              <Label inverted className="mb-7">
-                {rotulo}
-              </Label>
-            )}
-            <h1 className="font-display expanded text-h1 font-bold uppercase">
-              {titulo}
-            </h1>
-            {texto && (
-              <div className="text-lead mt-8 max-w-[54ch] text-paper/70">
-                {texto}
-              </div>
-            )}
-            {acoes && <div className="mt-11 flex flex-wrap gap-3">{acoes}</div>}
+            <div className="col-span-12 md:col-span-8 md:col-start-5">
+              {numeral && rotulo && (
+                <Label inverted className="mb-7">
+                  {rotulo}
+                </Label>
+              )}
+              <h1 className="font-display expanded text-h1 font-bold uppercase">
+                {titulo}
+              </h1>
+              {texto && (
+                <div className="text-lead mt-8 max-w-[54ch] text-paper">
+                  {texto}
+                </div>
+              )}
+              {acoes && (
+                <div className="mt-11 flex flex-wrap gap-3">{acoes}</div>
+              )}
+            </div>
           </div>
         </div>
       </Container>
@@ -114,15 +143,17 @@ export function TiraDados({
         <div
           key={item.label}
           className={cn(
-            "border-rule-inv py-7",
+            "border-rule-inv py-4 md:py-7",
             i % 2 === 1 && "border-l pl-6",
-            i >= 2 && "border-t md:border-t-0",
+            // no celular so os dois primeiros aparecem: a fila dupla custa
+            // uma tela inteira de altura e dois dados ja cumprem o papel
+            i >= 2 && "hidden md:block",
             i === 2 && "md:border-l md:pl-6",
             i === 3 && "md:pl-6",
           )}
         >
           <dt className="label-tech text-paper/70">{item.label}</dt>
-          <dd className="font-display semi-expanded text-h5 mt-3 font-bold uppercase">
+          <dd className="font-display semi-expanded text-body-lg mt-2.5 font-bold uppercase md:mt-3 md:text-h5">
             {item.value}
           </dd>
         </div>
