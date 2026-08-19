@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Ticker } from "@/components/ui/ticker";
 import { LinhasProduto } from "@/components/sections/linhas-produto";
 import { Processo } from "@/components/sections/processo";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
@@ -20,24 +19,11 @@ export default function ProdutosPage() {
   return (
     <>
       <FaixaHero
-        temTicker
         src="/img/temp/faixa-prateleira.jpg"
         fotoLabel="Estoque, prateleira de válvulas"
         rotulo={`Catálogo · ${produtos.length} linhas`}
         titulo="Linhas de produto"
         texto="Cada linha tem página própria, com diâmetro, classe de pressão, material, aplicação e as marcas que trabalhamos nela. Se o item que você procura não aparecer aqui, pergunte mesmo assim: boa parte do estoque é de reposição e não cabe em nove categorias."
-      />
-
-      <Ticker
-        items={[
-          "DN 15 a 600",
-          "PN 10 a PN 40",
-          "ANSI 150# e 300#",
-          "Ferro nodular",
-          "Bronze",
-          "Inox 304 e 316",
-          "Aço carbono A105",
-        ]}
       />
 
       <section className="py-section">

@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Label } from "@/components/ui/label";
 import { Figure } from "@/components/ui/figure";
-import { Ticker } from "@/components/ui/ticker";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { setores } from "@/content/setores";
 import { produtos } from "@/content/produtos";
@@ -30,7 +29,6 @@ export default function SetoresPage() {
   return (
     <>
       <FaixaHero
-        temTicker
         src="/img/temp/faixa-tubulacao.jpg"
         fotoLabel="Planta industrial, tubulação com válvulas"
         rotulo={`Setores · ${setores.length} mercados`}
@@ -42,19 +40,6 @@ export default function SetoresPage() {
           </>
         }
         texto="Cada planta tem uma exigência diferente. O que resolve numa linha de água bruta não serve numa linha de produto químico, e o que passa na vistoria do Corpo de Bombeiros não é o mesmo que passa numa auditoria sanitária. É isso que a especificação define."
-      />
-
-      <Ticker
-        items={[
-          "Siderurgia",
-          "Metalurgia",
-          "Química",
-          "Petroquímica",
-          "Refinarias",
-          "Usinas",
-          "Alimentícia",
-          "Saneamento",
-        ]}
       />
 
       <section className="py-section">

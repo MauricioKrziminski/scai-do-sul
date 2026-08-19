@@ -346,9 +346,15 @@ ficam com o tamanho natural e a área de conteúdo absorve o resto.
 `svh` e não `vh`: no celular a barra do navegador entra e sai, e `vh` mede a altura sem
 a barra, o que corta o pé da faixa.
 
-Verificado por medição em 7 rotas × 7 tamanhos: **49 de 49 fecham exato**, de 390x844
-a 1920x1080. A exceção conhecida é 360x640, onde o conteúdo genuinamente não cabe e a
-faixa cresce além da tela, que é o comportamento correto de um `min-height`.
+Verificado por medição em 7 rotas × 11 tamanhos: **de 390px de largura para cima, 63
+de 63 fecham exato**, até 1920x1080. Abaixo disso (320x568 e 360x640) o conteúdo
+genuinamente não cabe e a faixa cresce além da tela, que é o comportamento correto de
+um `min-height`. Forçar caber ali exigiria encolher o tipo a ponto de estragar a
+escala.
+
+Nenhuma página tem elemento entre o hero e a próxima seção. Se voltar a ter, precisa
+ser declarado em `temTicker`, senão o hero empurra esse elemento para fora da primeira
+tela sem avisar.
 
 Telas baixas de notebook (1024x700, 1280x720) são resolvidas por media query de
 **altura**, não de largura: ali a largura é de desktop mas a altura é de celular, e
@@ -360,8 +366,7 @@ Arco herdado do iCOMAT: problema, contraste, prova, processo, prova social, vis�
 
 ```
 00  Hero              faixa escura sangrando, foto tratada, headline expandida gigante
-01  Ticker estático   normas e faixas de especificação
-02  Tese              51 anos especificando válvula e conexão
+01  Tese              51 anos especificando válvula e conexão
 03  Linhas de produto grade de borda compartilhada, 9 cards, índice O1 a O9
 04  Marcas            TUPY DECA GENEBRE ISOVER DRAKO MICROMAZZA MONTANA SCAI
 05  Números           parede de numerais condensados
@@ -410,6 +415,7 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Marcas refeitas a partir da foto da placa | Evidência atual vale mais que catálogo de 2018. Caíram GENEBRE, DRAKO e MONTANA; entraram DEXCO, KLINGER, TUPER e LUPATECH MIPEL |
 | 2026-08-19 | Hero da home encolhido para o ticker caber | Pedido do Mauricio. Altura medida no navegador: cabeçalho mais hero mais ticker somavam 905px numa janela de 863 |
 | 2026-08-19 | CTA de orçamento ganhou foto de fundo e canais de contato | Era da mesma cor do rodapé logo abaixo, então os dois viravam um bloco escuro só. E a coluna estreita estava vazia |
+| 2026-08-19 | Faixas de tags removidas de todas as páginas | Pedido do Mauricio. Eram redundantes: a tira de dados no pé do hero já traz diâmetro, classes, padrões e entrega |
 | 2026-08-19 | Heroes ocupam a tela inteira, com altura calculada por flexbox | Pedido do Mauricio. Constante fixa para trilha e tira de dados erraria, porque a altura delas muda com a largura |
 | 2026-08-19 | Verde saiu dos títulos sobre foto | Medido: o verde dá 2.40:1 sobre a foto da home e 3:1 é o mínimo. Manter o verde exigiria um overlay que apaga a imagem |
 | 2026-08-19 | Marcas só em /empresa, Processo só em /produtos | As duas seções apareciam idênticas nas duas páginas. Marcas é assunto institucional, Processo é fluxo de compra. A home mantém as duas resumidas, que é o papel dela |

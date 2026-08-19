@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
-import { Ticker } from "@/components/ui/ticker";
 import { Stat } from "@/components/ui/stat";
 import { Figure } from "@/components/ui/figure";
 import { Button } from "@/components/ui/button";
@@ -20,17 +19,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-
-      <Ticker
-        items={[
-          `Desde ${site.fundacao}`,
-          "DN 15 a 600",
-          "PN 10 a PN 40",
-          "ANSI 150#",
-          "Ferro nodular · Bronze · Inox 316",
-          "Porto Alegre RS",
-        ]}
-      />
 
       {/* 01 · A tese. Quem é a empresa, em uma frase que ninguém mais pode dizer. */}
       <Section
@@ -82,8 +70,8 @@ export default function Home() {
           <div className="col-span-12 md:col-span-4 md:col-start-9 md:self-end">
             <Figure
               ratio="4/3"
-              alt="Estoque de válvulas e conexões"
-              src="/img/temp/faixa-balcao.jpg"
+              alt="Prateleiras do estoque da Scai do Sul, com conexões e flanges organizados"
+              src="/img/scai-depois-01.webp"
               label="Estoque · prateleira de conexões"
               caption="Pronta entrega"
             />

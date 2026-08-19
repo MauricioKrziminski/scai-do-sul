@@ -18,10 +18,17 @@ import { cn } from "@/lib/cn";
  */
 const ALTURA = {
   cabecalho: 5.0625, // header h-20 mais 1px de fio
-  ticker: 2.5625, // faixa escura de specs que vem logo abaixo
+  ticker: 2.5625, // faixa de tags, quando existir logo abaixo
 } as const;
 
-/** Altura alvo da faixa: a tela menos o que vem antes e depois dela. */
+/**
+ * Altura alvo da faixa: a tela menos o que vem antes e depois dela.
+ *
+ * Hoje nenhuma página tem faixa de tags abaixo do hero, então `temTicker` é
+ * sempre falso. O parâmetro fica porque a regra continua valendo: se alguém
+ * colocar qualquer coisa logo abaixo da faixa e não declarar aqui, o hero
+ * empurra esse elemento para fora da primeira tela sem avisar.
+ */
 export function alturaDaFaixa(temTicker: boolean) {
   // svh e não vh de propósito: no celular a barra do navegador entra e sai,
   // e vh mede a altura sem a barra, o que corta o pé da faixa.
@@ -64,7 +71,7 @@ export function FaixaHero({
   trilha?: React.ReactNode;
   /** Tira de dados no rodapé da faixa. */
   rodape?: React.ReactNode;
-  /** Marque quando existe um Ticker logo depois da faixa, para ele caber. */
+  /** Marque se voltar a existir algo logo depois da faixa, para caber junto. */
   temTicker?: boolean;
 }) {
   return (

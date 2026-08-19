@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Figure } from "@/components/ui/figure";
 import { SpecList } from "@/components/ui/spec-table";
 import { Stat } from "@/components/ui/stat";
-import { Ticker } from "@/components/ui/ticker";
 import { Marcas } from "@/components/sections/marcas";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { site, anosDeCasa, enderecoLinha } from "@/content/site";
@@ -52,7 +51,6 @@ export default function EmpresaPage() {
   return (
     <>
       <FaixaHero
-        temTicker
         src="/img/scai-sul-local2.jpg"
         fotoLabel="Fachada, Av. Cairú 525"
         rotulo={`A empresa · desde ${site.fundacao}`}
@@ -64,16 +62,6 @@ export default function EmpresaPage() {
           </>
         }
         texto={`A Scai do Sul abriu as portas em 2 de janeiro de ${site.fundacao} e nunca mudou de endereço. São ${anosDeCasa} anos no mercado de válvulas e conexões, atendendo a indústria gaúcha e enviando material para todo o Brasil.`}
-      />
-
-      <Ticker
-        items={[
-          `Fundada em ${site.fundacao}`,
-          `${anosDeCasa} anos de mercado`,
-          "Porto Alegre RS",
-          `CNPJ ${site.cnpj}`,
-          "Entrega em todo o Brasil",
-        ]}
       />
 
       <Section

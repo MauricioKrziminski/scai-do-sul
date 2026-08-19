@@ -4,7 +4,6 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Label, LabelRule } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Ticker } from "@/components/ui/ticker";
 import { FormOrcamento } from "@/components/sections/form-orcamento";
 import { site, enderecoLinha } from "@/content/site";
 import { orcamentoWhatsapp } from "@/lib/whatsapp";
@@ -23,7 +22,6 @@ export default function ContatoPage() {
   return (
     <>
       <FaixaHero
-        temTicker
         src="/img/temp/apoio-atendimento.jpg"
         fotoLabel="Balcão de atendimento"
         rotulo="Contato e orçamento"
@@ -35,15 +33,6 @@ export default function ContatoPage() {
           </>
         }
         texto="Você não precisa saber o código do produto para pedir orçamento. Descreva a aplicação, mande a lista da obra ou a foto da peça que quebrou. A especificação a gente confere junto."
-      />
-
-      <Ticker
-        items={[
-          site.contato.telefone,
-          site.contato.email,
-          `${endereco.logradouro}, ${endereco.cidade} ${endereco.uf}`,
-          "Resposta em horário comercial",
-        ]}
       />
 
       <Container>

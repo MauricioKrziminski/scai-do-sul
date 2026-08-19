@@ -22,7 +22,7 @@ export function Hero({
   return (
     <section
       className="bg-ink text-paper relative isolate flex flex-col overflow-hidden"
-      style={{ minHeight: alturaDaFaixa(true) }}
+      style={{ minHeight: alturaDaFaixa(false) }}
       data-foto={src ? undefined : "Estoque, corredor de prateleiras"}
     >
       <MidiaFundo src={src} priority />
@@ -35,7 +35,10 @@ export function Hero({
         <div className="flex flex-1 flex-col py-8 md:py-10 lg:py-12 [@media(max-height:780px)]:py-4 [@media(max-height:900px)]:py-8">
           <div className="grid shrink-0 grid-cols-12 gap-x-6 gap-y-8">
             <div className="col-span-12 md:col-span-6">
-              <Label inverted>
+              <Label inverted className="md:hidden">
+                Porto Alegre RS · Desde {site.fundacao}
+              </Label>
+              <Label inverted className="hidden md:block">
                 {site.razaoSocial} · Porto Alegre RS · Desde {site.fundacao}
               </Label>
             </div>
@@ -56,7 +59,7 @@ export function Hero({
             </div>
 
             <div className="col-span-12 flex flex-col justify-center gap-6 md:gap-9 lg:col-span-4">
-              <p className="text-body-lg md:text-lead max-w-[42ch] text-paper">
+              <p className="text-body sm:text-body-lg md:text-lead max-w-[42ch] text-paper">
                 {anosDeCasa} anos abastecendo indústria e saneamento em todo o
                 Brasil. Especificação conferida antes do orçamento, para o
                 material chegar certo na primeira vez.
