@@ -1,9 +1,16 @@
 /**
- * Marcas representadas. Recuperado dos catalogos hospedados no site proprio da
- * empresa em dezembro de 2018 (Wayback Machine).
+ * Marcas representadas.
  *
- * ATENCAO: dado com oito anos. PENDENTE de confirmacao do cliente sobre quais
- * marcas a empresa ainda representa hoje. Ver CLAUDE.md secao 9.
+ * FONTE: a placa da própria empresa na Av. Cairú, fotografada em agosto de
+ * 2026 (`public/img/scai-sul-local.jpg`). É evidência atual e substitui os
+ * catálogos de 2018 que estavam no Wayback.
+ *
+ * A placa derrubou três marcas que eu tinha da fonte antiga e não estão mais
+ * lá: GENEBRE, DRAKO e MONTANA. E trouxe quatro que eu não conhecia: DEXCO,
+ * KLINGER, TUPER e LUPATECH MIPEL.
+ *
+ * A associação entre marca e linha de produto abaixo ainda é inferência a
+ * partir do que cada fabricante produz. PENDENTE de confirmação do Eduardo.
  */
 export type Marca = {
   nome: string;
@@ -18,18 +25,15 @@ export const marcas: Marca[] = [
     linha: "Conexões de ferro fundido maleável",
     confirmada: true,
   },
+  { nome: "LUPATECH MIPEL", linha: "Válvulas industriais", confirmada: true },
   { nome: "DECA", linha: "Registros e metais sanitários", confirmada: true },
-  {
-    nome: "GENEBRE",
-    linha: "Válvulas esfera, borboleta e inox",
-    confirmada: true,
-  },
-  { nome: "DRAKO", linha: "Válvulas industriais", confirmada: true },
+  { nome: "TUPER", linha: "Tubos e perfis de aço", confirmada: true },
+  { nome: "KLINGER", linha: "Juntas e materiais de vedação", confirmada: true },
   {
     nome: "ISOVER",
     linha: "Lã de vidro e isolamento térmico",
     confirmada: true,
   },
   { nome: "MICROMAZZA", linha: "Válvulas e equipamentos", confirmada: true },
-  { nome: "MONTANA", linha: "Materiais industriais", confirmada: false },
+  { nome: "DEXCO", linha: "Materiais para construção", confirmada: true },
 ];

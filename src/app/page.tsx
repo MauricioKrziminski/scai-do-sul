@@ -61,10 +61,17 @@ export default function Home() {
       >
         <div className="grid grid-cols-12 gap-x-6 gap-y-8">
           <div className="col-span-12 md:col-span-7">
+            {/* Foto real da empresa, a primeira que chegou do cliente.
+                Sai sem duotone de proposito: a placa e branca com o verde da
+                marca, praticamente o mesmo tom do --color-ink do site, entao
+                em cor ela conversa com a paleta melhor do que em preto e
+                branco. E o unico lugar do site que escapa do tratamento. */}
             <Figure
               ratio="16/9"
-              alt="Fachada da Metalúrgica Scai do Sul na Avenida Cairú"
-              src="/img/temp/faixa-fachada.jpg"
+              alt="Placa da Metalúrgica Scai do Sul na Avenida Cairú, com as marcas representadas"
+              src="/img/scai-sul-local.jpg"
+              posicao="50% 34%"
+              sizes="(max-width: 768px) 100vw, 58vw"
               label="Fachada · Av. Cairú, 525"
               caption="Porto Alegre RS · desde 1975"
             />

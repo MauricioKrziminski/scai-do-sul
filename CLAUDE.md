@@ -87,22 +87,46 @@ O posicionamento correto é **distribuidora técnica com linha própria**. A ven
 curadoria, estoque, procedência de marca e atendimento técnico. Existe catálogo de
 marca própria SCAI, o que é mais forte do que revenda pura.
 
-**3. As marcas representadas são o ativo mais desperdiçado.** O site de 2018
-hospedava sete catálogos de marca:
+**3. As marcas representadas são o ativo mais desperdiçado.** E a lista real veio da
+**placa da própria empresa**, fotografada em agosto de 2026
+(`public/img/scai-sul-local.jpg`). Essa foto é evidência atual e substituiu os
+catálogos de 2018 do Wayback:
 
 | Marca | Linha |
 |---|---|
+| SCAI | Linha própria da casa |
 | TUPY | Conexões de ferro fundido maleável, o padrão brasileiro |
-| DECA | Registros, válvulas e metais sanitários |
-| GENEBRE | Fabricante espanhol, válvulas esfera e borboleta, inox |
-| DRAKO | Válvulas industriais |
+| LUPATECH MIPEL | Válvulas industriais |
+| DECA | Registros e metais sanitários |
+| TUPER | Tubos e perfis de aço |
+| KLINGER | Juntas e materiais de vedação |
 | ISOVER | Saint-Gobain, lã de vidro e isolamento térmico |
 | MICROMAZZA | Válvulas e equipamentos |
-| MONTANA | Linha não confirmada |
-| SCAI | Linha própria da casa |
+| DEXCO | Materiais para construção |
 
-Dado de dezembro de 2018, portanto com oito anos. **Confirmar com o cliente antes de
-publicar.**
+A placa **derrubou três marcas** que vinham da fonte de 2018 e não estão mais lá:
+GENEBRE, DRAKO e MONTANA. E trouxe quatro que não apareciam em lugar nenhum: DEXCO,
+KLINGER, TUPER e LUPATECH MIPEL.
+
+A lista de marcas está confirmada. Qual marca atende qual linha ainda é inferência a
+partir do que cada fabricante produz, e precisa de confirmação.
+
+### O que mais a placa confirmou
+
+- **Desde 1975**, escrito na própria placa. Fecha a questão.
+- Telefone 3342-8233 e e-mail scaisul@scaisul.com.br. O `@terra.com.br` que aparecia
+  em diretórios é legado.
+- Descritor oficial da empresa: **"Válvulas e Acessórios Industriais"**.
+- O pictograma da placa é a mesma válvula gaveta do logotipo, o que valida o
+  redesenho em `marca-scai.tsx`.
+
+### E abriu uma questão nova
+
+**ISOVER está na placa.** Ou seja, a empresa continua trabalhando com lã de vidro e
+isolamento térmico, que era uma das quatro categorias principais em 2018 e sumiu do
+site do Lovable. Hoje o site tem nove linhas e **nenhuma cobre isolamento**. Vale
+perguntar ao Eduardo se entra como décima linha. O mesmo vale para KLINGER: juntas e
+vedação também não têm linha própria hoje.
 
 ### Copy verbatim recuperada (Wayback, 30/12/2018)
 
@@ -350,6 +374,8 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Escuro passou de quase preto para verde fundo `#122a1e` | O Mauricio achou o quase preto severo demais. Testadas quatro variações na tela real. O `#1b4b33` do Lovable foi descartado por quebrar o acento |
 | 2026-08-19 | Todo cabeçalho escuro aceita foto | Antes as páginas internas tinham grade permanente, com a mesma aparência do placeholder. Duas linguagens iguais com sentidos diferentes confundem. Agora a grade só significa foto pendente |
 | 2026-08-19 | Card de linha de produto ganhou foto | Num catálogo o comprador varre por imagem antes de ler. Card só tipográfico obriga a ler para achar a linha |
+| 2026-08-19 | Marcas refeitas a partir da foto da placa | Evidência atual vale mais que catálogo de 2018. Caíram GENEBRE, DRAKO e MONTANA; entraram DEXCO, KLINGER, TUPER e LUPATECH MIPEL |
+| 2026-08-19 | A foto da placa é a única sem duotone | Testei as duas. Em cor, ao lado de uma foto em preto e branco, destoava como retrato de celular. Em duotone ela lê como documento e entra na mesma família visual |
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |
 | 2026-08-19 | Placeholder de marca em CSS, sem foto de banco | Numa reunião lê como ficha técnica, e o cliente vê exatamente qual foto ele ainda deve |
@@ -364,13 +390,14 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | Fotos de produto, fachada e equipe | Aguardando. `img/fachada.jpg` existe no Wayback de 2018 e serve de emergência |
 | Catálogo `SCAI.pdf` | Está no Wayback, é escaneado, precisa de OCR para virar lista real de SKU |
 | Portfólio de marcas atual | Dado de 2018, confirmar quais ainda representam |
-| Ainda trabalham com lã de vidro? | Categoria própria em 2018, some no site do Lovable |
+| **Lã de vidro é uma décima linha?** | ISOVER está na placa atual, então a empresa trabalha com isolamento. Não há linha para isso no site |
+| **Juntas e vedação são uma linha?** | KLINGER está na placa atual e não tem linha própria hoje |
+| Qual marca atende qual linha | A lista de marcas está confirmada pela placa, a associação por linha é inferência minha |
 | Horário de funcionamento | Não confirmado em nenhuma fonte pública |
 | Inscrição estadual | Para o rodapé |
 | Número de WhatsApp comercial | Usando o fixo por ora |
 | ISO 9001 | Não confirmada. **Não afirmar sem checar** |
 | Acesso ao domínio | Resolve mas não serve nada. Confirmar titularidade no registro.br |
-| E-mail ativo | Existe `scaisul@terra.com.br` em diretórios, além do `@scaisul.com.br` |
 | Fornecedor público | CNPJ aparece no Portal da Transparência. Verificar antes de usar como credencial |
 
 Ver também `docs/lista-de-fotos.md`, a lista numerada de fotos para entregar ao cliente.

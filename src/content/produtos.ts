@@ -11,8 +11,9 @@
  *      para virar a lista real de modelos e faixas.
  *   2. Toda faixa de DN, classe de pressão, material e número de norma ABNT
  *      precisa ser conferida com o Eduardo antes de publicar.
- *   3. A associação entre linha e marca representada também precisa de
- *      confirmação, porque o dado das marcas é de 2018.
+ *   3. As marcas foram atualizadas a partir da placa da empresa fotografada
+ *      em agosto de 2026. A lista de marcas está confirmada; qual marca
+ *      atende qual linha ainda é inferência e precisa de confirmação.
  *
  * Ver CLAUDE.md seção 9.
  */
@@ -86,7 +87,7 @@ export const produtos: Produto[] = [
       "Haste em inox",
     ],
     normas: ["ABNT NBR 15167", "ABNT NBR 14788", "ABNT NBR 14176"],
-    marcas: ["SCAI", "DRAKO", "GENEBRE"],
+    marcas: ["SCAI", "LUPATECH MIPEL", "MICROMAZZA"],
     fotoLabel: "Válvula gaveta em ferro nodular, com volante",
     foto: "/img/temp/produto-saneamento.jpg",
   },
@@ -131,7 +132,7 @@ export const produtos: Produto[] = [
       "Haste em latão",
     ],
     normas: ["ABNT NBR 12430", "ABNT NBR 14477"],
-    marcas: ["DECA", "SCAI", "GENEBRE"],
+    marcas: ["DECA", "SCAI", "MICROMAZZA"],
     fotoLabel: "Registro de esfera em bronze, com alavanca",
     foto: "/img/temp/produto-bronze.jpg",
   },
@@ -176,7 +177,7 @@ export const produtos: Produto[] = [
       "Eixo em inox",
     ],
     normas: ["ABNT NBR 14788", "API 609"],
-    marcas: ["GENEBRE", "DRAKO", "SCAI"],
+    marcas: ["LUPATECH MIPEL", "MICROMAZZA", "SCAI"],
     fotoLabel: "Válvula borboleta wafer com alavanca",
     foto: "/img/temp/produto-borboleta.jpg",
   },
@@ -221,7 +222,7 @@ export const produtos: Produto[] = [
       "Sede e vedação em PTFE",
     ],
     normas: ["ABNT NBR 14968", "API 6D"],
-    marcas: ["GENEBRE", "SCAI", "MICROMAZZA"],
+    marcas: ["LUPATECH MIPEL", "SCAI", "MICROMAZZA"],
     fotoLabel: "Válvula esfera tripartida em inox, DN 150",
     foto: "/img/temp/produto-esfera.jpg",
   },
@@ -341,7 +342,7 @@ export const produtos: Produto[] = [
       "Junta em papelão hidráulico e PTFE",
     ],
     normas: ["ABNT NBR 15827", "ASME B16.5"],
-    marcas: ["SCAI", "MONTANA"],
+    marcas: ["TUPER", "KLINGER", "SCAI"],
     fotoLabel: "Flange com pescoço em aço carbono, vista de frente",
     foto: "/img/temp/produto-flanges.jpg",
   },
@@ -390,7 +391,7 @@ export const produtos: Produto[] = [
       "Aço liga",
     ],
     normas: ["ASME B16.11", "ASTM A105", "ASTM A182"],
-    marcas: ["SCAI", "MONTANA"],
+    marcas: ["TUPER", "SCAI"],
     fotoLabel: "Conexão forjada em inox, rosca NPT visível",
     foto: "/img/temp/produto-alta-pressao.jpg",
   },

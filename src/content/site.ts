@@ -18,6 +18,9 @@ export const site = {
   // CONFIRMADO: site proprio de 2018, recuperado do Wayback Machine
   tagline: "Qualidade e eficiência em soluções industriais desde 1975",
 
+  // CONFIRMADO: descritor da propria placa da empresa, foto de agosto de 2026
+  descritor: "Válvulas e Acessórios Industriais",
+
   url: "https://www.scaisul.com.br",
 
   contato: {
@@ -31,7 +34,8 @@ export const site = {
     },
     telefone: "(51) 3342-8233",
     telefoneRaw: "+555133428233",
-    // PENDENTE: existe tambem scaisul@terra.com.br em diretorios. Confirmar o ativo.
+    // CONFIRMADO pela placa da empresa. O scaisul@terra.com.br que aparece em
+    // diretorios e legado.
     email: "scaisul@scaisul.com.br",
     // PENDENTE: numero de WhatsApp comercial nao confirmado. Usando o fixo por ora.
     whatsapp: "555133428233",

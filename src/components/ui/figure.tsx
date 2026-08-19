@@ -43,6 +43,7 @@ export function Figure({
   ratio = "4/3",
   priority = false,
   duotone = true,
+  posicao,
   sizes = "(max-width: 768px) 100vw, 50vw",
   className,
 }: {
@@ -56,6 +57,11 @@ export function Figure({
   ratio?: Ratio;
   priority?: boolean;
   duotone?: boolean;
+  /**
+   * Ponto de ancoragem do recorte, para quando o assunto nao esta no centro
+   * do quadro. Aceita qualquer valor de object-position.
+   */
+  posicao?: string;
   sizes?: string;
   className?: string;
 }) {
@@ -74,6 +80,7 @@ export function Figure({
             fill
             sizes={sizes}
             priority={priority}
+            style={posicao ? { objectPosition: posicao } : undefined}
             className={cn("object-cover", duotone && "duotone")}
           />
         ) : (
