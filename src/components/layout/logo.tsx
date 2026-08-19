@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { MarcaScai } from "./marca-scai";
 import { cn } from "@/lib/cn";
 
 /**
- * Logotipo tipográfico provisório, isolado aqui de propósito.
- * Quando o arquivo real da marca chegar, troca só este componente e o site
- * inteiro acompanha. Ver a tabela de pendências no CLAUDE.md.
+ * Assinatura da marca: pictograma da válvula mais o logotipo.
+ *
+ * O logotipo está tipografado, não é imagem, porque o arquivo que temos é um
+ * PNG de 225 pixels com o verde chapado no fundo. O desenho segue a mesma
+ * hierarquia do original: "Metalúrgica" pequeno em cima, o nome grande
+ * embaixo. Ver CLAUDE.md seção 9.
  */
 export function Logo({
   inverted = false,
@@ -17,29 +21,23 @@ export function Logo({
     <Link
       href="/"
       aria-label="Metalúrgica Scai do Sul, página inicial"
-      className={cn("group inline-flex flex-col gap-1.5", className)}
+      className={cn("inline-flex items-center gap-3.5", className)}
     >
-      <span
-        className={cn(
-          "label-tech",
-          inverted ? "text-paper/50" : "text-steel",
-        )}
-      >
-        Metalúrgica
-      </span>
-      <span className="flex items-baseline gap-2">
+      <MarcaScai
+        className={cn("h-11 w-auto shrink-0", inverted ? "text-paper" : "text-brand-deep")}
+      />
+      <span className="flex flex-col gap-1.5">
+        <span className={cn("label-tech", inverted ? "text-paper/55" : "text-steel")}>
+          Metalúrgica
+        </span>
         <span
           className={cn(
-            "font-display expanded text-[1.4rem] leading-none font-bold tracking-[-0.03em] uppercase",
+            "font-display expanded text-[1.35rem] leading-none font-bold tracking-[-0.03em] uppercase",
             inverted ? "text-paper" : "text-ink",
           )}
         >
           Scai do Sul
         </span>
-        <span
-          aria-hidden
-          className={cn("h-1.5 w-1.5", inverted ? "bg-molten-2" : "bg-molten")}
-        />
       </span>
     </Link>
   );

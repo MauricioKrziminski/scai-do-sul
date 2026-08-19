@@ -178,7 +178,7 @@ export default function Home() {
                     <span className="font-display semi-expanded text-h5 font-bold uppercase">
                       {setor.nome}
                     </span>
-                    <span className="label-tech text-steel group-hover:text-molten-2 shrink-0">
+                    <span className="label-tech text-steel group-hover:text-brand shrink-0">
                       {setor.linhas.length} linhas
                     </span>
                   </Link>

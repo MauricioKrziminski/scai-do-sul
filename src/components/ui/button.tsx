@@ -8,9 +8,9 @@ import { cn } from "@/lib/cn";
  * evita o pulo de caixa no hover.
  */
 const VARIANTS = {
-  solid: "bg-ink text-paper border-ink hover:bg-molten hover:border-molten",
+  solid: "bg-ink text-paper border-ink hover:bg-brand-deep hover:border-brand-deep",
   outline: "border-ink/25 text-ink hover:bg-ink hover:text-paper hover:border-ink",
-  inverted: "bg-paper text-ink border-paper hover:bg-molten hover:text-paper hover:border-molten",
+  inverted: "bg-paper text-ink border-paper hover:bg-brand-deep hover:text-paper hover:border-brand-deep",
   ghostInverted: "border-paper/25 text-paper hover:bg-paper hover:text-ink hover:border-paper",
 } as const;
 

@@ -44,8 +44,8 @@ export async function ogImagem({
           justifyContent: "space-between",
           width: "100%",
           height: "100%",
-          backgroundColor: "#100d0a",
-          color: "#efede8",
+          backgroundColor: "#0d120c",
+          color: "#edeee8",
           fontFamily: "Archivo",
           padding: "64px 72px",
         }}
@@ -58,13 +58,13 @@ export async function ogImagem({
             left: 0,
             width: "100%",
             height: 12,
-            backgroundColor: "#c8321e",
+            backgroundColor: "#42a940",
           }}
         />
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <span style={{ fontSize: 20, letterSpacing: 4, color: "#a8a29b", textTransform: "uppercase" }}>
+            <span style={{ fontSize: 20, letterSpacing: 4, color: "#9aa098", textTransform: "uppercase" }}>
               Metalúrgica
             </span>
             <span style={{ fontSize: 40, letterSpacing: -1, textTransform: "uppercase" }}>
@@ -72,12 +72,12 @@ export async function ogImagem({
             </span>
           </div>
           {indice && (
-            <span style={{ fontSize: 92, color: "#c8321e", lineHeight: 1 }}>{indice}</span>
+            <span style={{ fontSize: 92, color: "#42a940", lineHeight: 1 }}>{indice}</span>
           )}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
-          <span style={{ fontSize: 22, letterSpacing: 5, color: "#a8a29b", textTransform: "uppercase" }}>
+          <span style={{ fontSize: 22, letterSpacing: 5, color: "#9aa098", textTransform: "uppercase" }}>
             {rotulo}
           </span>
           <span
@@ -97,7 +97,7 @@ export async function ogImagem({
           style={{
             display: "flex",
             gap: 40,
-            borderTop: "1px solid rgba(239,237,232,0.2)",
+            borderTop: "1px solid rgba(237,238,232,0.2)",
             paddingTop: 26,
             // Satori sobrepoe item de flex quando a linha estoura, em vez de
             // quebrar. Travar o alinhamento evita o texto embolado.
@@ -105,7 +105,7 @@ export async function ogImagem({
           }}
         >
           {(specs ?? [`Desde ${site.fundacao}`, "DN 15 a 600", "Porto Alegre RS"]).map((spec) => (
-            <span key={spec} style={{ fontSize: 22, letterSpacing: 3, color: "#cfcac1", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+            <span key={spec} style={{ fontSize: 22, letterSpacing: 3, color: "#c2c7bf", textTransform: "uppercase", whiteSpace: "nowrap" }}>
               {spec}
             </span>
           ))}

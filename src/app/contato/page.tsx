@@ -32,7 +32,7 @@ export default function ContatoPage() {
               <h1 className="font-display expanded text-h1 font-bold uppercase">
                 Fale com quem
                 <br />
-                <span className="text-molten-2">especifica</span>
+                <span className="text-brand">especifica</span>
               </h1>
               <p className="text-lead mt-9 max-w-[52ch] text-paper/70">
                 Você não precisa saber o código do produto para pedir orçamento.
@@ -118,7 +118,7 @@ export default function ContatoPage() {
                   <dd className="text-body-sm mt-2.5">
                     <a
                       href={`tel:${site.contato.telefoneRaw}`}
-                      className="hover:text-molten"
+                      className="hover:text-brand-deep"
                     >
                       {site.contato.telefone}
                     </a>
@@ -137,7 +137,7 @@ export default function ContatoPage() {
                   <dd className="text-body-sm mt-2.5 break-all">
                     <a
                       href={`mailto:${site.contato.email}`}
-                      className="hover:text-molten"
+                      className="hover:text-brand-deep"
                     >
                       {site.contato.email}
                     </a>

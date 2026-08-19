@@ -28,11 +28,11 @@ function Campo({
     <div className="flex flex-col gap-2.5">
       <label htmlFor={id} className="label-tech text-steel">
         {rotulo}
-        {obrigatorio && <span className="text-molten ml-1">*</span>}
+        {obrigatorio && <span className="text-brand-deep ml-1">*</span>}
       </label>
       {children}
       {erro && (
-        <p id={`${id}-erro`} className="text-body-sm text-molten">
+        <p id={`${id}-erro`} className="text-body-sm text-brand-deep">
           {erro}
         </p>
       )}
@@ -54,7 +54,7 @@ export function FormOrcamento() {
   if (estado.status === "ok") {
     return (
       <div className="border-ink border p-10 md:p-14">
-        <Check aria-hidden className="text-molten size-8" strokeWidth={2} />
+        <Check aria-hidden className="text-brand-deep size-8" strokeWidth={2} />
         <h3 className="font-display expanded text-h3 mt-8 font-bold uppercase">
           Pedido recebido
         </h3>
@@ -68,9 +68,9 @@ export function FormOrcamento() {
       {estado.status === "erro" && estado.mensagem && (
         <div
           role="alert"
-          className="border-molten text-body-sm flex gap-3 border p-5"
+          className="border-brand-deep text-body-sm flex gap-3 border p-5"
         >
-          <AlertTriangle aria-hidden className="text-molten mt-0.5 size-4 shrink-0" />
+          <AlertTriangle aria-hidden className="text-brand-deep mt-0.5 size-4 shrink-0" />
           <span>{estado.mensagem}</span>
         </div>
       )}
@@ -85,7 +85,7 @@ export function FormOrcamento() {
             defaultValue={valor("nome")}
             aria-invalid={Boolean(invalido("nome"))}
             aria-describedby={invalido("nome") ? "nome-erro" : undefined}
-            className={cn(campoBase, invalido("nome") && "border-molten")}
+            className={cn(campoBase, invalido("nome") && "border-brand-deep")}
           />
         </Campo>
 
@@ -110,7 +110,7 @@ export function FormOrcamento() {
             defaultValue={valor("email")}
             aria-invalid={Boolean(invalido("email"))}
             aria-describedby={invalido("email") ? "email-erro" : undefined}
-            className={cn(campoBase, invalido("email") && "border-molten")}
+            className={cn(campoBase, invalido("email") && "border-brand-deep")}
           />
         </Campo>
 
@@ -125,7 +125,7 @@ export function FormOrcamento() {
             defaultValue={valor("telefone")}
             aria-invalid={Boolean(invalido("telefone"))}
             aria-describedby={invalido("telefone") ? "telefone-erro" : undefined}
-            className={cn(campoBase, invalido("telefone") && "border-molten")}
+            className={cn(campoBase, invalido("telefone") && "border-brand-deep")}
           />
         </Campo>
       </div>
@@ -161,7 +161,7 @@ export function FormOrcamento() {
           placeholder="Diâmetro, classe de pressão, fluido da linha e quantidade. Se não tiver esses dados, descreva a aplicação."
           aria-invalid={Boolean(invalido("mensagem"))}
           aria-describedby={invalido("mensagem") ? "mensagem-erro" : undefined}
-          className={cn(campoBase, "resize-y", invalido("mensagem") && "border-molten")}
+          className={cn(campoBase, "resize-y", invalido("mensagem") && "border-brand-deep")}
         />
       </Campo>
 
@@ -175,7 +175,7 @@ export function FormOrcamento() {
         <button
           type="submit"
           disabled={pendente}
-          className="label-tech bg-ink text-paper border-ink hover:bg-molten hover:border-molten self-start border px-8 py-4 transition-none disabled:opacity-50"
+          className="label-tech bg-ink text-paper border-ink hover:bg-brand-deep hover:border-brand-deep self-start border px-8 py-4 transition-none disabled:opacity-50"
         >
           {pendente ? "Enviando..." : "Enviar pedido de orçamento"}
         </button>
@@ -185,7 +185,7 @@ export function FormOrcamento() {
         <p className="text-body-sm text-steel max-w-[54ch]">
           Ao enviar, você concorda com o uso dos seus dados apenas para responder a
           este contato, conforme a nossa{" "}
-          <a href="/privacidade" className="text-ink hover:text-molten underline underline-offset-4">
+          <a href="/privacidade" className="text-ink hover:text-brand-deep underline underline-offset-4">
             política de privacidade
           </a>
           .

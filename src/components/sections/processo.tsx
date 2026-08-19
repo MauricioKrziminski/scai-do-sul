@@ -48,7 +48,7 @@ export function Processo({ inverted = false }: { inverted?: boolean }) {
           <span
             className={cn(
               "font-display condensed text-[3.5rem] leading-none font-bold",
-              inverted ? "text-molten-2" : "text-molten",
+              inverted ? "text-brand" : "text-brand-deep",
             )}
           >
             {etapa.indice}

@@ -24,7 +24,7 @@ export function Stat({
           <span
             className={cn(
               "ml-[0.12em] align-baseline text-[0.34em] tracking-tight uppercase",
-              inverted ? "text-molten-2" : "text-molten",
+              inverted ? "text-brand" : "text-brand-deep",
             )}
           >
             {suffix}

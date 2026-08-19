@@ -53,7 +53,7 @@ export function Section({
                     <span
                       className={cn(
                         "label-tech",
-                        inverted ? "text-molten-2" : "text-molten",
+                        inverted ? "text-brand" : "text-brand-deep",
                       )}
                     >
                       {index}

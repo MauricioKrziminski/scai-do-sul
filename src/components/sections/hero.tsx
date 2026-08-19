@@ -55,7 +55,7 @@ export function Hero({ src }: { src?: string }) {
                 Válvulas
                 <br />e conexões
                 <br />
-                <span className="text-molten-2">industriais</span>
+                <span className="text-brand">industriais</span>
               </h1>
             </div>
 

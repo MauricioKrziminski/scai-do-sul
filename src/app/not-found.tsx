@@ -17,7 +17,7 @@ export default function NaoEncontrada() {
         <Container>
           <div className="py-section-lg grid grid-cols-12 gap-x-6 gap-y-10">
             <div className="col-span-12 md:col-span-3">
-              <span className="font-display condensed text-numeral text-molten-2 block leading-none font-bold">
+              <span className="font-display condensed text-numeral text-brand block leading-none font-bold">
                 404
               </span>
             </div>

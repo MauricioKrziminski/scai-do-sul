@@ -13,7 +13,7 @@ export function Ticker({ items, className }: { items: string[]; className?: stri
           <span key={item} className="flex shrink-0 items-center gap-8 md:gap-10">
             <span className="label-tech text-paper/80">{item}</span>
             {i < items.length - 1 && (
-              <span aria-hidden className="text-molten-2 text-[8px] leading-none">
+              <span aria-hidden className="text-brand text-[8px] leading-none">
                 &#9670;
               </span>
             )}

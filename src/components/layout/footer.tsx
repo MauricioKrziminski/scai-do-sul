@@ -35,7 +35,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="label-tech text-paper/75 hover:text-molten-2 transition-none"
+                    className="label-tech text-paper/75 hover:text-brand transition-none"
                   >
                     {item.rotulo}
                   </Link>
@@ -63,7 +63,7 @@ export function Footer() {
                   href={site.maps}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body-sm hover:text-molten-2 flex gap-3 text-paper/75 transition-none"
+                  className="text-body-sm hover:text-brand flex gap-3 text-paper/75 transition-none"
                 >
                   <MapPin aria-hidden className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
                   <span>
@@ -76,7 +76,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${site.contato.telefoneRaw}`}
-                  className="text-body-sm hover:text-molten-2 flex items-center gap-3 text-paper/75 transition-none"
+                  className="text-body-sm hover:text-brand flex items-center gap-3 text-paper/75 transition-none"
                 >
                   <Phone aria-hidden className="size-4 shrink-0" strokeWidth={1.5} />
                   {site.contato.telefone}
@@ -85,7 +85,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.contato.email}`}
-                  className="text-body-sm hover:text-molten-2 flex items-center gap-3 break-all text-paper/75 transition-none"
+                  className="text-body-sm hover:text-brand flex items-center gap-3 break-all text-paper/75 transition-none"
                 >
                   <Mail aria-hidden className="size-4 shrink-0" strokeWidth={1.5} />
                   {site.contato.email}

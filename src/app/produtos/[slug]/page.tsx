@@ -56,7 +56,7 @@ export default async function ProdutoPage({
           >
             <Link
               href="/produtos"
-              className="label-tech hover:text-molten-2 text-paper/55 transition-none"
+              className="label-tech hover:text-brand text-paper/55 transition-none"
             >
               Produtos
             </Link>
@@ -69,7 +69,7 @@ export default async function ProdutoPage({
 
           <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
             <div className="col-span-12 md:col-span-3">
-              <span className="font-display condensed text-numeral text-molten-2 block leading-none font-bold">
+              <span className="font-display condensed text-numeral text-brand block leading-none font-bold">
                 {produto.indice}
               </span>
             </div>
@@ -141,7 +141,7 @@ export default async function ProdutoPage({
                     >
                       <Check
                         aria-hidden
-                        className="text-molten mt-1 size-3.5 shrink-0"
+                        className="text-brand-deep mt-1 size-3.5 shrink-0"
                         strokeWidth={2.5}
                       />
                       {material}

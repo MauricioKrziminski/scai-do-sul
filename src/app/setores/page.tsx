@@ -39,7 +39,7 @@ export default function SetoresPage() {
               <h1 className="font-display expanded text-h1 font-bold uppercase">
                 Onde nosso
                 <br />
-                material <span className="text-molten-2">trabalha</span>
+                material <span className="text-brand">trabalha</span>
               </h1>
               <p className="text-lead mt-9 max-w-[54ch] text-paper/70">
                 Cada planta tem uma exigência diferente. O que resolve numa
@@ -73,7 +73,7 @@ export default function SetoresPage() {
               <li key={setor.slug} className="bg-paper">
                 <div className="grid grid-cols-12 gap-x-6 gap-y-6 py-12">
                   <div className="col-span-12 flex items-baseline gap-4 md:col-span-3">
-                    <span className="label-tech text-molten">
+                    <span className="label-tech text-brand-deep">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h2 className="font-display semi-expanded text-h4 font-bold uppercase">
@@ -92,7 +92,7 @@ export default function SetoresPage() {
                         <li key={linha}>
                           <Link
                             href={linkDaLinha(linha)}
-                            className="text-body-sm hover:text-molten text-ink transition-none"
+                            className="text-body-sm hover:text-brand-deep text-ink transition-none"
                           >
                             {linha}
                           </Link>

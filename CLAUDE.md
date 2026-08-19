@@ -185,19 +185,29 @@ Utilitários: `expanded`, `semi-expanded`, `condensed`, `label-tech`.
 
 ### Cor
 
+**Derivada do logotipo da empresa**, em `public/logo/logo-scai.png`. O verde foi
+extraído do arquivo: **#42a940**, que ocupa 73,6% dos pixels. A marca é verde e branco.
+
 ```
---color-paper    #efede8   off-white quente, tela dominante
---color-ink      #100d0a   grafite quente, NUNCA #000
---color-steel    #78716c   texto secundário
---color-molten   #c8321e   acento, uso raro e deliberado
---color-rule     rgb(16 13 10 / 0.14)
+--color-paper       #edeee8   papel, levemente puxado para o verde
+--color-ink         #0d120c   quase preto TINTADO DE VERDE, nunca #000
+--color-steel       #626760   texto secundário, mesma matiz
+--color-brand       #42a940   verde exato do logotipo, SÓ sobre escuro
+--color-brand-deep  #2a6f2a   versão funda, para texto e ícone sobre o papel
+--color-rule        rgb(13 18 12 / 0.14)
 ```
 
-**Duas cores mais um acento, nunca três.** O laranja aparece em estado ativo, seta de
-chamada e índice de seção em destaque. Nada além disso.
+**Duas cores mais um acento, nunca três.** O verde aparece em estado ativo, seta de
+chamada, índice de seção e numeral. Nada além disso.
 
-> **Quando o logotipo chegar, a paleta da marca tem prioridade sobre `--molten`.**
-> A troca é de uma variável só, em `src/app/globals.css`.
+> **Os escuros são tintados de verde de propósito.** É o mesmo truque que o iCOMAT usa
+> puxando os pretos para o azul: `#0d120c` é o preto deslocado para a matiz da marca.
+> É o que faz o site pertencer ao logotipo sem virar um site verde.
+
+> **REGRA CRÍTICA: nunca usar `--color-brand` como texto sobre o papel.** O verde puro
+> dá 2.57:1 ali, e reprova. Sobre o escuro ele dá 6.30:1 e é o certo. Para texto sobre
+> o claro, usar `--color-brand-deep`, que dá 5.28:1. Na prática:
+> `text-brand` só dentro de bloco escuro, `text-brand-deep` só sobre o papel.
 
 ### Regras invioláveis
 
@@ -213,9 +223,9 @@ chamada e índice de seção em destaque. Nada além disso.
   ler como impresso.
 - Toda imagem técnica leva legenda em mono. É o que separa engenharia de folheto.
 - **Contraste conferido em AA.** Os valores foram calculados, não estimados:
-  `--color-steel` sobre papel dá 4.97:1, `--color-molten` 4.57:1, e nas faixas
-  escuras o mínimo usado é `text-paper/55`, que dá 5.49:1. O antigo `#78716c`
-  dava 4.10 e reprovava. Se mudar cor, recalcular antes de commitar.
+  `--color-steel` sobre papel dá 4.96:1, `--color-brand-deep` 5.28:1, `--color-brand`
+  sobre o escuro 6.30:1, e nas faixas escuras o mínimo usado é `text-paper/55`, que dá
+  5.48:1. Se mudar cor, recalcular antes de commitar.
 
 ### Imagens
 
@@ -307,6 +317,9 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Archivo expandida mais Instrument Sans mais Geist Mono | Grotesca expandida é o sinal mais confiável de "isso custou dinheiro" em design estático, e ninguém usa em site industrial brasileiro |
 | 2026-08-19 | Base clara com faixas escuras pontuais | Sustenta melhor tabela técnica densa e leitura longa, e envelhece melhor que fundo escuro |
 | 2026-08-19 | Um acento laranja fundido, uso raro | Regra dos sites premiados: duas cores mais um acento, nunca três |
+| 2026-08-19 | Paleta refeita sobre o verde #42a940 do logotipo | O logo chegou. O laranja provisório saiu e a marca entrou. Escuros tintados de verde para o site pertencer ao logotipo |
+| 2026-08-19 | Duas versões do verde, `brand` e `brand-deep` | O verde do logo reprova em contraste sobre fundo claro (2.57:1). A versão funda resolve sem perder a matiz da marca |
+| 2026-08-19 | Pictograma redesenhado em SVG | O arquivo do logo é PNG de 225px com fundo chapado. Não escala e não recolore. O vetor usa `currentColor` e serve de favicon |
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |
 | 2026-08-19 | Placeholder de marca em CSS, sem foto de banco | Numa reunião lê como ficha técnica, e o cliente vê exatamente qual foto ele ainda deve |
@@ -317,7 +330,7 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 
 | Item | Situação |
 |---|---|
-| Logotipo em alta | Mauricio tem o arquivo, precisa repassar. Define a paleta final |
+| **Vetor do logotipo** | Recebido só o PNG de 225px, sem transparência e com o verde chapado no fundo. Não escala e não dá para recolorir. Pedir ao Eduardo o original em AI, EPS, PDF vetorial ou SVG. Enquanto isso, o pictograma está redesenhado em `src/components/layout/marca-scai.tsx` |
 | Fotos de produto, fachada e equipe | Aguardando. `img/fachada.jpg` existe no Wayback de 2018 e serve de emergência |
 | Catálogo `SCAI.pdf` | Está no Wayback, é escaneado, precisa de OCR para virar lista real de SKU |
 | Portfólio de marcas atual | Dado de 2018, confirmar quais ainda representam |

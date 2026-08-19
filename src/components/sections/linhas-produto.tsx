@@ -18,10 +18,10 @@ export function LinhasProduto() {
         >
           <div>
             <div className="flex items-start justify-between gap-4">
-              <span className="label-tech text-molten">{produto.indice}</span>
+              <span className="label-tech text-brand-deep">{produto.indice}</span>
               <ArrowUpRight
                 aria-hidden
-                className="text-steel group-hover:text-molten-2 size-4 shrink-0"
+                className="text-steel group-hover:text-brand size-4 shrink-0"
                 strokeWidth={2}
               />
             </div>

@@ -62,7 +62,7 @@ export default function EmpresaPage() {
               <h1 className="font-display expanded text-h1 font-bold uppercase">
                 Meio século
                 <br />
-                na Avenida <span className="text-molten-2">Cairú</span>
+                na Avenida <span className="text-brand">Cairú</span>
               </h1>
               <p className="text-lead mt-9 max-w-[54ch] text-paper/70">
                 A Scai do Sul abriu as portas em 2 de janeiro de {site.fundacao}{" "}
@@ -139,7 +139,7 @@ export default function EmpresaPage() {
                 key={pilar.indice}
                 className="bg-paper flex flex-col gap-7 p-9 md:p-11"
               >
-                <span className="font-display condensed text-molten text-[3.5rem] leading-none font-bold">
+                <span className="font-display condensed text-brand-deep text-[3.5rem] leading-none font-bold">
                   {pilar.indice}
                 </span>
                 <div>
@@ -244,7 +244,7 @@ export default function EmpresaPage() {
               href={site.maps}
               target="_blank"
               rel="noopener noreferrer"
-              className="label-tech text-molten mt-7 inline-block transition-none hover:text-ink"
+              className="label-tech text-brand-deep mt-7 inline-block transition-none hover:text-ink"
             >
               Abrir no Google Maps
             </a>

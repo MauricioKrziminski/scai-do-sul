@@ -2,33 +2,45 @@
 
 /* ============================================================================
    SCAI DO SUL — DESIGN SYSTEM
-   Base clara (papel quente), tinta grafite quente, um acento fundido.
-   Duas cores mais um acento, nunca tres. Fio de cabelo no lugar de sombra.
+   Paleta derivada do logotipo da empresa (public/logo/logo-scai.png).
+   Verde da marca #42a940, extraido do arquivo, e branco.
+
+   Base clara, tinta quase preta TINTADA DE VERDE, e o verde da marca como
+   unico acento. Os escuros puxados para a matiz da marca sao o que faz o
+   site pertencer ao logotipo sem virar um site verde. Duas cores mais um
+   acento, nunca tres. Fio de cabelo no lugar de sombra.
+
+   IMPORTANTE: o verde puro so funciona sobre escuro (6.30:1). Sobre o papel
+   ele da 2.57:1 e reprova. Por isso existe a versao funda --color-brand-deep,
+   que da 5.28:1 e e a que vale para texto e icone no claro.
    ========================================================================== */
 
 @theme {
   /* --- Cor -------------------------------------------------------------- */
-  --color-paper: #efede8;
-  --color-paper-2: #e6e3dc;
-  --color-paper-3: #dcd8cf;
+  --color-paper: #edeee8;
+  --color-paper-2: #e4e6df;
+  --color-paper-3: #d9dcd3;
 
-  --color-ink: #100d0a;
-  --color-ink-2: #1c1917;
-  --color-ink-3: #292524;
+  /* Quase preto tintado de verde, nunca #000. */
+  --color-ink: #0d120c;
+  --color-ink-2: #161c15;
+  --color-ink-3: #212a20;
 
-  /* #78716c dava 4.10:1 sobre o papel, abaixo do AA. Escurecido para 4.97. */
-  --color-steel: #6b645e;
-  --color-steel-2: #8b847d;
-  --color-steel-3: #cfcac1;
+  /* Cinzas neutralizados na mesma matiz. 4.96:1 sobre o papel. */
+  --color-steel: #626760;
+  --color-steel-2: #868b84;
+  --color-steel-3: #c2c7bf;
 
-  --color-molten: #c8321e;
-  --color-molten-2: #e0523c;
+  /* Verde exato do logotipo. Usar SOBRE ESCURO. */
+  --color-brand: #42a940;
+  /* Versao funda, para texto e icone sobre o papel. 5.28:1. */
+  --color-brand-deep: #2a6f2a;
 
   /* Reguas. Fio de cabelo sobre claro e sobre escuro. */
-  --color-rule: rgb(16 13 10 / 0.14);
-  --color-rule-strong: rgb(16 13 10 / 0.28);
-  --color-rule-inv: rgb(239 237 232 / 0.16);
-  --color-rule-inv-strong: rgb(239 237 232 / 0.32);
+  --color-rule: rgb(13 18 12 / 0.14);
+  --color-rule-strong: rgb(13 18 12 / 0.28);
+  --color-rule-inv: rgb(237 238 232 / 0.16);
+  --color-rule-inv-strong: rgb(237 238 232 / 0.32);
 
   /* --- Tipografia ------------------------------------------------------- */
   --font-display: var(--font-archivo), "Archivo", ui-sans-serif, system-ui, sans-serif;
@@ -147,10 +159,10 @@ body::after {
 /* Sombra proibida no projeto inteiro. Estrutura vem de fio de cabelo. */
 *, *::before, *::after { box-shadow: none; }
 
-::selection { background-color: var(--color-molten); color: var(--color-paper); }
+::selection { background-color: var(--color-brand-deep); color: var(--color-paper); }
 
 :focus-visible {
-  outline: 2px solid var(--color-molten);
+  outline: 2px solid var(--color-brand-deep);
   outline-offset: 3px;
 }
 
@@ -192,17 +204,17 @@ table, .tabular { font-variant-numeric: tabular-nums; }
 /* Grade de projeto. Linha fina a cada 28px, linha forte a cada 140px. */
 @utility blueprint {
   background-image:
-    repeating-linear-gradient(to right,  var(--bp-minor, rgb(239 237 232 / 0.05)) 0 1px, transparent 1px 28px),
-    repeating-linear-gradient(to bottom, var(--bp-minor, rgb(239 237 232 / 0.05)) 0 1px, transparent 1px 28px),
-    repeating-linear-gradient(to right,  var(--bp-major, rgb(239 237 232 / 0.09)) 0 1px, transparent 1px 140px),
-    repeating-linear-gradient(to bottom, var(--bp-major, rgb(239 237 232 / 0.09)) 0 1px, transparent 1px 140px);
+    repeating-linear-gradient(to right,  var(--bp-minor, rgb(237 238 232 / 0.05)) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(to bottom, var(--bp-minor, rgb(237 238 232 / 0.05)) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(to right,  var(--bp-major, rgb(237 238 232 / 0.09)) 0 1px, transparent 1px 140px),
+    repeating-linear-gradient(to bottom, var(--bp-major, rgb(237 238 232 / 0.09)) 0 1px, transparent 1px 140px);
 }
 
 /* Hachura diagonal. Marca provisorio sem parecer quebrado. */
 @utility hatch {
   background-image: repeating-linear-gradient(
     45deg,
-    var(--hatch-color, rgb(239 237 232 / 0.06)) 0 1px,
+    var(--hatch-color, rgb(237 238 232 / 0.06)) 0 1px,
     transparent 1px 9px
   );
 }

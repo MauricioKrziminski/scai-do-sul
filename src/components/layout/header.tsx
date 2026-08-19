@@ -13,8 +13,8 @@ import { cn } from "@/lib/cn";
 /**
  * Cabeçalho fixo com fio de cabelo embaixo. O botão do menu no celular é um
  * rótulo de texto, não um ícone de hambúrguer, seguindo a referência.
- * Estado ativo marcado no acento, que é um dos poucos lugares onde o laranja
- * tem permissão de aparecer.
+ * Estado ativo marcado no acento, que é um dos poucos lugares onde o verde da
+ * marca tem permissão de aparecer.
  */
 export function Header() {
   const [aberto, setAberto] = useState(false);
@@ -36,7 +36,7 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "label-tech transition-none",
-                  ativo(item.href) ? "text-molten" : "text-ink hover:text-molten",
+                  ativo(item.href) ? "text-brand-deep" : "text-ink hover:text-brand-deep",
                 )}
               >
                 {item.rotulo}
@@ -79,7 +79,7 @@ export function Header() {
                   onClick={() => setAberto(false)}
                   className={cn(
                     "border-rule font-display expanded border-b py-5 text-h4 font-bold uppercase transition-none",
-                    ativo(item.href) ? "text-molten" : "text-ink",
+                    ativo(item.href) ? "text-brand-deep" : "text-ink",
                   )}
                 >
                   {item.rotulo}

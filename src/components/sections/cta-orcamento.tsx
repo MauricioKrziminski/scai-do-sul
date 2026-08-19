@@ -49,13 +49,13 @@ export function CtaOrcamento({
             <div className="border-rule-inv mt-14 flex flex-wrap gap-x-12 gap-y-4 border-t pt-8">
               <a
                 href={`tel:${site.contato.telefoneRaw}`}
-                className="label-tech hover:text-molten-2 text-paper/70 transition-none"
+                className="label-tech hover:text-brand text-paper/70 transition-none"
               >
                 {site.contato.telefone}
               </a>
               <a
                 href={`mailto:${site.contato.email}`}
-                className="label-tech hover:text-molten-2 text-paper/70 transition-none"
+                className="label-tech hover:text-brand text-paper/70 transition-none"
               >
                 {site.contato.email}
               </a>

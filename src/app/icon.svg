@@ -1,12 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Marca provisoria. Desenho geometrico, sem tipografia, para nao depender
-       de fonte no favicon. Remete ao simbolo de valvula do fluxograma de
-       processo: linha atravessando o corpo. Trocar quando o logotipo real
-       da marca chegar. -->
-  <rect width="64" height="64" fill="#100d0a"/>
-  <path d="M14 34 H50" stroke="#efede8" stroke-width="3" stroke-linecap="square"/>
-  <path d="M20 22 L32 34 L20 46 Z" fill="#efede8"/>
-  <path d="M44 22 L32 34 L44 46 Z" fill="#efede8"/>
-  <rect x="28" y="12" width="8" height="8" fill="#c8321e"/>
-  <path d="M32 20 V28" stroke="#efede8" stroke-width="3"/>
+  <!-- Favicon com o pictograma da marca: valvula gaveta do logotipo da Scai
+       do Sul, redesenhada em vetor. Verde #42a940 extraido do arquivo em
+       public/logo/logo-scai.png. Trocar quando o vetor original chegar. -->
+  <rect width="64" height="64" fill="#42a940"/>
+  <g fill="#ffffff" fill-rule="evenodd" transform="translate(21.5 5) scale(0.457)">
+    <path d="M4 0h36a4 4 0 0 1 0 8H4a4 4 0 0 1 0-8Zm1.8 3a1.2 1.2 0 0 0 0 2.4h32.4a1.2 1.2 0 0 0 0-2.4H5.8Z"/>
+    <path d="M7 8h5.4l6 9h7.2l6-9H37l-7.4 11.2V22H14.4v-2.8L7 8Z"/>
+    <path d="M17 22h10v20H17z"/>
+    <path d="M11 42h22v6H11zM9 48h26v11H9zm3 3v5h20v-5H12Zm-1 11h22v5H11z"/>
+    <path d="M5 67h34v12H5zm3.5 3.5v5h27v-5h-27Z"/>
+    <path d="M14 79h16v7h12v20h-4v10h-9v-10H15v10H6v-10H2V86h12v-7Z"/>
+  </g>
 </svg>

@@ -23,8 +23,8 @@ const SWATCHES = [
   ["steel", "bg-steel"],
   ["steel-2", "bg-steel-2"],
   ["steel-3", "bg-steel-3"],
-  ["molten", "bg-molten"],
-  ["molten-2", "bg-molten-2"],
+  ["brand", "bg-brand"],
+  ["brand-deep", "bg-brand-deep"],
 ];
 
 const SCALE: [string, string, string][] = [
@@ -105,8 +105,8 @@ export default function Styleguide() {
       <Section
         index="02"
         label="Cor"
-        title="Duas cores e um acento"
-        intro="Nunca três. O laranja aparece em estado ativo, seta de chamada e índice em destaque, nada além disso."
+        title="Derivada do logotipo"
+        intro="Duas cores mais um acento, nunca três. O verde #42a940 saiu do arquivo do logotipo e só entra sobre fundo escuro, onde dá 6.30:1. Sobre o papel ele reprova em contraste, então ali entra a versão funda #2a6f2a, com 5.28:1."
       >
         <div className="bg-rule grid grid-cols-2 gap-px md:grid-cols-6">
           {SWATCHES.map(([name, cls]) => (
