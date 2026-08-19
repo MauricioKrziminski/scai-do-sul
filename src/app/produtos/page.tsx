@@ -52,9 +52,9 @@ export default function ProdutosPage() {
         title="Procedência, não só preço"
         intro={`Trabalhamos ${marcas.length} marcas além da linha própria SCAI. Peça sem origem clara é a que falha primeiro, e em linha de processo a falha custa muito mais que a economia do pedido.`}
       >
-        <ul className="bg-rule grid grid-cols-2 gap-px md:grid-cols-4">
+        <ul className="border-rule grid grid-cols-2 border-t border-l md:grid-cols-4">
           {marcas.map((marca) => (
-            <li key={marca.nome} className="bg-paper p-7">
+            <li key={marca.nome} className="border-rule border-r border-b p-7">
               <span className="font-display semi-expanded text-h5 font-bold uppercase">
                 {marca.nome}
               </span>

@@ -4,8 +4,11 @@ import { Figure } from "@/components/ui/figure";
 import { produtos } from "@/content/produtos";
 
 /**
- * Grade de borda compartilhada: os cards não têm borda própria, as frestas é
- * que são as linhas. Dispositivo estrutural mais limpo disponível, e custa nada.
+ * Linhas desenhadas por borda de célula. Com 9 linhas numa grade de 2 colunas
+ * sobra célula vazia na última fila, e pintar o fundo do container fazia essa
+ * sobra virar um retângulo cinza no tablet. Borda por célula não tem esse
+ * problema com nenhuma quantidade.
+ *
  * Reaproveitada na home e no índice de produtos.
  *
  * Cada card leva foto da peça. Num catálogo o comprador varre a página por
@@ -15,12 +18,12 @@ import { produtos } from "@/content/produtos";
  */
 export function LinhasProduto() {
   return (
-    <div className="bg-rule grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-3">
+    <div className="border-rule grid grid-cols-1 border-t border-l sm:grid-cols-2 lg:grid-cols-3">
       {produtos.map((produto) => (
         <Link
           key={produto.slug}
           href={`/produtos/${produto.slug}`}
-          className="bg-paper hover:bg-ink group flex flex-col transition-none"
+          className="border-rule hover:bg-ink group flex flex-col border-r border-b transition-none"
         >
           <Figure
             ratio="4/3"

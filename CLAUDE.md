@@ -242,8 +242,11 @@ chamada, índice de seção e numeral. Nada além disso.
 
 - **`box-shadow` é proibido no projeto inteiro.** Estrutura vem de fio de cabelo.
   Já existe um reset global zerando sombra em `globals.css`.
-- Grade de borda compartilhada (`gap-px` sobre fundo de régua) no lugar de card com
-  borda própria.
+- Grade com linha por **borda de célula**, não por `gap-px` sobre fundo colorido.
+  O método do fundo parece mais limpo, mas quebra quando a quantidade de itens não
+  fecha a última fila: a célula que sobra vira um retângulo cinza. Aconteceu com 9
+  marcas em 4 colunas e com 9 produtos em 2 colunas. Borda por célula funciona com
+  qualquer quantidade em qualquer breakpoint.
 - Divisão assimétrica sempre: 3/9, 4/8 ou 5/7. **Nunca 50/50.**
 - `max-w-[52ch]` em todo parágrafo de corpo. Medida longa é o principal indicador de
   site não projetado.
@@ -375,6 +378,8 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Todo cabeçalho escuro aceita foto | Antes as páginas internas tinham grade permanente, com a mesma aparência do placeholder. Duas linguagens iguais com sentidos diferentes confundem. Agora a grade só significa foto pendente |
 | 2026-08-19 | Card de linha de produto ganhou foto | Num catálogo o comprador varre por imagem antes de ler. Card só tipográfico obriga a ler para achar a linha |
 | 2026-08-19 | Marcas refeitas a partir da foto da placa | Evidência atual vale mais que catálogo de 2018. Caíram GENEBRE, DRAKO e MONTANA; entraram DEXCO, KLINGER, TUPER e LUPATECH MIPEL |
+| 2026-08-19 | Hero da home encolhido para o ticker caber | Pedido do Mauricio. Altura medida no navegador: cabeçalho mais hero mais ticker somavam 905px numa janela de 863 |
+| 2026-08-19 | CTA de orçamento ganhou foto de fundo e canais de contato | Era da mesma cor do rodapé logo abaixo, então os dois viravam um bloco escuro só. E a coluna estreita estava vazia |
 | 2026-08-19 | A foto da placa é a única sem duotone | Testei as duas. Em cor, ao lado de uma foto em preto e branco, destoava como retrato de celular. Em duotone ela lê como documento e entra na mesma família visual |
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |

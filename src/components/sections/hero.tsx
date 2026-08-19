@@ -27,11 +27,12 @@ export function Hero({
       <MidiaFundo src={src} priority />
 
       <Container>
-        {/* Altura descontando o cabecalho (5rem) e a tira de dados (~6.5rem),
-            para a tira encostar no fim da tela em vez de cair abaixo da dobra.
-            Os rotulos ficam no topo e o bloco principal centraliza no que
-            sobra, senao o titulo parece ter escorregado para o rodape. */}
-        <div className="flex min-h-[calc(100svh-11.5rem)] flex-col py-12 md:py-14">
+        {/* Altura descontando tudo que precisa caber junto na primeira tela:
+            cabecalho (5rem), a tira de dados do rodape do hero (6.5rem) e o
+            ticker que vem logo abaixo (2.6rem). Medido no navegador, nao
+            chutado. Os rotulos ficam no topo e o bloco principal centraliza no
+            que sobra, senao o titulo parece ter escorregado para o rodape. */}
+        <div className="flex min-h-[calc(100svh-14.25rem)] flex-col py-10 md:py-12">
           <div className="grid shrink-0 grid-cols-12 gap-x-6 gap-y-8">
             <div className="col-span-12 md:col-span-6">
               <Label inverted>
@@ -44,7 +45,7 @@ export function Hero({
             </div>
           </div>
 
-          <div className="grid flex-1 grid-cols-12 items-center gap-x-6 gap-y-12 py-16">
+          <div className="grid flex-1 grid-cols-12 items-center gap-x-6 gap-y-12 py-10">
             <div className="col-span-12 lg:col-span-8">
               <h1 className="font-display expanded text-display font-bold uppercase">
                 Válvulas
