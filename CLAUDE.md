@@ -1,0 +1,343 @@
+# CLAUDE.md
+
+Arquivo central do projeto. Toda decisão, dado confirmado e pendência vive aqui.
+Atualizar ao fim de cada fase, sempre.
+
+---
+
+## REGRAS DE ESCRITA (LEIA ANTES DE ESCREVER QUALQUER TEXTO)
+
+1. **NUNCA, JAMAIS usar travessão como pontuação entre palavras.** Nem em texto do
+   site, nem em commit, nem em documentação, nem em comentário de código, nem em
+   conversa. Usar vírgula, dois pontos, ponto e vírgula, parênteses ou ponto final.
+   Isso vale para o travessão longo, o travessão médio e o hífen usado como pausa.
+   O hífen só é permitido dentro de palavra composta (guarda-chuva, ferro-fundido)
+   e em faixas numéricas quando não couber "a" (preferir sempre "DN 15 a 600").
+2. Português do Brasil, tom comercial e técnico, sem jargão de marketing vazio.
+3. Nada de "soluções inovadoras", "excelência", "parceria de sucesso" e afins.
+4. Frase curta. O comprador industrial lê rápido e decide por dado, não por adjetivo.
+
+---
+
+## 1. O PROJETO
+
+| | |
+|---|---|
+| Cliente | Metalúrgica Scai do Sul Ltda. |
+| Contato | Eduardo Magri |
+| Fornecedora | SoftCode |
+| Escopo | Site institucional e catálogo, sem e-commerce |
+| Domínio alvo | `www.scaisul.com.br` |
+| Valor aprovado | R$ 1.800,00, Opção B da proposta |
+| Proposta | `C:\Users\Maumis\Desktop\orçamento\Orcamento_Site_ScaiDoSul.pdf` |
+| Site antigo | `https://scaisul.lovable.app/` (abandonado pelo cliente) |
+| Repositório | `https://github.com/MauricioKrziminski/scai-do-sul` |
+
+### O que o cliente pediu
+
+Na conversa por WhatsApp, o Eduardo disse que o site do Lovable ficou "muito básico"
+e que só consegue acessar pelo Google. Pediu explicitamente **"ter nossa linha de
+produtos mais especificado"**, e concordou com a ideia de separar produtos por
+páginas. Confirmou que é site institucional, com foco em mostrar a empresa, com o que
+trabalham e produtos.
+
+### A restrição da Opção B
+
+O cliente escolheu **sem animações, layout limpo e direto, mantendo o tom
+profissional**. Isso NÃO é licença para entregar algo cru. Significa que todo o
+impacto visual vem de tipografia, grade, textura e composição, nunca de movimento.
+
+Regra prática: nenhuma `transition`, nenhum `@keyframes`, nenhum efeito de scroll.
+Estado de hover é instantâneo. `position: sticky` é layout, não animação, e é
+permitido. A meta declarada de qualidade é padrão Awwwards.
+
+---
+
+## 2. DADOS DA EMPRESA
+
+### Confirmado (verificado em fonte pública)
+
+| Campo | Valor | Fonte |
+|---|---|---|
+| Razão social | Metalúrgica Scai do Sul Ltda. | Receita Federal |
+| CNPJ | 87.955.035/0001-62 | Econodata, Casa dos Dados, cnpj.biz |
+| **Abertura** | **02/01/1975** | Receita Federal |
+| Situação | Ativa | Receita Federal |
+| Natureza | Sociedade Empresária Limitada | Receita Federal |
+| Capital social | R$ 520.000,00 | Econodata |
+| CNAE principal | 46.89-3/99, comércio atacadista | Receita Federal |
+| Endereço | Av. Cairú, 525, Navegantes, Porto Alegre RS, 90230-031 | Receita Federal |
+| Telefone | (51) 3342-8233 | Site próprio 2018, diretórios |
+| E-mail | scaisul@scaisul.com.br | Site próprio 2018 |
+
+### Descobertas que mudam o conteúdo
+
+**1. São 51 anos, não "mais de 30".** O site do Lovable diz "+30 anos". A empresa é de
+janeiro de 1975. O site atual subestima o cliente em duas décadas. Usar 1975 e
+`anosDeCasa` calculado, nunca número fixo escrito à mão.
+
+**2. É distribuidora, não fabricante.** CNAE é comércio atacadista. O site próprio de
+2018 diz textualmente: *"Temos longa tradição no comércio de materiais industriais"*.
+
+> **PROIBIDO afirmar no site:** "nossa fábrica", "produzimos", "fabricamos", "linha de
+> produção", "parque fabril", "nosso processo produtivo". Apesar do nome
+> "Metalúrgica", a empresa não fabrica.
+
+O posicionamento correto é **distribuidora técnica com linha própria**. A venda é
+curadoria, estoque, procedência de marca e atendimento técnico. Existe catálogo de
+marca própria SCAI, o que é mais forte do que revenda pura.
+
+**3. As marcas representadas são o ativo mais desperdiçado.** O site de 2018
+hospedava sete catálogos de marca:
+
+| Marca | Linha |
+|---|---|
+| TUPY | Conexões de ferro fundido maleável, o padrão brasileiro |
+| DECA | Registros, válvulas e metais sanitários |
+| GENEBRE | Fabricante espanhol, válvulas esfera e borboleta, inox |
+| DRAKO | Válvulas industriais |
+| ISOVER | Saint-Gobain, lã de vidro e isolamento térmico |
+| MICROMAZZA | Válvulas e equipamentos |
+| MONTANA | Linha não confirmada |
+| SCAI | Linha própria da casa |
+
+Dado de dezembro de 2018, portanto com oito anos. **Confirmar com o cliente antes de
+publicar.**
+
+### Copy verbatim recuperada (Wayback, 30/12/2018)
+
+Material da própria empresa, melhor que qualquer texto genérico:
+
+- *"Oferecendo qualidade e eficiência em soluções industriais desde 1975."*
+- *"Atuamos a mais de 40 anos no mercado de válvulas e conexões."* (escrito por volta
+  de 2016, hoje são 50 e poucos)
+- *"Temos longa tradição no comércio de materiais industriais, atendendo as
+  necessidades diferentes tipos de indústrias."* (o erro de concordância é do original)
+- *"Temos compromisso com a satisfação do cliente e buscamos superar suas expectativas
+  com qualidade e respeito a prazos acordados."*
+- Setores, nas palavras deles: *"Fornecemos soluções para indústrias siderúrgicas,
+  metalúrgicas, químicas, petroquímicas, refinarias, usinas, alimentícias e outras."*
+- Categorias que eles mesmos listavam: **Válvulas e Registros, Flanges e Conexões,
+  Lã de Vidro, Aparelhos e Acessórios.**
+
+Snapshot: `http://web.archive.org/web/20181230073752/http://scaisul.com.br/`
+Catálogo próprio: `.../web/20181230073913if_/http://scaisul.com.br/assets/SCAI.pdf`
+(3,8 MB, escaneado, precisa de OCR para virar lista de SKU)
+Foto da fachada: `img/fachada.jpg` no mesmo snapshot.
+
+---
+
+## 3. STACK
+
+| Item | Versão | Nota |
+|---|---|---|
+| Next.js | 16.3.1 | App Router, Turbopack |
+| React | 19.2.8 | |
+| TypeScript | 5 | `strict` |
+| Tailwind CSS | 4 | Config em CSS via `@theme`, sem `tailwind.config` |
+| lucide-react | 1.33 | **Única** biblioteca de ícone do projeto |
+| resend | 6.20 | Envio do formulário de orçamento |
+| zod | 4 | Validação da Server Action |
+| Node | 24.12 | |
+| Deploy | Vercel | |
+
+Tudo estático. Sem banco, sem CMS. Server Component por padrão, `'use client'` só no
+formulário e no menu mobile.
+
+---
+
+## 4. DESIGN SYSTEM
+
+### Referência
+
+Primária: **icomat.co.uk**, Awwwards Site of the Day de abril de 2026, estúdio
+REJOUICE. Fizemos o teardown do CSS compilado. Secundárias: Q Industrial (Awwwards
+SOTD, fórmula cinza mais um único vermelho) e Terminal Industries (Site of the Month).
+
+Herdado do iCOMAT: peso único no display, tracking zero nos títulos, entrelinha
+negativa, rótulo mono em caixa alta carregando 100% do tracking, índice numerado,
+tabela de especificação com unidade no cabeçalho, ritmo vertical generoso, sem
+container de largura máxima apertada.
+
+NÃO herdado: o iCOMAT é escuro, com cantos de 36px e vidro desfocado, um registro
+aeroespacial de sala limpa. Metalurgia é quente e pesada. Trocamos por base clara,
+canto duro e fio de cabelo como estrutura.
+
+### Tipografia
+
+```
+DISPLAY    Archivo, eixo wdth 125 (expandida), peso 700, CAIXA ALTA
+CORPO      Instrument Sans 400 e 500
+TÉCNICA    Geist Mono 400, CAIXA ALTA, tracking 0.2em, 11px e 12px
+```
+
+Três famílias, três funções: uma grita, uma lê, uma mede. O eixo `wdth` do Archivo
+também entrega a condensada (`wdth 78`) dos numerais gigantes e das tabelas, então
+não precisamos de uma quarta fonte. Nunca passar de três famílias.
+
+Todos os acentos do português vivem no subset `latin`, verificado direto na API do
+Google Fonts. `subsets: ["latin"]` basta, `latin-ext` seria desperdício.
+
+Utilitários: `expanded`, `semi-expanded`, `condensed`, `label-tech`.
+
+**Hierarquia por tamanho e valor, jamais por peso.** Todo display é 700. Todo corpo é
+400. Não existe "meio bold" no projeto.
+
+### Cor
+
+```
+--color-paper    #efede8   off-white quente, tela dominante
+--color-ink      #100d0a   grafite quente, NUNCA #000
+--color-steel    #78716c   texto secundário
+--color-molten   #c8321e   acento, uso raro e deliberado
+--color-rule     rgb(16 13 10 / 0.14)
+```
+
+**Duas cores mais um acento, nunca três.** O laranja aparece em estado ativo, seta de
+chamada e índice de seção em destaque. Nada além disso.
+
+> **Quando o logotipo chegar, a paleta da marca tem prioridade sobre `--molten`.**
+> A troca é de uma variável só, em `src/app/globals.css`.
+
+### Regras invioláveis
+
+- **`box-shadow` é proibido no projeto inteiro.** Estrutura vem de fio de cabelo.
+  Já existe um reset global zerando sombra em `globals.css`.
+- Grade de borda compartilhada (`gap-px` sobre fundo de régua) no lugar de card com
+  borda própria.
+- Divisão assimétrica sempre: 3/9, 4/8 ou 5/7. **Nunca 50/50.**
+- `max-w-[52ch]` em todo parágrafo de corpo. Medida longa é o principal indicador de
+  site não projetado.
+- `tabular-nums` em todo numeral estrutural.
+- Grão fixo em `body::after`, `position: fixed`, para não rolar junto. É o que faz
+  ler como impresso.
+- Toda imagem técnica leva legenda em mono. É o que separa engenharia de folheto.
+
+### Imagens
+
+Componente único `Figure` em `src/components/ui/figure.tsx`, com `src` opcional. Sem
+`src`, renderiza o placeholder de marca: bloco escuro com grade de projeto, hachura
+diagonal, marcas de canto e rótulo mono dizendo qual foto entra ali. Zero bytes de
+rede, e numa reunião lê como ficha técnica em vez de imagem quebrada.
+
+**Proibido:** `source.unsplash.com` (morto desde 2024, retorna 503), foto de banco
+aleatória (o cliente passa a reunião discutindo a foto em vez do design) e imagem
+gerada por IA (com cliente industrial conservador isso derruba a confiança na entrega
+inteira).
+
+Proporções travadas: `4/3` produto, `16/9` faixa de fábrica, `1/1` bento. Quando as
+fotos reais chegarem, recorta a foto, nunca o layout.
+
+Todas as fotos levam `duotone` (`grayscale` mais `contrast(1.14)`). As imagens do
+cliente virão de câmeras, luzes e anos diferentes, e o grade é o que faz virar um
+ensaio só. Isso não é estética, é gestão de risco.
+
+---
+
+## 5. ARQUITETURA
+
+```
+src/
+  app/
+    layout.tsx              fontes, metadata base
+    page.tsx                home
+    styleguide/page.tsx     documento interno, noindex
+    empresa/ produtos/ produtos/[slug]/ setores/ contato/ privacidade/
+  components/
+    ui/       container rule label figure spec-table button ticker stat section
+    layout/   header footer whatsapp-fab
+    sections/ blocos de página
+  content/    site.ts produtos.ts setores.ts marcas.ts   (tipado, fonte de verdade)
+  lib/        cn.ts whatsapp.ts seo.ts
+  actions/    orcamento.ts   Server Action com Resend
+```
+
+Todo dado de conteúdo vive em `src/content/`. Nenhum texto solto dentro de componente.
+
+---
+
+## 6. ARQUITETURA DA HOME
+
+Arco herdado do iCOMAT: problema, contraste, prova, processo, prova social, visão.
+
+```
+00  Hero              faixa escura sangrando, foto tratada, headline expandida gigante
+01  Ticker estático   normas e faixas de especificação
+02  Tese              51 anos especificando válvula e conexão
+03  Linhas de produto grade de borda compartilhada, 9 cards, índice O1 a O9
+04  Marcas            TUPY DECA GENEBRE ISOVER DRAKO MICROMAZZA MONTANA SCAI
+05  Números           parede de numerais condensados
+06  Setores           faixa escura sangrando com foto e overlay em gradiente
+07  Como comprar      O1 consulta, O2 especificação, O3 orçamento, O4 entrega
+08  CTA orçamento
+```
+
+Rodapé expõe CNPJ, endereço com link para o Maps, telefone e e-mail. Dado de registro
+à mostra é padrão de credibilidade industrial e vale mais que selo genérico.
+
+---
+
+## 7. FASES
+
+| # | Fase | Estado |
+|---|---|---|
+| 0 | Fundação: scaffold, design system, primitivos, styleguide | **CONCLUÍDA** |
+| 1 | Casca: header, footer, FAB WhatsApp, metadata | pendente |
+| 2 | Home: as nove seções com conteúdo real | pendente |
+| 3 | Produtos: índice, template `[slug]`, 9 linhas | pendente |
+| 4 | Empresa e Setores | pendente |
+| 5 | Contato: Server Action com Resend, WhatsApp, LGPD | pendente |
+| 6 | SEO: metadata por rota, OG dinâmico, JSON-LD, sitemap | pendente |
+| 7 | Acabamento: a11y, responsivo, deploy | pendente |
+
+Cada fase termina em commit próprio, `npm run build` limpo e atualização desta tabela.
+
+---
+
+## 8. DECISÕES TOMADAS
+
+| Data | Decisão | Porquê |
+|---|---|---|
+| 2026-08-19 | Next 16 App Router, tudo estático | Site institucional sem dado dinâmico. Estático é mais rápido, mais barato e mais fácil de indexar |
+| 2026-08-19 | Tailwind 4 com `@theme` em CSS | Sem arquivo de config. Token e utilitário no mesmo lugar |
+| 2026-08-19 | Archivo expandida mais Instrument Sans mais Geist Mono | Grotesca expandida é o sinal mais confiável de "isso custou dinheiro" em design estático, e ninguém usa em site industrial brasileiro |
+| 2026-08-19 | Base clara com faixas escuras pontuais | Sustenta melhor tabela técnica densa e leitura longa, e envelhece melhor que fundo escuro |
+| 2026-08-19 | Um acento laranja fundido, uso raro | Regra dos sites premiados: duas cores mais um acento, nunca três |
+| 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
+| 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |
+| 2026-08-19 | Placeholder de marca em CSS, sem foto de banco | Numa reunião lê como ficha técnica, e o cliente vê exatamente qual foto ele ainda deve |
+
+---
+
+## 9. PENDÊNCIAS COM O CLIENTE
+
+| Item | Situação |
+|---|---|
+| Logotipo em alta | Mauricio tem o arquivo, precisa repassar. Define a paleta final |
+| Fotos de produto, fachada e equipe | Aguardando. `img/fachada.jpg` existe no Wayback de 2018 e serve de emergência |
+| Catálogo `SCAI.pdf` | Está no Wayback, é escaneado, precisa de OCR para virar lista real de SKU |
+| Portfólio de marcas atual | Dado de 2018, confirmar quais ainda representam |
+| Ainda trabalham com lã de vidro? | Categoria própria em 2018, some no site do Lovable |
+| Horário de funcionamento | Não confirmado em nenhuma fonte pública |
+| Inscrição estadual | Para o rodapé |
+| Número de WhatsApp comercial | Usando o fixo por ora |
+| ISO 9001 | Não confirmada. **Não afirmar sem checar** |
+| Acesso ao domínio | Resolve mas não serve nada. Confirmar titularidade no registro.br |
+| E-mail ativo | Existe `scaisul@terra.com.br` em diretórios, além do `@scaisul.com.br` |
+| Fornecedor público | CNPJ aparece no Portal da Transparência. Verificar antes de usar como credencial |
+
+Ver também `docs/lista-de-fotos.md`, a lista numerada de fotos para entregar ao cliente.
+
+---
+
+## 10. COMANDOS
+
+```bash
+npm run dev      # servidor de desenvolvimento
+npm run build    # build de produção, precisa terminar sem erro nem warning
+npm run lint
+npx tsc --noEmit # checagem de tipo isolada
+```
+
+Conferir sempre em 360, 768, 1280 e 1920 pixels de largura.
+Styleguide vivo em `/styleguide`, marcado como `noindex`.

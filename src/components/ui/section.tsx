@@ -1,0 +1,95 @@
+import { cn } from "@/lib/cn";
+import { Container } from "./container";
+import { Label } from "./label";
+
+/**
+ * Bloco de secao padrao. Divisao assimetrica 3/9: a coluna estreita carrega o
+ * indice e o rotulo, a larga carrega o titulo e o texto. Nunca 50/50.
+ * A regua sangra de ponta a ponta enquanto o conteudo fica dentro da margem.
+ */
+export function Section({
+  index,
+  label,
+  title,
+  intro,
+  action,
+  children,
+  inverted = false,
+  bleed = false,
+  className,
+  id,
+}: {
+  /** Indice numerado. O device de identidade mais barato e mais forte do site. */
+  index?: string;
+  label?: string;
+  title?: React.ReactNode;
+  intro?: React.ReactNode;
+  action?: React.ReactNode;
+  children?: React.ReactNode;
+  inverted?: boolean;
+  /** Remove o container interno para o conteudo sangrar. */
+  bleed?: boolean;
+  className?: string;
+  id?: string;
+}) {
+  const hasHeader = Boolean(index || label || title || intro);
+
+  return (
+    <section
+      id={id}
+      className={cn(
+        "relative border-t py-section",
+        inverted ? "border-rule-inv bg-ink text-paper" : "border-rule bg-paper text-ink",
+        className,
+      )}
+    >
+      <Container>
+        {hasHeader && (
+          <div className="grid grid-cols-12 gap-x-6 gap-y-8">
+            <div className="col-span-12 md:col-span-3">
+              {(index || label) && (
+                <div className="flex items-baseline gap-3">
+                  {index && (
+                    <span
+                      className={cn(
+                        "label-tech",
+                        inverted ? "text-molten-2" : "text-molten",
+                      )}
+                    >
+                      {index}
+                    </span>
+                  )}
+                  {label && <Label inverted={inverted}>{label}</Label>}
+                </div>
+              )}
+            </div>
+
+            <div className="col-span-12 md:col-span-8 md:col-start-5">
+              {title && (
+                <h2 className="font-display expanded text-h2 uppercase">{title}</h2>
+              )}
+              {intro && (
+                <div
+                  className={cn(
+                    "mt-7 max-w-[52ch] text-body-lg",
+                    inverted ? "text-paper/70" : "text-steel",
+                  )}
+                >
+                  {intro}
+                </div>
+              )}
+              {action && <div className="mt-9">{action}</div>}
+            </div>
+          </div>
+        )}
+      </Container>
+
+      {children &&
+        (bleed ? (
+          <div className={cn(hasHeader && "mt-16 md:mt-24")}>{children}</div>
+        ) : (
+          <Container className={cn(hasHeader && "mt-16 md:mt-24")}>{children}</Container>
+        ))}
+    </section>
+  );
+}
