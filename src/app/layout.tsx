@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { site } from "@/content/site";
+import { JsonLd, organizacaoJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 /**
@@ -44,9 +45,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: site.nome,
-    url: site.url,
+    // Cada rota redeclara a sua propria url. Se ficasse so aqui, toda pagina
+    // herdaria a raiz como og:url e a previa de link apontaria para o lugar
+    // errado.
+    url: "/",
   },
   robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -68,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <WhatsAppFab />
+        <JsonLd data={organizacaoJsonLd()} />
       </body>
     </html>
   );

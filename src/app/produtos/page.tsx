@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "Válvulas para saneamento, bronze, borboleta e esfera, conexões de ferro maleável, flanges, conexões de alta pressão, instrumentação e equipamentos de incêndio. Especificação técnica de cada linha.",
   alternates: { canonical: "/produtos" },
+  openGraph: { url: "/produtos" },
 };
 
 export default function ProdutosPage() {
@@ -32,9 +33,9 @@ export default function ProdutosPage() {
               </h1>
               <p className="text-lead mt-8 max-w-[52ch] text-paper/70">
                 Cada linha tem página própria, com diâmetro, classe de pressão,
-                material, aplicação e as marcas que trabalhamos nela. Se o item que
-                você procura não aparecer aqui, pergunte mesmo assim: boa parte do
-                estoque é de reposição e não cabe em nove categorias.
+                material, aplicação e as marcas que trabalhamos nela. Se o item
+                que você procura não aparecer aqui, pergunte mesmo assim: boa
+                parte do estoque é de reposição e não cabe em nove categorias.
               </p>
             </div>
           </div>

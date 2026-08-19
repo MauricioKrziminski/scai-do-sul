@@ -40,14 +40,16 @@ export default function Home() {
         intro={
           <>
             <p>
-              A Scai do Sul abriu as portas em janeiro de {site.fundacao}, na Avenida
-              Cairú, e nunca saiu de lá. Meio século no mesmo endereço, atendendo a
-              indústria gaúcha e enviando material para todo o Brasil.
+              A Scai do Sul abriu as portas em janeiro de {site.fundacao}, na
+              Avenida Cairú, e nunca saiu de lá. Meio século no mesmo endereço,
+              atendendo a indústria gaúcha e enviando material para todo o
+              Brasil.
             </p>
             <p className="mt-6">
-              Não somos loja de catálogo. Somos distribuidora técnica: trabalhamos as
-              marcas que a indústria já especifica, mantemos linha própria SCAI e
-              conferimos a especificação junto com você antes de fechar o pedido.
+              Não somos loja de catálogo. Somos distribuidora técnica:
+              trabalhamos as marcas que a indústria já especifica, mantemos
+              linha própria SCAI e conferimos a especificação junto com você
+              antes de fechar o pedido.
             </p>
           </>
         }

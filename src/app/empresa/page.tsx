@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "A empresa",
   description: `Distribuidora técnica de válvulas e conexões em Porto Alegre desde 1975. ${anosDeCasa} anos no mesmo endereço, atendendo indústria e saneamento em todo o Brasil.`,
   alternates: { canonical: "/empresa" },
+  openGraph: { url: "/empresa" },
 };
 
 /** Os quatro pilares. Substituem a lista genérica de "nossos diferenciais". */
@@ -64,10 +65,10 @@ export default function EmpresaPage() {
                 na Avenida <span className="text-molten-2">Cairú</span>
               </h1>
               <p className="text-lead mt-9 max-w-[54ch] text-paper/70">
-                A Scai do Sul abriu as portas em 2 de janeiro de {site.fundacao} e
-                nunca mudou de endereço. São {anosDeCasa} anos no mercado de válvulas
-                e conexões, atendendo a indústria gaúcha e enviando material para todo
-                o Brasil.
+                A Scai do Sul abriu as portas em 2 de janeiro de {site.fundacao}{" "}
+                e nunca mudou de endereço. São {anosDeCasa} anos no mercado de
+                válvulas e conexões, atendendo a indústria gaúcha e enviando
+                material para todo o Brasil.
               </p>
             </div>
           </div>
@@ -91,15 +92,15 @@ export default function EmpresaPage() {
         intro={
           <>
             <p>
-              A diferença aparece no atendimento. Loja de catálogo vende o que está na
-              tabela. Distribuidora técnica entende o que a sua linha precisa, confere
-              a especificação e só então cota.
+              A diferença aparece no atendimento. Loja de catálogo vende o que
+              está na tabela. Distribuidora técnica entende o que a sua linha
+              precisa, confere a especificação e só então cota.
             </p>
             <p className="mt-6">
-              Nas nossas palavras desde sempre: temos longa tradição no comércio de
-              materiais industriais, atendendo às necessidades de diferentes tipos de
-              indústria, com compromisso na satisfação do cliente e respeito aos prazos
-              acordados.
+              Nas nossas palavras desde sempre: temos longa tradição no comércio
+              de materiais industriais, atendendo às necessidades de diferentes
+              tipos de indústria, com compromisso na satisfação do cliente e
+              respeito aos prazos acordados.
             </p>
           </>
         }
@@ -134,7 +135,10 @@ export default function EmpresaPage() {
         <Container>
           <div className="bg-rule grid grid-cols-1 gap-px md:grid-cols-2">
             {PILARES.map((pilar) => (
-              <div key={pilar.indice} className="bg-paper flex flex-col gap-7 p-9 md:p-11">
+              <div
+                key={pilar.indice}
+                className="bg-paper flex flex-col gap-7 p-9 md:p-11"
+              >
                 <span className="font-display condensed text-molten text-[3.5rem] leading-none font-bold">
                   {pilar.indice}
                 </span>
@@ -142,7 +146,9 @@ export default function EmpresaPage() {
                   <h3 className="font-display semi-expanded text-h4 font-bold uppercase">
                     {pilar.titulo}
                   </h3>
-                  <p className="text-body text-steel mt-5 max-w-[44ch]">{pilar.texto}</p>
+                  <p className="text-body text-steel mt-5 max-w-[44ch]">
+                    {pilar.texto}
+                  </p>
                 </div>
               </div>
             ))}
@@ -219,8 +225,14 @@ export default function EmpresaPage() {
               items={[
                 { label: "Razão social", value: site.razaoSocial },
                 { label: "CNPJ", value: site.cnpj },
-                { label: "Fundação", value: `02 de janeiro de ${site.fundacao}` },
-                { label: "Cidade", value: `${site.contato.endereco.cidade} ${site.contato.endereco.uf}` },
+                {
+                  label: "Fundação",
+                  value: `02 de janeiro de ${site.fundacao}`,
+                },
+                {
+                  label: "Cidade",
+                  value: `${site.contato.endereco.cidade} ${site.contato.endereco.uf}`,
+                },
                 { label: "Telefone", value: site.contato.telefone },
               ]}
             />

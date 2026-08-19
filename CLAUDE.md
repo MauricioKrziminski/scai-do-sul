@@ -287,7 +287,7 @@ Rodapé expõe CNPJ, endereço com link para o Maps, telefone e e-mail. Dado de 
 | 3 | Produtos: índice, template `[slug]`, 9 linhas | **CONCLUIDA** |
 | 4 | Empresa e Setores | **CONCLUIDA** |
 | 5 | Contato: Server Action com Resend, WhatsApp, LGPD | **CONCLUIDA** |
-| 6 | SEO: metadata por rota, OG dinâmico, JSON-LD, sitemap | pendente |
+| 6 | SEO: metadata por rota, OG dinâmico, JSON-LD, sitemap | **CONCLUIDA** |
 | 7 | Acabamento: a11y, responsivo, deploy | pendente |
 
 Cada fase termina em commit próprio, `npm run build` limpo e atualização desta tabela.

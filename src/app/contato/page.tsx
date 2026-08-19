@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Contato e orçamento",
   description: `Peça orçamento de válvulas, flanges e conexões. ${enderecoLinha}. Telefone ${site.contato.telefone}.`,
   alternates: { canonical: "/contato" },
+  openGraph: { url: "/contato" },
 };
 
 export default function ContatoPage() {
@@ -35,8 +36,8 @@ export default function ContatoPage() {
               </h1>
               <p className="text-lead mt-9 max-w-[52ch] text-paper/70">
                 Você não precisa saber o código do produto para pedir orçamento.
-                Descreva a aplicação, mande a lista da obra ou a foto da peça que
-                quebrou. A especificação a gente confere junto.
+                Descreva a aplicação, mande a lista da obra ou a foto da peça
+                que quebrou. A especificação a gente confere junto.
               </p>
             </div>
           </div>
@@ -60,7 +61,9 @@ export default function ContatoPage() {
             <div className="mt-10">
               <Suspense
                 fallback={
-                  <p className="text-body-sm text-steel">Carregando formulário...</p>
+                  <p className="text-body-sm text-steel">
+                    Carregando formulário...
+                  </p>
                 }
               >
                 <FormOrcamento />
@@ -76,14 +79,22 @@ export default function ContatoPage() {
               <Button href={orcamentoWhatsapp()} arrow={false}>
                 Chamar no WhatsApp
               </Button>
-              <Button href={`tel:${site.contato.telefoneRaw}`} variant="outline" arrow={false}>
+              <Button
+                href={`tel:${site.contato.telefoneRaw}`}
+                variant="outline"
+                arrow={false}
+              >
                 Ligar {site.contato.telefone}
               </Button>
             </div>
 
             <dl className="border-rule mt-14 border-t">
               <div className="border-rule flex gap-4 border-b py-6">
-                <MapPin aria-hidden className="text-steel mt-1 size-4 shrink-0" strokeWidth={1.5} />
+                <MapPin
+                  aria-hidden
+                  className="text-steel mt-1 size-4 shrink-0"
+                  strokeWidth={1.5}
+                />
                 <div>
                   <dt className="label-tech text-steel">Endereço</dt>
                   <dd className="text-body-sm mt-2.5">
@@ -97,11 +108,18 @@ export default function ContatoPage() {
               </div>
 
               <div className="border-rule flex gap-4 border-b py-6">
-                <Phone aria-hidden className="text-steel mt-1 size-4 shrink-0" strokeWidth={1.5} />
+                <Phone
+                  aria-hidden
+                  className="text-steel mt-1 size-4 shrink-0"
+                  strokeWidth={1.5}
+                />
                 <div>
                   <dt className="label-tech text-steel">Telefone</dt>
                   <dd className="text-body-sm mt-2.5">
-                    <a href={`tel:${site.contato.telefoneRaw}`} className="hover:text-molten">
+                    <a
+                      href={`tel:${site.contato.telefoneRaw}`}
+                      className="hover:text-molten"
+                    >
                       {site.contato.telefone}
                     </a>
                   </dd>
@@ -109,11 +127,18 @@ export default function ContatoPage() {
               </div>
 
               <div className="border-rule flex gap-4 border-b py-6">
-                <Mail aria-hidden className="text-steel mt-1 size-4 shrink-0" strokeWidth={1.5} />
+                <Mail
+                  aria-hidden
+                  className="text-steel mt-1 size-4 shrink-0"
+                  strokeWidth={1.5}
+                />
                 <div>
                   <dt className="label-tech text-steel">E-mail</dt>
                   <dd className="text-body-sm mt-2.5 break-all">
-                    <a href={`mailto:${site.contato.email}`} className="hover:text-molten">
+                    <a
+                      href={`mailto:${site.contato.email}`}
+                      className="hover:text-molten"
+                    >
                       {site.contato.email}
                     </a>
                   </dd>
@@ -121,11 +146,16 @@ export default function ContatoPage() {
               </div>
 
               <div className="border-rule flex gap-4 border-b py-6">
-                <Clock aria-hidden className="text-steel mt-1 size-4 shrink-0" strokeWidth={1.5} />
+                <Clock
+                  aria-hidden
+                  className="text-steel mt-1 size-4 shrink-0"
+                  strokeWidth={1.5}
+                />
                 <div>
                   <dt className="label-tech text-steel">Atendimento</dt>
                   <dd className="text-body-sm text-steel mt-2.5">
-                    {site.contato.horario ?? "Horário comercial, de segunda a sexta."}
+                    {site.contato.horario ??
+                      "Horário comercial, de segunda a sexta."}
                   </dd>
                 </div>
               </div>

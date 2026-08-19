@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Marca provisoria. Desenho geometrico, sem tipografia, para nao depender
+       de fonte no favicon. Remete ao simbolo de valvula do fluxograma de
+       processo: linha atravessando o corpo. Trocar quando o logotipo real
+       da marca chegar. -->
+  <rect width="64" height="64" fill="#100d0a"/>
+  <path d="M14 34 H50" stroke="#efede8" stroke-width="3" stroke-linecap="square"/>
+  <path d="M20 22 L32 34 L20 46 Z" fill="#efede8"/>
+  <path d="M44 22 L32 34 L44 46 Z" fill="#efede8"/>
+  <rect x="28" y="12" width="8" height="8" fill="#c8321e"/>
+  <path d="M32 20 V28" stroke="#efede8" stroke-width="3"/>
+</svg>

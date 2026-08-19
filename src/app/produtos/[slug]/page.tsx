@@ -9,6 +9,7 @@ import { SpecTable, SpecList } from "@/components/ui/spec-table";
 import { Button } from "@/components/ui/button";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { produtos, produtoPorSlug } from "@/content/produtos";
+import { JsonLd, produtoJsonLd, trilhaJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return produtos.map((produto) => ({ slug: produto.slug }));
@@ -25,10 +26,13 @@ export async function generateMetadata({
     title: produto.nome,
     description: `${produto.resumo}. ${produto.destaques.map((d) => `${d.label}: ${d.value}`).join(". ")}.`,
     alternates: { canonical: `/produtos/${produto.slug}` },
+    openGraph: { url: `/produtos/${produto.slug}` },
   };
 }
 
-export default async function ProdutoPage({ params }: PageProps<"/produtos/[slug]">) {
+export default async function ProdutoPage({
+  params,
+}: PageProps<"/produtos/[slug]">) {
   const { slug } = await params;
   const produto = produtoPorSlug(slug);
   if (!produto) notFound();
@@ -39,15 +43,27 @@ export default async function ProdutoPage({ params }: PageProps<"/produtos/[slug
 
   return (
     <>
+      <JsonLd data={produtoJsonLd(produto)} />
+      <JsonLd data={trilhaJsonLd(produto)} />
+
       {/* Cabeçalho da linha. Índice grande à esquerda, nome à direita. */}
       <section className="bg-ink text-paper relative isolate overflow-hidden">
         <div className="blueprint absolute inset-0 -z-10" />
         <Container>
-          <nav aria-label="Trilha" className="border-rule-inv flex items-center gap-2 border-b py-5">
-            <Link href="/produtos" className="label-tech hover:text-molten-2 text-paper/55 transition-none">
+          <nav
+            aria-label="Trilha"
+            className="border-rule-inv flex items-center gap-2 border-b py-5"
+          >
+            <Link
+              href="/produtos"
+              className="label-tech hover:text-molten-2 text-paper/55 transition-none"
+            >
               Produtos
             </Link>
-            <ChevronRight aria-hidden className="size-3 shrink-0 text-paper/35" />
+            <ChevronRight
+              aria-hidden
+              className="size-3 shrink-0 text-paper/35"
+            />
             <span className="label-tech text-paper">{produto.nome}</span>
           </nav>
 
@@ -61,9 +77,14 @@ export default async function ProdutoPage({ params }: PageProps<"/produtos/[slug
               <h1 className="font-display expanded text-h1 font-bold uppercase">
                 {produto.nome}
               </h1>
-              <p className="text-lead mt-8 max-w-[48ch] text-paper/70">{produto.resumo}.</p>
+              <p className="text-lead mt-8 max-w-[48ch] text-paper/70">
+                {produto.resumo}.
+              </p>
               <div className="mt-11 flex flex-wrap gap-3">
-                <Button href={`/contato?produto=${produto.slug}`} variant="inverted">
+                <Button
+                  href={`/contato?produto=${produto.slug}`}
+                  variant="inverted"
+                >
                   Orçamento desta linha
                 </Button>
               </div>
@@ -114,8 +135,15 @@ export default async function ProdutoPage({ params }: PageProps<"/produtos/[slug
                 <LabelRule>Materiais</LabelRule>
                 <ul className="mt-5 space-y-2.5">
                   {produto.materiais.map((material) => (
-                    <li key={material} className="text-body-sm text-steel flex gap-2.5">
-                      <Check aria-hidden className="text-molten mt-1 size-3.5 shrink-0" strokeWidth={2.5} />
+                    <li
+                      key={material}
+                      className="text-body-sm text-steel flex gap-2.5"
+                    >
+                      <Check
+                        aria-hidden
+                        className="text-molten mt-1 size-3.5 shrink-0"
+                        strokeWidth={2.5}
+                      />
                       {material}
                     </li>
                   ))}
@@ -168,9 +196,9 @@ export default async function ProdutoPage({ params }: PageProps<"/produtos/[slug
                 />
               </div>
               <p className="text-body-sm text-steel mt-6 max-w-[60ch]">
-                Faixas de referência. Modelos e bitolas fora desta tabela costumam estar
-                disponíveis sob consulta. Confirme a especificação com a nossa equipe
-                antes de fechar o pedido.
+                Faixas de referência. Modelos e bitolas fora desta tabela
+                costumam estar disponíveis sob consulta. Confirme a
+                especificação com a nossa equipe antes de fechar o pedido.
               </p>
             </div>
 

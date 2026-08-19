@@ -41,10 +41,12 @@ export default function Styleguide() {
     <div>
       <Container as="header" className="py-20">
         <LabelRule>Documento interno, não indexado</LabelRule>
-        <h1 className="font-display expanded text-h1 mt-8 uppercase">Styleguide</h1>
+        <h1 className="font-display expanded text-h1 mt-8 uppercase">
+          Styleguide
+        </h1>
         <p className="text-lead text-steel mt-6 max-w-[46ch]">
-          Fundação visual do site da Scai do Sul. Base clara, tinta grafite quente, um
-          acento fundido usado com economia.
+          Fundação visual do site da Scai do Sul. Base clara, tinta grafite
+          quente, um acento fundido usado com economia.
         </p>
       </Container>
 
@@ -85,9 +87,9 @@ export default function Styleguide() {
           <div className="border-rule grid grid-cols-12 gap-x-6 border-t pt-6">
             <Label className="col-span-12 md:col-span-2">corpo</Label>
             <p className="text-body-lg col-span-12 max-w-[52ch] md:col-span-10">
-              Distribuímos válvulas, flanges, conexões e instrumentação para indústria e
-              saneamento. Especificação conferida antes do orçamento, para o material
-              chegar certo na primeira vez.
+              Distribuímos válvulas, flanges, conexões e instrumentação para
+              indústria e saneamento. Especificação conferida antes do
+              orçamento, para o material chegar certo na primeira vez.
             </p>
           </div>
 
@@ -123,17 +125,22 @@ export default function Styleguide() {
         intro="A grade de borda compartilhada é o dispositivo estrutural mais limpo disponível, e custa nada."
       >
         <div className="bg-rule grid grid-cols-1 gap-px md:grid-cols-3">
-          {["Válvulas de esfera", "Válvulas borboleta", "Conexões maleáveis"].map(
-            (t, i) => (
-              <div key={t} className="bg-paper p-8">
-                <Label>{"O" + (i + 1)}</Label>
-                <h3 className="font-display expanded text-h4 mt-5 uppercase">{t}</h3>
-                <p className="text-body-sm text-steel mt-4 max-w-[34ch]">
-                  Os cards não têm borda própria. As frestas da grade é que são as linhas.
-                </p>
-              </div>
-            ),
-          )}
+          {[
+            "Válvulas de esfera",
+            "Válvulas borboleta",
+            "Conexões maleáveis",
+          ].map((t, i) => (
+            <div key={t} className="bg-paper p-8">
+              <Label>{"O" + (i + 1)}</Label>
+              <h3 className="font-display expanded text-h4 mt-5 uppercase">
+                {t}
+              </h3>
+              <p className="text-body-sm text-steel mt-4 max-w-[34ch]">
+                Os cards não têm borda própria. As frestas da grade é que são as
+                linhas.
+              </p>
+            </div>
+          ))}
         </div>
 
         <Rule className="my-16" />

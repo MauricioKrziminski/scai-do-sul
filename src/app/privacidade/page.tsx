@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Como a Metalúrgica Scai do Sul trata os dados pessoais coletados pelo site, conforme a Lei Geral de Proteção de Dados.",
   alternates: { canonical: "/privacidade" },
+  openGraph: { url: "/privacidade" },
   robots: { index: true, follow: true },
 };
 
@@ -89,8 +90,9 @@ export default function PrivacidadePage() {
                 Política de privacidade
               </h1>
               <p className="text-lead text-steel mt-8 max-w-[52ch]">
-                Em resumo: coletamos só o que você digita no formulário, usamos só para
-                responder o seu pedido de orçamento, e não repassamos para ninguém.
+                Em resumo: coletamos só o que você digita no formulário, usamos
+                só para responder o seu pedido de orçamento, e não repassamos
+                para ninguém.
               </p>
             </div>
           </div>

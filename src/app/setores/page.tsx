@@ -14,12 +14,13 @@ export const metadata: Metadata = {
   description:
     "Siderurgia, metalurgia, química, petroquímica, refinarias, usinas, alimentícia e saneamento. Válvulas e conexões especificadas para cada tipo de planta.",
   alternates: { canonical: "/setores" },
+  openGraph: { url: "/setores" },
 };
 
 /** Liga o nome da linha citada no setor à página real do produto. */
 function linkDaLinha(nome: string) {
-  const produto = produtos.find(
-    (p) => p.nome.toLowerCase().startsWith(nome.toLowerCase().slice(0, 14)),
+  const produto = produtos.find((p) =>
+    p.nome.toLowerCase().startsWith(nome.toLowerCase().slice(0, 14)),
   );
   return produto ? `/produtos/${produto.slug}` : "/produtos";
 }
@@ -41,10 +42,11 @@ export default function SetoresPage() {
                 material <span className="text-molten-2">trabalha</span>
               </h1>
               <p className="text-lead mt-9 max-w-[54ch] text-paper/70">
-                Cada planta tem uma exigência diferente. O que resolve numa linha de
-                água bruta não serve numa linha de produto químico, e o que passa na
-                vistoria do Corpo de Bombeiros não é o mesmo que passa numa auditoria
-                sanitária. É isso que a especificação define.
+                Cada planta tem uma exigência diferente. O que resolve numa
+                linha de água bruta não serve numa linha de produto químico, e o
+                que passa na vistoria do Corpo de Bombeiros não é o mesmo que
+                passa numa auditoria sanitária. É isso que a especificação
+                define.
               </p>
             </div>
           </div>
