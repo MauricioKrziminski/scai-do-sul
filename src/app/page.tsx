@@ -1,69 +1,233 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
+import { Ticker } from "@/components/ui/ticker";
+import { Stat } from "@/components/ui/stat";
+import { Figure } from "@/components/ui/figure";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Hero } from "@/components/sections/hero";
+import { LinhasProduto } from "@/components/sections/linhas-produto";
+import { Marcas } from "@/components/sections/marcas";
+import { Processo } from "@/components/sections/processo";
+import { CtaOrcamento } from "@/components/sections/cta-orcamento";
+import { setores } from "@/content/setores";
+import { produtos } from "@/content/produtos";
+import { marcas } from "@/content/marcas";
+import { site, anosDeCasa } from "@/content/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <Hero />
+
+      <Ticker
+        items={[
+          `Desde ${site.fundacao}`,
+          "DN 15 a 600",
+          "PN 10 a PN 40",
+          "ANSI 150#",
+          "Ferro nodular · Bronze · Inox 316",
+          "Porto Alegre RS",
+        ]}
+      />
+
+      {/* 01 · A tese. Quem é a empresa, em uma frase que ninguém mais pode dizer. */}
+      <Section
+        index="01"
+        label="A empresa"
+        title={`${anosDeCasa} anos especificando válvula e conexão`}
+        intro={
+          <>
+            <p>
+              A Scai do Sul abriu as portas em janeiro de {site.fundacao}, na Avenida
+              Cairú, e nunca saiu de lá. Meio século no mesmo endereço, atendendo a
+              indústria gaúcha e enviando material para todo o Brasil.
+            </p>
+            <p className="mt-6">
+              Não somos loja de catálogo. Somos distribuidora técnica: trabalhamos as
+              marcas que a indústria já especifica, mantemos linha própria SCAI e
+              conferimos a especificação junto com você antes de fechar o pedido.
+            </p>
+          </>
+        }
+        action={
+          <Button href="/empresa" variant="outline">
+            Conheça a empresa
+          </Button>
+        }
+      >
+        <div className="grid grid-cols-12 gap-x-6 gap-y-8">
+          <div className="col-span-12 md:col-span-7">
+            <Figure
+              ratio="16/9"
+              alt="Fachada da Metalúrgica Scai do Sul na Avenida Cairú"
+              label="Fachada · Av. Cairú, 525"
+              caption="Porto Alegre RS · desde 1975"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          {/* Alinhado embaixo de proposito. Duas imagens de altura diferente
+              travadas no topo deixam um buraco; travadas na base, viram
+              composicao. */}
+          <div className="col-span-12 md:col-span-4 md:col-start-9 md:self-end">
+            <Figure
+              ratio="4/3"
+              alt="Estoque de válvulas e conexões"
+              label="Estoque · prateleira de conexões"
+              caption="Pronta entrega"
+            />
+          </div>
         </div>
-      </main>
-    </div>
+      </Section>
+
+      {/* 02 · O ponto central do projeto, conforme pedido do cliente. */}
+      <Section
+        index="02"
+        label="Linhas de produto"
+        title="Nove linhas, cada uma com página própria"
+        intro="Diâmetro, classe de pressão, material e aplicação de cada linha, para você achar o item e pedir orçamento sem precisar ligar antes só para saber se trabalhamos com aquilo."
+        action={
+          <Button href="/produtos" variant="outline">
+            Ver todas as linhas
+          </Button>
+        }
+        bleed
+      >
+        <Container>
+          <LinhasProduto />
+        </Container>
+      </Section>
+
+      {/* 03 · Prova de portfólio que o site atual não mostra. */}
+      <Section
+        index="03"
+        label="Marcas"
+        title="As marcas que a indústria já conhece"
+        intro={`Representamos ${marcas.length} marcas de válvulas, conexões e isolamento, além da linha própria SCAI. Procedência importa: peça sem origem clara é a que falha primeiro.`}
+      >
+        <Marcas />
+      </Section>
+
+      {/* 04 · Parede de numerais. Contraste extremo de escala. */}
+      <Section inverted className="py-section-lg">
+        <div className="grid grid-cols-1 gap-px bg-rule-inv md:grid-cols-2 lg:grid-cols-4">
+          <Stat
+            inverted
+            value={String(anosDeCasa)}
+            suffix=" anos"
+            label="De mercado"
+            note={`Aberta em 2 de janeiro de ${site.fundacao}, no mesmo endereço até hoje.`}
+            className="bg-ink px-1"
+          />
+          <Stat
+            inverted
+            value={String(produtos.length)}
+            label="Linhas de produto"
+            note="Cada uma com especificação, aplicação e página própria."
+            className="bg-ink px-1"
+          />
+          <Stat
+            inverted
+            value={String(marcas.length)}
+            label="Marcas representadas"
+            note="Mais a linha própria SCAI, desenvolvida pela casa."
+            className="bg-ink px-1"
+          />
+          <Stat
+            inverted
+            value="600"
+            suffix=" DN"
+            label="Diâmetro máximo"
+            note="De DN 15 a DN 600, nas classes PN 10 a PN 40."
+            className="bg-ink px-1"
+          />
+        </div>
+      </Section>
+
+      {/* 05 · Setores. Ajuda o visitante a se reconhecer. */}
+      <Section
+        index="04"
+        label="Setores atendidos"
+        title="Onde nosso material trabalha"
+        intro="Siderúrgicas, metalúrgicas, químicas, petroquímicas, refinarias, usinas e alimentícias. Se a sua planta se parece com alguma dessas, provavelmente já atendemos alguém parecido com você."
+        action={
+          <Button href="/setores" variant="outline">
+            Ver todos os setores
+          </Button>
+        }
+      >
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12">
+          <div className="col-span-12 lg:col-span-5">
+            <Figure
+              ratio="4/3"
+              alt="Tubulação industrial com válvulas instaladas"
+              label="Planta industrial · tubulação com válvulas"
+              caption="Aplicação em campo"
+            />
+          </div>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+            <ul className="border-rule border-t">
+              {setores.slice(0, 6).map((setor) => (
+                <li key={setor.slug} className="border-rule border-b">
+                  <Link
+                    href="/setores"
+                    className="hover:bg-ink hover:text-paper group flex items-baseline justify-between gap-6 py-6 transition-none"
+                  >
+                    <span className="font-display semi-expanded text-h5 font-bold uppercase">
+                      {setor.nome}
+                    </span>
+                    <span className="label-tech text-steel group-hover:text-molten-2 shrink-0">
+                      {setor.linhas.length} linhas
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* 06 · Como comprar. Índice numerado. */}
+      <Section
+        index="05"
+        label="Como comprar"
+        title="Do pedido à entrega, em quatro passos"
+        intro="Você não precisa saber o código do produto para pedir orçamento. Precisa saber o problema. O resto a gente especifica junto."
+        bleed
+      >
+        <Container>
+          <Processo />
+        </Container>
+      </Section>
+
+      {/* Bloco de localização, antes do fechamento. */}
+      <section className="border-rule bg-paper-2 border-t">
+        <Container>
+          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
+            <div className="col-span-12 md:col-span-3">
+              <Label>Onde estamos</Label>
+            </div>
+            <div className="col-span-12 md:col-span-8 md:col-start-5">
+              <p className="font-display semi-expanded text-h3 font-bold uppercase">
+                {site.contato.endereco.logradouro}
+                <br />
+                {site.contato.endereco.bairro}, {site.contato.endereco.cidade}{" "}
+                {site.contato.endereco.uf}
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button href={site.maps} variant="outline" arrow={false}>
+                  Abrir no Google Maps
+                </Button>
+                <Button href="/contato" variant="outline">
+                  Página de contato
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <CtaOrcamento />
+    </>
   );
 }

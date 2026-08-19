@@ -100,13 +100,20 @@
   color-scheme: light only;
 }
 
+/* Sem scroll-behavior: smooth. O cliente comprou um site sem animacao, e
+   rolagem animada e animacao. Ancora salta direto, como deve. */
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
+/* Nao ha movimento no site, mas a declaracao fica: transforma a ausencia de
+   animacao de restricao de orcamento em posicao de acessibilidade. */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
