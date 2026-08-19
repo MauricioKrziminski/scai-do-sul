@@ -8,6 +8,7 @@ import { Ticker } from "@/components/ui/ticker";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { setores } from "@/content/setores";
 import { produtos } from "@/content/produtos";
+import { FaixaHero } from "@/components/sections/faixa-hero";
 
 export const metadata: Metadata = {
   title: "Setores atendidos",
@@ -28,30 +29,19 @@ function linkDaLinha(nome: string) {
 export default function SetoresPage() {
   return (
     <>
-      <section className="bg-ink text-paper relative isolate overflow-hidden">
-        <div className="blueprint absolute inset-0 -z-10" />
-        <Container>
-          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section-lg">
-            <div className="col-span-12 md:col-span-3">
-              <Label inverted>Setores · {setores.length} mercados</Label>
-            </div>
-            <div className="col-span-12 md:col-span-9">
-              <h1 className="font-display expanded text-h1 font-bold uppercase">
-                Onde nosso
-                <br />
-                material <span className="text-brand">trabalha</span>
-              </h1>
-              <p className="text-lead mt-9 max-w-[54ch] text-paper/70">
-                Cada planta tem uma exigência diferente. O que resolve numa
-                linha de água bruta não serve numa linha de produto químico, e o
-                que passa na vistoria do Corpo de Bombeiros não é o mesmo que
-                passa numa auditoria sanitária. É isso que a especificação
-                define.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FaixaHero
+        alto
+        fotoLabel="Planta industrial, tubulação com válvulas"
+        rotulo={`Setores · ${setores.length} mercados`}
+        titulo={
+          <>
+            Onde nosso
+            <br />
+            material <span className="text-brand">trabalha</span>
+          </>
+        }
+        texto="Cada planta tem uma exigência diferente. O que resolve numa linha de água bruta não serve numa linha de produto químico, e o que passa na vistoria do Corpo de Bombeiros não é o mesmo que passa numa auditoria sanitária. É isso que a especificação define."
+      />
 
       <Ticker
         items={[

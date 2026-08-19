@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Label } from "@/components/ui/label";
 import { Ticker } from "@/components/ui/ticker";
 import { LinhasProduto } from "@/components/sections/linhas-produto";
 import { Processo } from "@/components/sections/processo";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { produtos } from "@/content/produtos";
 import { marcas } from "@/content/marcas";
+import { FaixaHero } from "@/components/sections/faixa-hero";
 
 export const metadata: Metadata = {
   title: "Linhas de produto",
@@ -20,27 +20,12 @@ export const metadata: Metadata = {
 export default function ProdutosPage() {
   return (
     <>
-      <section className="bg-ink text-paper relative isolate overflow-hidden">
-        <div className="blueprint absolute inset-0 -z-10" />
-        <Container>
-          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
-            <div className="col-span-12 md:col-span-3">
-              <Label inverted>Catálogo · {produtos.length} linhas</Label>
-            </div>
-            <div className="col-span-12 md:col-span-8 md:col-start-5">
-              <h1 className="font-display expanded text-h1 font-bold uppercase">
-                Linhas de produto
-              </h1>
-              <p className="text-lead mt-8 max-w-[52ch] text-paper/70">
-                Cada linha tem página própria, com diâmetro, classe de pressão,
-                material, aplicação e as marcas que trabalhamos nela. Se o item
-                que você procura não aparecer aqui, pergunte mesmo assim: boa
-                parte do estoque é de reposição e não cabe em nove categorias.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FaixaHero
+        fotoLabel="Estoque, prateleira de válvulas"
+        rotulo={`Catálogo · ${produtos.length} linhas`}
+        titulo="Linhas de produto"
+        texto="Cada linha tem página própria, com diâmetro, classe de pressão, material, aplicação e as marcas que trabalhamos nela. Se o item que você procura não aparecer aqui, pergunte mesmo assim: boa parte do estoque é de reposição e não cabe em nove categorias."
+      />
 
       <Ticker
         items={[

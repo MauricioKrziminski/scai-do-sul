@@ -12,6 +12,7 @@ import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { site, anosDeCasa, enderecoLinha } from "@/content/site";
 import { produtos } from "@/content/produtos";
 import { marcas } from "@/content/marcas";
+import { FaixaHero } from "@/components/sections/faixa-hero";
 
 export const metadata: Metadata = {
   title: "A empresa",
@@ -51,29 +52,19 @@ const PILARES = [
 export default function EmpresaPage() {
   return (
     <>
-      <section className="bg-ink text-paper relative isolate overflow-hidden">
-        <div className="blueprint absolute inset-0 -z-10" />
-        <Container>
-          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section-lg">
-            <div className="col-span-12 md:col-span-3">
-              <Label inverted>A empresa · desde {site.fundacao}</Label>
-            </div>
-            <div className="col-span-12 md:col-span-9">
-              <h1 className="font-display expanded text-h1 font-bold uppercase">
-                Meio século
-                <br />
-                na Avenida <span className="text-brand">Cairú</span>
-              </h1>
-              <p className="text-lead mt-9 max-w-[54ch] text-paper/70">
-                A Scai do Sul abriu as portas em 2 de janeiro de {site.fundacao}{" "}
-                e nunca mudou de endereço. São {anosDeCasa} anos no mercado de
-                válvulas e conexões, atendendo a indústria gaúcha e enviando
-                material para todo o Brasil.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FaixaHero
+        alto
+        fotoLabel="Fachada, Av. Cairú 525"
+        rotulo={`A empresa · desde ${site.fundacao}`}
+        titulo={
+          <>
+            Meio século
+            <br />
+            na Avenida <span className="text-brand">Cairú</span>
+          </>
+        }
+        texto={`A Scai do Sul abriu as portas em 2 de janeiro de ${site.fundacao} e nunca mudou de endereço. São ${anosDeCasa} anos no mercado de válvulas e conexões, atendendo a indústria gaúcha e enviando material para todo o Brasil.`}
+      />
 
       <Ticker
         items={[

@@ -21,10 +21,13 @@
   --color-paper-2: #e4e6df;
   --color-paper-3: #d9dcd3;
 
-  /* Quase preto tintado de verde, nunca #000. */
-  --color-ink: #0d120c;
-  --color-ink-2: #161c15;
-  --color-ink-3: #212a20;
+  /* Verde fundo da marca. Nao e preto tintado: e verde de verdade, escuro o
+     bastante para manter o peso industrial e para o verde do logo continuar
+     legivel em cima (5.07:1). O verde do site temporario, #1b4b33, foi
+     descartado porque ali o logo cai para 3.32:1 e reprova. */
+  --color-ink: #122a1e;
+  --color-ink-2: #1a3a2a;
+  --color-ink-3: #24503a;
 
   /* Cinzas neutralizados na mesma matiz. 4.96:1 sobre o papel. */
   --color-steel: #626760;
@@ -37,8 +40,8 @@
   --color-brand-deep: #2a6f2a;
 
   /* Reguas. Fio de cabelo sobre claro e sobre escuro. */
-  --color-rule: rgb(13 18 12 / 0.14);
-  --color-rule-strong: rgb(13 18 12 / 0.28);
+  --color-rule: rgb(18 42 30 / 0.16);
+  --color-rule-strong: rgb(18 42 30 / 0.30);
   --color-rule-inv: rgb(237 238 232 / 0.16);
   --color-rule-inv-strong: rgb(237 238 232 / 0.32);
 

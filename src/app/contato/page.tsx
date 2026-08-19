@@ -8,6 +8,7 @@ import { Ticker } from "@/components/ui/ticker";
 import { FormOrcamento } from "@/components/sections/form-orcamento";
 import { site, enderecoLinha } from "@/content/site";
 import { orcamentoWhatsapp } from "@/lib/whatsapp";
+import { FaixaHero } from "@/components/sections/faixa-hero";
 
 export const metadata: Metadata = {
   title: "Contato e orçamento",
@@ -21,28 +22,18 @@ export default function ContatoPage() {
 
   return (
     <>
-      <section className="bg-ink text-paper relative isolate overflow-hidden">
-        <div className="blueprint absolute inset-0 -z-10" />
-        <Container>
-          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
-            <div className="col-span-12 md:col-span-3">
-              <Label inverted>Contato e orçamento</Label>
-            </div>
-            <div className="col-span-12 md:col-span-9">
-              <h1 className="font-display expanded text-h1 font-bold uppercase">
-                Fale com quem
-                <br />
-                <span className="text-brand">especifica</span>
-              </h1>
-              <p className="text-lead mt-9 max-w-[52ch] text-paper/70">
-                Você não precisa saber o código do produto para pedir orçamento.
-                Descreva a aplicação, mande a lista da obra ou a foto da peça
-                que quebrou. A especificação a gente confere junto.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FaixaHero
+        fotoLabel="Balcão de atendimento"
+        rotulo="Contato e orçamento"
+        titulo={
+          <>
+            Fale com quem
+            <br />
+            <span className="text-brand">especifica</span>
+          </>
+        }
+        texto="Você não precisa saber o código do produto para pedir orçamento. Descreva a aplicação, mande a lista da obra ou a foto da peça que quebrou. A especificação a gente confere junto."
+      />
 
       <Ticker
         items={[

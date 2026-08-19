@@ -190,7 +190,7 @@ extraído do arquivo: **#42a940**, que ocupa 73,6% dos pixels. A marca é verde 
 
 ```
 --color-paper       #edeee8   papel, levemente puxado para o verde
---color-ink         #0d120c   quase preto TINTADO DE VERDE, nunca #000
+--color-ink         #122a1e   verde fundo da marca, nunca preto
 --color-steel       #626760   texto secundário, mesma matiz
 --color-brand       #42a940   verde exato do logotipo, SÓ sobre escuro
 --color-brand-deep  #2a6f2a   versão funda, para texto e ícone sobre o papel
@@ -200,9 +200,14 @@ extraído do arquivo: **#42a940**, que ocupa 73,6% dos pixels. A marca é verde 
 **Duas cores mais um acento, nunca três.** O verde aparece em estado ativo, seta de
 chamada, índice de seção e numeral. Nada além disso.
 
-> **Os escuros são tintados de verde de propósito.** É o mesmo truque que o iCOMAT usa
-> puxando os pretos para o azul: `#0d120c` é o preto deslocado para a matiz da marca.
-> É o que faz o site pertencer ao logotipo sem virar um site verde.
+> **O escuro é verde de verdade, não preto tintado.** `#122a1e` é escuro o bastante
+> para manter o peso industrial e claro o bastante para o verde do logo continuar
+> legível em cima (5.07:1).
+>
+> O verde do site temporário do Lovable, `#1b4b33`, foi testado e descartado: ali o
+> verde do logo cai para 3.32:1 e reprova, o que obrigaria os destaques a virarem
+> brancos, exatamente como o Lovable fez. A marca perderia presença nos números e
+> índices.
 
 > **REGRA CRÍTICA: nunca usar `--color-brand` como texto sobre o papel.** O verde puro
 > dá 2.57:1 ali, e reprova. Sobre o escuro ele dá 6.30:1 e é o certo. Para texto sobre
@@ -229,10 +234,20 @@ chamada, índice de seção e numeral. Nada além disso.
 
 ### Imagens
 
-Componente único `Figure` em `src/components/ui/figure.tsx`, com `src` opcional. Sem
-`src`, renderiza o placeholder de marca: bloco escuro com grade de projeto, hachura
-diagonal, marcas de canto e rótulo mono dizendo qual foto entra ali. Zero bytes de
-rede, e numa reunião lê como ficha técnica em vez de imagem quebrada.
+> **REGRA: grade quadriculada significa foto pendente. Sempre.** Não existe grade
+> decorativa no projeto. Todo lugar onde ela aparece está esperando imagem, e some
+> quando a foto chegar. Se precisar de textura que não vira foto, use outra coisa.
+
+Dois componentes, mesma lógica:
+
+- `Figure` (`src/components/ui/figure.tsx`) para imagem dentro do conteúdo, com
+  legenda mono. Sem `src`, mostra o placeholder de marca: bloco escuro com grade de
+  projeto, hachura diagonal, marcas de canto e rótulo nomeando a foto que entra ali.
+- `MidiaFundo` (`src/components/ui/midia-fundo.tsx`) para fundo de faixa escura,
+  usado pelo `Hero` da home e pelo `FaixaHero` de todas as páginas internas. Com
+  `src`, entra a foto em duotone com gradiente por cima; sem, entra a grade.
+
+Zero bytes de rede, e numa reunião lê como ficha técnica em vez de imagem quebrada.
 
 **Proibido:** `source.unsplash.com` (morto desde 2024, retorna 503), foto de banco
 aleatória (o cliente passa a reunião discutindo a foto em vez do design) e imagem
@@ -320,6 +335,9 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Paleta refeita sobre o verde #42a940 do logotipo | O logo chegou. O laranja provisório saiu e a marca entrou. Escuros tintados de verde para o site pertencer ao logotipo |
 | 2026-08-19 | Duas versões do verde, `brand` e `brand-deep` | O verde do logo reprova em contraste sobre fundo claro (2.57:1). A versão funda resolve sem perder a matiz da marca |
 | 2026-08-19 | Pictograma redesenhado em SVG | O arquivo do logo é PNG de 225px com fundo chapado. Não escala e não recolore. O vetor usa `currentColor` e serve de favicon |
+| 2026-08-19 | Escuro passou de quase preto para verde fundo `#122a1e` | O Mauricio achou o quase preto severo demais. Testadas quatro variações na tela real. O `#1b4b33` do Lovable foi descartado por quebrar o acento |
+| 2026-08-19 | Todo cabeçalho escuro aceita foto | Antes as páginas internas tinham grade permanente, com a mesma aparência do placeholder. Duas linguagens iguais com sentidos diferentes confundem. Agora a grade só significa foto pendente |
+| 2026-08-19 | Card de linha de produto ganhou foto | Num catálogo o comprador varre por imagem antes de ler. Card só tipográfico obriga a ler para achar a linha |
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |
 | 2026-08-19 | Placeholder de marca em CSS, sem foto de banco | Numa reunião lê como ficha técnica, e o cliente vê exatamente qual foto ele ainda deve |

@@ -107,7 +107,9 @@ export default function PrivacidadePage() {
               className="border-rule grid grid-cols-12 gap-x-6 gap-y-6 border-b py-12 last:border-b-0"
             >
               <div className="col-span-12 flex items-baseline gap-4 md:col-span-3">
-                <span className="label-tech text-brand-deep">{secao.indice}</span>
+                <span className="label-tech text-brand-deep">
+                  {secao.indice}
+                </span>
                 <h2 className="font-display semi-expanded text-h5 font-bold uppercase">
                   {secao.titulo}
                 </h2>

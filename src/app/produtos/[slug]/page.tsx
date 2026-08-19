@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { CtaOrcamento } from "@/components/sections/cta-orcamento";
 import { produtos, produtoPorSlug } from "@/content/produtos";
 import { JsonLd, produtoJsonLd, trilhaJsonLd } from "@/lib/seo";
+import { FaixaHero, TiraDados } from "@/components/sections/faixa-hero";
 
 export function generateStaticParams() {
   return produtos.map((produto) => ({ slug: produto.slug }));
@@ -46,14 +47,16 @@ export default async function ProdutoPage({
       <JsonLd data={produtoJsonLd(produto)} />
       <JsonLd data={trilhaJsonLd(produto)} />
 
-      {/* Cabeçalho da linha. Índice grande à esquerda, nome à direita. */}
-      <section className="bg-ink text-paper relative isolate overflow-hidden">
-        <div className="blueprint absolute inset-0 -z-10" />
-        <Container>
-          <nav
-            aria-label="Trilha"
-            className="border-rule-inv flex items-center gap-2 border-b py-5"
-          >
+      {/* Cabeçalho da linha. Índice grande à esquerda, nome à direita.
+          A faixa aceita foto de fundo: enquanto não chega, mostra a grade,
+          que no site inteiro significa foto pendente. */}
+      <FaixaHero
+        fotoLabel={produto.fotoLabel}
+        numeral={produto.indice}
+        titulo={produto.nome}
+        texto={`${produto.resumo}.`}
+        trilha={
+          <nav aria-label="Trilha" className="flex items-center gap-2 py-5">
             <Link
               href="/produtos"
               className="label-tech hover:text-brand text-paper/55 transition-none"
@@ -66,58 +69,14 @@ export default async function ProdutoPage({
             />
             <span className="label-tech text-paper">{produto.nome}</span>
           </nav>
-
-          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
-            <div className="col-span-12 md:col-span-3">
-              <span className="font-display condensed text-numeral text-brand block leading-none font-bold">
-                {produto.indice}
-              </span>
-            </div>
-            <div className="col-span-12 md:col-span-8 md:col-start-5">
-              <h1 className="font-display expanded text-h1 font-bold uppercase">
-                {produto.nome}
-              </h1>
-              <p className="text-lead mt-8 max-w-[48ch] text-paper/70">
-                {produto.resumo}.
-              </p>
-              <div className="mt-11 flex flex-wrap gap-3">
-                <Button
-                  href={`/contato?produto=${produto.slug}`}
-                  variant="inverted"
-                >
-                  Orçamento desta linha
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Container>
-
-        {/* Ficha resumida, direto sob o título. Dado técnico antes de qualquer
-            texto de venda. */}
-        <div className="border-rule-inv border-t">
-          <Container>
-            <dl className="grid grid-cols-2 md:grid-cols-4">
-              {produto.destaques.map((item, i) => (
-                <div
-                  key={item.label}
-                  className={
-                    "border-rule-inv py-7 " +
-                    (i % 2 === 1 ? "border-l pl-6 " : "") +
-                    (i >= 2 ? "border-t md:border-t-0 " : "") +
-                    (i === 2 ? "md:border-l md:pl-6 " : "") +
-                    (i === 3 ? "md:pl-6 " : "")
-                  }
-                >
-                  <dt className="label-tech text-paper/55">{item.label}</dt>
-                  <dd className="font-display semi-expanded text-h5 mt-3 font-bold uppercase">
-                    {item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Container>
-        </div>
-      </section>
+        }
+        acoes={
+          <Button href={`/contato?produto=${produto.slug}`} variant="inverted">
+            Orçamento desta linha
+          </Button>
+        }
+        rodape={<TiraDados itens={produto.destaques} />}
+      />
 
       <Container>
         <div className="grid grid-cols-12 gap-x-6 gap-y-16 py-section">
