@@ -65,40 +65,53 @@ export default function EmpresaPage() {
         texto={`A Scai do Sul abriu as portas em 2 de janeiro de ${site.fundacao} e nunca mudou de endereço. São ${anosDeCasa} anos no mercado de válvulas e conexões, atendendo a indústria gaúcha e enviando material para todo o Brasil.`}
       />
 
-      <Section
-        index="01"
-        label="Quem somos"
-        title="Distribuidora técnica, não loja de catálogo"
-        intro={
-          <>
-            <p>
-              A diferença aparece no atendimento. Loja de catálogo vende o que
-              está na tabela. Distribuidora técnica entende o que a sua linha
-              precisa, confere a especificação e só então cota.
-            </p>
-            <p className="mt-6">
-              Nas nossas palavras desde sempre: temos longa tradição no comércio
-              de materiais industriais, atendendo às necessidades de diferentes
-              tipos de indústria, com compromisso na satisfação do cliente e
-              respeito aos prazos acordados.
-            </p>
-          </>
-        }
-      >
-        {/* Uma foto só, ocupando a largura toda. Com duas, a segunda coluna
-            equilibrava a composição; sozinha num terço da grade a imagem
-            ficaria encolhida com um vão de quatro colunas ao lado, que leria
-            como esquecimento e não como respiro. */}
-        <Figure
-          ratio="16/9"
-          alt="Placa da Metalúrgica Scai do Sul na Avenida Cairú, com as marcas representadas"
-          src="/img/scai-sul-local.jpg"
-          posicao="50% 34%"
-          sizes="(max-width: 768px) 100vw, 92vw"
-          label="Fachada · Av. Cairú, 525"
-          caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
-        />
-      </Section>
+      {/* Foto e texto lado a lado, em vez de titulo em cima e imagem larga
+          embaixo. Em largura total a placa dominava a pagina inteira; num
+          bloco de cinco colunas ela tem presenca sem virar o assunto.
+          O recorte em 16/9 tira ceu e muro vazio, que e o que sobra na foto
+          original em 4/3, e devolve presenca para a placa. */}
+      <section className="border-rule py-section border-t">
+        <Container>
+          <div className="grid grid-cols-12 items-center gap-x-6 gap-y-12">
+            <div className="col-span-12 md:col-span-5">
+              <Figure
+                ratio="16/9"
+                alt="Placa da Metalúrgica Scai do Sul na Avenida Cairú, com as marcas representadas"
+                src="/img/scai-sul-local.jpg"
+                posicao="50% 38%"
+                sizes="(max-width: 768px) 100vw, 42vw"
+                label="Fachada · Av. Cairú, 525"
+                caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
+              />
+            </div>
+
+            <div className="col-span-12 md:col-span-6 md:col-start-7">
+              <div className="flex items-baseline gap-3">
+                <span className="label-tech text-brand-deep">01</span>
+                <Label>Quem somos</Label>
+              </div>
+
+              <h2 className="font-display expanded text-h2 mt-7 uppercase">
+                Distribuidora técnica, não loja de catálogo
+              </h2>
+
+              <div className="text-body-lg text-steel mt-8 max-w-[52ch]">
+                <p>
+                  A diferença aparece no atendimento. Loja de catálogo vende o
+                  que está na tabela. Distribuidora técnica entende o que a sua
+                  linha precisa, confere a especificação e só então cota.
+                </p>
+                <p className="mt-6">
+                  Nas nossas palavras desde sempre: temos longa tradição no
+                  comércio de materiais industriais, atendendo às necessidades
+                  de diferentes tipos de indústria, com compromisso na
+                  satisfação do cliente e respeito aos prazos acordados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <Section
         index="02"
