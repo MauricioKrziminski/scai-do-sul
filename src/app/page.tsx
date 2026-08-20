@@ -41,6 +41,7 @@ export default function Home() {
             </p>
           </>
         }
+        actionLabel={`Fundada em ${site.fundacao}, no mesmo endereço`}
         action={
           <Button href="/empresa" variant="outline">
             Conheça a empresa
@@ -85,6 +86,7 @@ export default function Home() {
         label="Linhas de produto"
         title="Nove linhas, cada uma com página própria"
         intro="Diâmetro, classe de pressão, material e aplicação de cada linha, para você achar o item e pedir orçamento sem precisar ligar antes só para saber se trabalhamos com aquilo."
+        actionLabel={`Mais ${produtos.length - 6} linhas no catálogo`}
         action={
           <Button href="/produtos" variant="outline">
             Ver todas as linhas
@@ -153,6 +155,7 @@ export default function Home() {
         label="Setores atendidos"
         title="Onde nosso material trabalha"
         intro="Siderúrgicas, metalúrgicas, químicas, petroquímicas, refinarias, usinas e alimentícias. Se a sua planta se parece com alguma dessas, provavelmente já atendemos alguém parecido com você."
+        actionLabel={`Mais ${setores.length - 6} setores atendidos`}
         action={
           <Button href="/setores" variant="outline">
             Ver todos os setores

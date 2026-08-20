@@ -10,6 +10,11 @@ import { Label } from "./label";
  * A acao fica DEPOIS do conteudo, nao junto do titulo. "Ver todas as linhas"
  * antes de mostrar as linhas nao faz sentido: o botao e a saida da secao, e
  * so faz sentido depois que a pessoa viu o que tem ali.
+ *
+ * E fica ancorada num fio de cabelo, com um dado a esquerda, formando um
+ * rodape de secao. Solto no meio do vazio o botao parecia esquecido ali; a
+ * regua da a ele uma linha de base e o rotulo da a ele companhia. E a mesma
+ * logica de LabelRule, que o site ja usa para dar estrutura a um rotulo.
  */
 export function Section({
   index,
@@ -17,6 +22,7 @@ export function Section({
   title,
   intro,
   action,
+  actionLabel,
   children,
   inverted = false,
   bleed = false,
@@ -29,6 +35,8 @@ export function Section({
   title?: React.ReactNode;
   intro?: React.ReactNode;
   action?: React.ReactNode;
+  /** Dado curto que acompanha a acao no rodape da secao. */
+  actionLabel?: string;
   children?: React.ReactNode;
   inverted?: boolean;
   /** Remove o container interno para o conteudo sangrar. */
@@ -102,12 +110,18 @@ export function Section({
 
       {action && (
         <Container className={cn(children || hasHeader ? "mt-14" : undefined)}>
-          {/* Alinhada com a coluna do titulo, nao com a margem da pagina,
-              para nao romper a regua de 12 colunas do resto da secao. */}
-          <div className="grid grid-cols-12 gap-x-6">
-            <div className="col-span-12 md:col-span-8 md:col-start-5">
-              {action}
-            </div>
+          <div
+            className={cn(
+              "flex flex-wrap items-center justify-between gap-x-8 gap-y-6 border-t pt-8",
+              inverted ? "border-rule-inv" : "border-rule",
+            )}
+          >
+            {actionLabel ? (
+              <Label inverted={inverted}>{actionLabel}</Label>
+            ) : (
+              <span aria-hidden />
+            )}
+            {action}
           </div>
         </Container>
       )}
