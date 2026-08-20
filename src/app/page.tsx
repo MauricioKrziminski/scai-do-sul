@@ -3,7 +3,6 @@ import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { Stat } from "@/components/ui/stat";
 import { Figure } from "@/components/ui/figure";
-import { MapaGoogle } from "@/components/ui/mapa-google";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Hero } from "@/components/sections/hero";
@@ -201,39 +200,28 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Localização, antes do fechamento.
-
-          Aqui o padrão de rótulo à esquerda e conteúdo à direita não serve: o
-          mapa é largo, e empurrar tudo para a direita deixava metade da tela
-          vazia à esquerda, o que lê como desalinhamento e não como respiro.
-          Endereço à esquerda, mapa à direita, os dois ocupando a largura. */}
+      {/* Bloco de localização, antes do fechamento. */}
       <section className="border-rule bg-paper-2 border-t">
         <Container>
-          <div className="py-section grid grid-cols-12 items-center gap-x-6 gap-y-12">
-            <div className="col-span-12 lg:col-span-4">
+          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
+            <div className="col-span-12 md:col-span-3">
               <Label>Onde estamos</Label>
-
-              <p className="font-display semi-expanded text-h4 mt-7 font-bold uppercase">
+            </div>
+            <div className="col-span-12 md:col-span-8 md:col-start-5">
+              <p className="font-display semi-expanded text-h3 font-bold uppercase">
                 {site.contato.endereco.logradouro}
                 <br />
-                {site.contato.endereco.bairro}
-                <br />
-                {site.contato.endereco.cidade} {site.contato.endereco.uf}
+                {site.contato.endereco.bairro}, {site.contato.endereco.cidade}{" "}
+                {site.contato.endereco.uf}
               </p>
-
-              <p className="text-body-sm text-steel mt-5">
-                CEP {site.contato.endereco.cep}
-              </p>
-
-              <div className="mt-9">
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button href={site.maps} variant="outline" arrow={false}>
+                  Abrir no Google Maps
+                </Button>
                 <Button href="/contato" variant="outline">
                   Página de contato
                 </Button>
               </div>
-            </div>
-
-            <div className="col-span-12 lg:col-span-7 lg:col-start-6">
-              <MapaGoogle ratio="4/3" />
             </div>
           </div>
         </Container>
