@@ -93,7 +93,11 @@ export default function Home() {
         bleed
       >
         <Container>
-          <LinhasProduto />
+          {/* Seis na home, nove no catálogo. A grade cheia ocupava 26,5% da
+              página, mais que o dobro da segunda maior seção. As três que
+              ficam de fora (alta pressão, manômetros e incêndio) são as mais
+              especializadas, e o botão acima leva para todas. */}
+          <LinhasProduto limite={6} compacto />
         </Container>
       </Section>
 
