@@ -201,30 +201,39 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Bloco de localização, antes do fechamento. */}
+      {/* Localização, antes do fechamento.
+
+          Aqui o padrão de rótulo à esquerda e conteúdo à direita não serve: o
+          mapa é largo, e empurrar tudo para a direita deixava metade da tela
+          vazia à esquerda, o que lê como desalinhamento e não como respiro.
+          Endereço à esquerda, mapa à direita, os dois ocupando a largura. */}
       <section className="border-rule bg-paper-2 border-t">
         <Container>
-          <div className="grid grid-cols-12 gap-x-6 gap-y-10 py-section">
-            <div className="col-span-12 md:col-span-3">
+          <div className="py-section grid grid-cols-12 items-center gap-x-6 gap-y-12">
+            <div className="col-span-12 lg:col-span-4">
               <Label>Onde estamos</Label>
-            </div>
-            <div className="col-span-12 md:col-span-8 md:col-start-5">
-              <p className="font-display semi-expanded text-h3 font-bold uppercase">
+
+              <p className="font-display semi-expanded text-h4 mt-7 font-bold uppercase">
                 {site.contato.endereco.logradouro}
                 <br />
-                {site.contato.endereco.bairro}, {site.contato.endereco.cidade}{" "}
-                {site.contato.endereco.uf}
+                {site.contato.endereco.bairro}
+                <br />
+                {site.contato.endereco.cidade} {site.contato.endereco.uf}
               </p>
-              {/* O mapa substitui o botao "Abrir no Google Maps": ele ja
-                  carrega o link do app embaixo, entao o botao virava
-                  duplicata. */}
-              <MapaGoogle ratio="16/9" className="mt-9" />
+
+              <p className="text-body-sm text-steel mt-5">
+                CEP {site.contato.endereco.cep}
+              </p>
 
               <div className="mt-9">
                 <Button href="/contato" variant="outline">
                   Página de contato
                 </Button>
               </div>
+            </div>
+
+            <div className="col-span-12 lg:col-span-7 lg:col-start-6">
+              <MapaGoogle ratio="4/3" />
             </div>
           </div>
         </Container>
