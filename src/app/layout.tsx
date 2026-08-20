@@ -36,8 +36,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.nome} · Válvulas, Conexões e Equipamentos Industriais`,
-    template: `%s · ${site.nomeCurto}`,
+    // Nome da empresa primeiro em todas as abas, depois a página.
+    // A home fica só com o nome, sem descritor.
+    default: site.nome,
+    template: `${site.nome} · %s`,
   },
   description:
     "Distribuidora técnica de válvulas, flanges, conexões e instrumentação para indústria e saneamento em Porto Alegre desde 1975. Linha própria SCAI e marcas líderes do setor.",
