@@ -1,10 +1,24 @@
-import { MessageCircle } from "lucide-react";
+import { IconeWhatsApp } from "./icone-whatsapp";
 import { orcamentoWhatsapp } from "@/lib/whatsapp";
 
 /**
  * Botão fixo em todas as páginas, conforme a proposta.
- * Deliberadamente na cor da casa e não no verde da marca do WhatsApp: verde
- * seria uma terceira cor, e a regra do projeto é duas mais um acento.
+ *
+ * Só o ícone, sem rótulo: o glifo do WhatsApp é reconhecido de imediato, e
+ * escrever "WhatsApp" ao lado dele é redundância que rouba espaço de tela
+ * justo no celular, onde o botão mais atrapalha o conteúdo.
+ *
+ * Usa o verde do logotipo, não o do WhatsApp. São verdes diferentes (#42a940
+ * contra #25D366) e os dois no mesmo site leriam como erro de cor.
+ *
+ * A cor também resolve um problema prático: o botão é fixo e passa por cima
+ * de faixas claras e escuras. Antes era `bg-ink`, e sobre o rodapé, que é da
+ * mesma cor, ele sumia. O verde tem 2.58:1 contra o papel e 5.07:1 contra o
+ * escuro, então aparece nos dois. A borda fica verde inclusive no hover, que
+ * inverte o fundo, para o contorno nunca depender do que está atrás.
+ *
+ * Como não há texto, o nome acessível vem do `aria-label`. Sem ele o link
+ * seria anunciado apenas como "link", sem dizer para onde leva.
  */
 export function WhatsAppFab() {
   return (
@@ -12,14 +26,11 @@ export function WhatsAppFab() {
       href={orcamentoWhatsapp()}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-ink text-paper hover:bg-brand-deep label-tech fixed right-4 bottom-4 z-40 flex items-center gap-2.5 border border-ink px-4 py-3.5 transition-none hover:border-brand-deep md:right-6 md:bottom-6 md:px-5"
+      aria-label="Falar com a Scai do Sul no WhatsApp"
+      title="Falar no WhatsApp"
+      className="bg-brand text-ink border-brand hover:bg-ink hover:text-brand fixed right-4 bottom-4 z-40 flex size-14 items-center justify-center border transition-none md:right-6 md:bottom-6"
     >
-      <MessageCircle
-        aria-hidden
-        className="size-4 shrink-0"
-        strokeWidth={1.75}
-      />
-      <span>WhatsApp</span>
+      <IconeWhatsApp className="size-6" />
     </a>
   );
 }

@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { Stat } from "@/components/ui/stat";
 import { Figure } from "@/components/ui/figure";
+import { MapaGoogle } from "@/components/ui/mapa-google";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Hero } from "@/components/sections/hero";
@@ -214,10 +215,12 @@ export default function Home() {
                 {site.contato.endereco.bairro}, {site.contato.endereco.cidade}{" "}
                 {site.contato.endereco.uf}
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Button href={site.maps} variant="outline" arrow={false}>
-                  Abrir no Google Maps
-                </Button>
+              {/* O mapa substitui o botao "Abrir no Google Maps": ele ja
+                  carrega o link do app embaixo, entao o botao virava
+                  duplicata. */}
+              <MapaGoogle ratio="16/9" className="mt-9" />
+
+              <div className="mt-9">
                 <Button href="/contato" variant="outline">
                   Página de contato
                 </Button>
