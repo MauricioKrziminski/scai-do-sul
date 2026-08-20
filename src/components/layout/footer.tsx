@@ -120,7 +120,15 @@ export function Footer() {
               Privacidade
             </Link>
             <p className="label-tech text-paper/55">
-              &copy; {new Date().getFullYear()} · Site por SoftCode
+              &copy; {new Date().getFullYear()} · Site por{" "}
+              <a
+                href="https://softcodedev.com.br/pt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand text-paper/70 underline underline-offset-4 transition-none"
+              >
+                SoftCode
+              </a>
             </p>
           </div>
         </div>
