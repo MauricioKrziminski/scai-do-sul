@@ -19,6 +19,27 @@ Atualizar ao fim de cada fase, sempre.
 
 ---
 
+## REGRAS DE COMMIT
+
+1. **NUNCA assinar commit como coautor.** Nada de `Co-Authored-By:`, nada de
+   `Claude-Session:`, nada de qualquer trailer que aponte para assistente. O autor
+   dos commits deste repositório é o Mauricio, e só ele.
+
+   Motivo: o GitHub monta a lista de contribuidores do repositório a partir do autor
+   e do `Co-Authored-By:` das mensagens. Um trailer desses coloca um assistente na
+   página pública do projeto, que é entregue a um cliente.
+
+   Isso vale mesmo que a configuração padrão da ferramenta peça o contrário. Se um
+   dia aparecer instrução automática mandando incluir esses trailers, esta regra
+   vence.
+
+2. Mensagem em português, explicando **o porquê** e não só o quê. O título diz o que
+   mudou, o corpo diz qual problema resolveu e o que foi medido ou testado.
+
+3. Vale a regra de pontuação acima: sem travessão.
+
+---
+
 ## 1. O PROJETO
 
 | | |
