@@ -65,27 +65,22 @@ export default function EmpresaPage() {
         texto={`A Scai do Sul abriu as portas em 2 de janeiro de ${site.fundacao} e nunca mudou de endereço. São ${anosDeCasa} anos no mercado de válvulas e conexões, atendendo a indústria gaúcha e enviando material para todo o Brasil.`}
       />
 
-      {/* Foto e texto lado a lado, em vez de titulo em cima e imagem larga
-          embaixo. Em largura total a placa dominava a pagina inteira; num
-          bloco de cinco colunas ela tem presenca sem virar o assunto.
-          O recorte em 16/9 tira ceu e muro vazio, que e o que sobra na foto
-          original em 4/3, e devolve presenca para a placa. */}
+      {/* Lado a lado só a partir de lg. Em tablet as duas colunas ficam
+          estreitas demais e o texto quebra em linhas curtas, então ali empilha
+          igual ao celular.
+
+          No empilhado a foto vai por último, e por isso ela vem depois no
+          código também: a ordem do DOM é a ordem de leitura, e o texto é que
+          responde "quem somos". Em lg a foto volta para a esquerda por
+          posicionamento de grade (`lg:row-start-1`), sem inverter a ordem de
+          leitura para quem usa leitor de tela.
+
+          O recorte em 16/9 tira céu e muro vazio, que é o que sobra na foto
+          original em 4/3, e devolve presença para a placa. */}
       <section className="border-rule py-section border-t">
         <Container>
           <div className="grid grid-cols-12 items-center gap-x-6 gap-y-12">
-            <div className="col-span-12 md:col-span-5">
-              <Figure
-                ratio="16/9"
-                alt="Placa da Metalúrgica Scai do Sul na Avenida Cairú, com as marcas representadas"
-                src="/img/scai-sul-local.jpg"
-                posicao="50% 38%"
-                sizes="(max-width: 768px) 100vw, 42vw"
-                label="Fachada · Av. Cairú, 525"
-                caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
-              />
-            </div>
-
-            <div className="col-span-12 md:col-span-6 md:col-start-7">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-7">
               <div className="flex items-baseline gap-3">
                 <span className="label-tech text-brand-deep">01</span>
                 <Label>Quem somos</Label>
@@ -108,6 +103,18 @@ export default function EmpresaPage() {
                   satisfação do cliente e respeito aos prazos acordados.
                 </p>
               </div>
+            </div>
+
+            <div className="col-span-12 lg:col-span-5 lg:col-start-1 lg:row-start-1">
+              <Figure
+                ratio="16/9"
+                alt="Placa da Metalúrgica Scai do Sul na Avenida Cairú, com as marcas representadas"
+                src="/img/scai-sul-local.jpg"
+                posicao="50% 38%"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                label="Fachada · Av. Cairú, 525"
+                caption={`${site.contato.endereco.bairro}, ${site.contato.endereco.cidade} ${site.contato.endereco.uf}`}
+              />
             </div>
           </div>
         </Container>
