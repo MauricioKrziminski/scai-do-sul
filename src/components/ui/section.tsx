@@ -6,6 +6,10 @@ import { Label } from "./label";
  * Bloco de secao padrao. Divisao assimetrica 3/9: a coluna estreita carrega o
  * indice e o rotulo, a larga carrega o titulo e o texto. Nunca 50/50.
  * A regua sangra de ponta a ponta enquanto o conteudo fica dentro da margem.
+ *
+ * A acao fica DEPOIS do conteudo, nao junto do titulo. "Ver todas as linhas"
+ * antes de mostrar as linhas nao faz sentido: o botao e a saida da secao, e
+ * so faz sentido depois que a pessoa viu o que tem ali.
  */
 export function Section({
   index,
@@ -82,7 +86,6 @@ export function Section({
                   {intro}
                 </div>
               )}
-              {action && <div className="mt-9">{action}</div>}
             </div>
           </div>
         )}
@@ -96,6 +99,18 @@ export function Section({
             {children}
           </Container>
         ))}
+
+      {action && (
+        <Container className={cn(children || hasHeader ? "mt-14" : undefined)}>
+          {/* Alinhada com a coluna do titulo, nao com a margem da pagina,
+              para nao romper a regua de 12 colunas do resto da secao. */}
+          <div className="grid grid-cols-12 gap-x-6">
+            <div className="col-span-12 md:col-span-8 md:col-start-5">
+              {action}
+            </div>
+          </div>
+        </Container>
+      )}
     </section>
   );
 }
