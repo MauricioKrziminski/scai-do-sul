@@ -82,6 +82,24 @@ export function Header() {
       // linha do logotipo desce. Sem isso o conteúdo passaria por trás.
       className="border-rule bg-paper sticky top-0 z-50 border-b pt-[env(safe-area-inset-top)]"
     >
+      {/*
+        Tapume de papel acima da barra.
+
+        No Safari do iPhone o conteudo da pagina desenha ate a borda fisica da
+        tela, mas `top: 0` de elemento grudado para antes dela. Declarar
+        `viewport-fit=cover` deveria alinhar as duas coisas e nao alinhou no
+        aparelho do cliente, entao a faixa que sobra vai coberta na mao.
+
+        E um bloco absoluto que sai por cima da barra. Estouro para cima nao
+        gera rolagem, entao onde a barra ja encosta no topo real ele fica fora
+        da tela e nao custa nada. Onde nao encosta, ele tapa o vao com a mesma
+        cor da barra. Os 15rem cobrem qualquer recorte de aparelho com folga.
+      */}
+      <span
+        aria-hidden
+        className="bg-paper pointer-events-none absolute inset-x-0 bottom-full h-[15rem]"
+      />
+
       <Container>
         <div className="flex h-20 items-center justify-between gap-8">
           <Logo onClick={fechar} />
@@ -131,44 +149,62 @@ export function Header() {
       </Container>
 
       {aberto && (
-        <div
-          id="menu-mobile"
-          // O topo casa com a altura da barra mais a área segura, que é onde a
-          // barra termina de verdade. O fio que separa os dois é o `border-b`
-          // da barra, por isso o painel não leva borda em cima.
-          // z-45 passa na frente do botão do WhatsApp, que é z-40, senão ele
-          // fica boiando verde por cima do menu.
-          className="bg-paper fixed inset-x-0 bottom-0 top-[calc(5rem+env(safe-area-inset-top))] z-[45] overflow-y-auto overscroll-contain lg:hidden"
-        >
-          <Container className="flex min-h-full flex-col pb-[env(safe-area-inset-bottom)]">
-            <nav aria-label="Principal, celular" className="flex flex-col pt-4">
-              {navegacao.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={fechar}
-                  className={cn(
-                    "border-rule font-display expanded border-b py-5 text-h4 font-bold uppercase transition-none",
-                    ativo(item.href) ? "text-brand-deep" : "text-ink",
-                  )}
-                >
-                  {item.rotulo}
-                </Link>
-              ))}
-            </nav>
-            <div className="mt-auto flex flex-col gap-4 py-7">
-              <a
-                href={`tel:${site.contato.telefoneRaw}`}
-                className="label-tech text-steel"
+        <>
+          {/*
+            O mesmo tapume no pe da tela, e so enquanto o painel esta aberto:
+            com o menu fechado o que fica ali embaixo e o rodape escuro, e uma
+            barra de papel por cima dele seria pior que o vao.
+
+            `top-full` num elemento fixo comeca no pe da janela e desce. Elemento
+            fixo nao entra na area rolavel, entao isso nao cria rolagem nenhuma.
+          */}
+          <span
+            aria-hidden
+            className="bg-paper pointer-events-none fixed inset-x-0 top-full z-[45] h-[15rem] lg:hidden"
+          />
+
+          <div
+            id="menu-mobile"
+            // O topo casa com a altura da barra mais a área segura, que é onde a
+            // barra termina de verdade. O fio que separa os dois é o `border-b`
+            // da barra, por isso o painel não leva borda em cima.
+            // z-45 passa na frente do botão do WhatsApp, que é z-40, senão ele
+            // fica boiando verde por cima do menu.
+            className="bg-paper fixed inset-x-0 bottom-0 top-[calc(5rem+env(safe-area-inset-top))] z-[45] overflow-y-auto overscroll-contain lg:hidden"
+          >
+            <Container className="flex min-h-full flex-col pb-[env(safe-area-inset-bottom)]">
+              <nav
+                aria-label="Principal, celular"
+                className="flex flex-col pt-4"
               >
-                {site.contato.telefone}
-              </a>
-              <Button href="/contato" className="self-start">
-                Solicitar orçamento
-              </Button>
-            </div>
-          </Container>
-        </div>
+                {navegacao.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={fechar}
+                    className={cn(
+                      "border-rule font-display expanded border-b py-5 text-h4 font-bold uppercase transition-none",
+                      ativo(item.href) ? "text-brand-deep" : "text-ink",
+                    )}
+                  >
+                    {item.rotulo}
+                  </Link>
+                ))}
+              </nav>
+              <div className="mt-auto flex flex-col gap-4 py-7">
+                <a
+                  href={`tel:${site.contato.telefoneRaw}`}
+                  className="label-tech text-steel"
+                >
+                  {site.contato.telefone}
+                </a>
+                <Button href="/contato" className="self-start">
+                  Solicitar orçamento
+                </Button>
+              </div>
+            </Container>
+          </div>
+        </>
       )}
     </header>
   );
