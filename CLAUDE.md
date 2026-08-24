@@ -449,6 +449,7 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | A foto da placa é a única sem duotone | Testei as duas. Em cor, ao lado de uma foto em preto e branco, destoava como retrato de celular. Em duotone ela lê como documento e entra na mesma família visual |
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |
+| 2026-08-24 | Grade de marcas passou a 1, 2, 3 e 4 colunas | MICROMAZZA ocupa 172px no tamanho do card, e nome de marca não pode quebrar no meio da palavra. A escada de 2 para 4 colunas cortava o nome em toda tela de celular e de 768 a 1024. Medido em 12 larguras: a folga mínima agora é de 60px |
 | 2026-08-19 | Placeholder de marca em CSS, sem foto de banco | Numa reunião lê como ficha técnica, e o cliente vê exatamente qual foto ele ainda deve |
 
 ---
