@@ -29,7 +29,10 @@ export function WhatsAppFab() {
       rel="noopener noreferrer"
       aria-label="Falar com a Scai do Sul no WhatsApp"
       title="Falar no WhatsApp"
-      className="fixed right-4 bottom-4 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] transition-none hover:bg-[#1da851] md:right-6 md:bottom-6"
+      // Com `viewportFit: "cover"` o pé e a lateral da tela passam a ser a borda
+      // de verdade, então o botão precisa somar a área segura para não sentar
+      // em cima do risco de home nem no canto arredondado.
+      className="fixed right-[calc(1rem+env(safe-area-inset-right))] bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] transition-none hover:bg-[#1da851] md:right-[calc(1.5rem+env(safe-area-inset-right))] md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))]"
     >
       <IconeWhatsApp className="size-8 text-white" />
     </a>

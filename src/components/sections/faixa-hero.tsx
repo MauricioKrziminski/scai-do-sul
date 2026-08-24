@@ -32,7 +32,12 @@ const ALTURA = {
 export function alturaDaFaixa(temTicker: boolean) {
   // svh e não vh de propósito: no celular a barra do navegador entra e sai,
   // e vh mede a altura sem a barra, o que corta o pé da faixa.
-  return `calc(100svh - ${ALTURA.cabecalho + (temTicker ? ALTURA.ticker : 0)}rem)`;
+  //
+  // A área segura entra na conta porque o cabeçalho a carrega como respiro de
+  // cima: no iPhone ele mede 5.0625rem mais o recorte da tela, e descontar só
+  // o número fixo empurraria o pé da faixa para fora da primeira tela.
+  const fora = ALTURA.cabecalho + (temTicker ? ALTURA.ticker : 0);
+  return `calc(100svh - ${fora}rem - env(safe-area-inset-top))`;
 }
 
 /**

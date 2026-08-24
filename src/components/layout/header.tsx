@@ -76,7 +76,12 @@ export function Header() {
   }, []);
 
   return (
-    <header className="border-rule bg-paper sticky top-0 z-50 border-b">
+    <header
+      // O respiro de cima é a área segura do aparelho. Ele não afasta a barra
+      // do topo: o papel dela preenche a faixa da barra de status, e só a
+      // linha do logotipo desce. Sem isso o conteúdo passaria por trás.
+      className="border-rule bg-paper sticky top-0 z-50 border-b pt-[env(safe-area-inset-top)]"
+    >
       <Container>
         <div className="flex h-20 items-center justify-between gap-8">
           <Logo onClick={fechar} />
@@ -128,13 +133,14 @@ export function Header() {
       {aberto && (
         <div
           id="menu-mobile"
-          // `top-20` casa com a altura da barra. O fio que separa os dois é o
-          // `border-b` da barra, por isso o painel não leva borda em cima.
+          // O topo casa com a altura da barra mais a área segura, que é onde a
+          // barra termina de verdade. O fio que separa os dois é o `border-b`
+          // da barra, por isso o painel não leva borda em cima.
           // z-45 passa na frente do botão do WhatsApp, que é z-40, senão ele
           // fica boiando verde por cima do menu.
-          className="bg-paper fixed inset-x-0 top-20 bottom-0 z-[45] overflow-y-auto overscroll-contain lg:hidden"
+          className="bg-paper fixed inset-x-0 bottom-0 top-[calc(5rem+env(safe-area-inset-top))] z-[45] overflow-y-auto overscroll-contain lg:hidden"
         >
-          <Container className="flex min-h-full flex-col">
+          <Container className="flex min-h-full flex-col pb-[env(safe-area-inset-bottom)]">
             <nav aria-label="Principal, celular" className="flex flex-col pt-4">
               {navegacao.map((item) => (
                 <Link

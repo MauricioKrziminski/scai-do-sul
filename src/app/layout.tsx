@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Instrument_Sans, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -32,6 +32,24 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   display: "swap",
 });
+
+/**
+ * `viewportFit: "cover"` porque o Safari do iPhone desenha o conteúdo da
+ * página de ponta a ponta, por baixo da barra de status e da barra de
+ * endereço, mas resolve `top: 0` e `bottom: 0` de elemento fixo dentro da
+ * área segura. Sem declarar `cover`, o cabeçalho grudado sentava uns 60px
+ * abaixo do topo real e o painel do menu terminava uns 60px acima do pé real,
+ * e nas duas faixas aparecia a página passando atrás.
+ *
+ * Declarar `cover` alinha as duas coisas: a barra e o painel passam a chegar
+ * na borda de verdade. Em troca, é o site que precisa afastar o conteúdo do
+ * recorte da tela, com `env(safe-area-inset-*)` no cabeçalho, no painel do
+ * menu, no botão do WhatsApp e na margem lateral do Container. Em aparelho
+ * sem recorte todos esses valores são zero e nada muda.
+ */
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
