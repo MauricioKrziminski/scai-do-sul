@@ -149,11 +149,22 @@ body {
 }
 
 /* Grao fixo sobre a pagina inteira. Nao rola junto, por isso le como impresso.
-   Maior retorno de qualidade percebida por linha de codigo do projeto. */
+   Maior retorno de qualidade percebida por linha de codigo do projeto.
+
+   O inset e NEGATIVO, e nao zero, por causa do Safari do iPhone. La o
+   retangulo do elemento fixo para antes da borda fisica da tela, e e por isso
+   que o cabecalho e o painel do menu levam um bloco de papel de 15rem
+   cobrindo a sobra. So que o grao tambem e elemento fixo: com inset: 0 ele
+   parava na mesma linha, os blocos ficavam de fora e saiam mais claros que a
+   barra, que fica por baixo do grao. Dava uma emenda visivel no preenchimento.
+
+   Estourando 15rem para cada lado, a mesma medida dos blocos, o grao cobre a
+   tela fisica inteira e o papel fica identico nos tres. Elemento fixo nao
+   entra na area rolavel, entao o estouro nao cria rolagem. */
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -15rem;
   z-index: 9999;
   pointer-events: none;
   opacity: 0.13;
