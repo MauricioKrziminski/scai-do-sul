@@ -450,6 +450,7 @@ Cada fase termina em commit próprio, `npm run build` limpo e atualização dest
 | 2026-08-19 | Formulário por Resend e por WhatsApp, os dois | Pedido do cliente da SoftCode. O WhatsApp cobre a operação enquanto o domínio não está verificado |
 | 2026-08-19 | Nove linhas de produto do site atual | Decisão do Mauricio. Specs provisórias marcadas para revisão até o catálogo SCAI ser digitalizado |
 | 2026-08-24 | Grade de marcas passou a 1, 2, 3 e 4 colunas | MICROMAZZA ocupa 172px no tamanho do card, e nome de marca não pode quebrar no meio da palavra. A escada de 2 para 4 colunas cortava o nome em toda tela de celular e de 768 a 1024. Medido em 12 larguras: a folga mínima agora é de 60px |
+| 2026-08-24 | Menu do celular virou camada `fixed` sobre a tela, com rolagem travada | Antes o painel era filho da barra grudada, então abrir o menu levava a altura dela de 80 para 519px. No celular o navegador reposiciona um elemento `sticky` com atraso quando a altura muda, e nesse intervalo aparecia conteúdo por cima do cabeçalho. Com a barra de altura fixa não há o que reposicionar. O estado do menu guarda a rota em que ele foi aberto, e não um booleano: assim sair da rota fecha o painel sozinho, o que cobre a logo, o botão de voltar e link novo que alguém acrescente e esqueça de ligar no fechamento |
 | 2026-08-19 | Placeholder de marca em CSS, sem foto de banco | Numa reunião lê como ficha técnica, e o cliente vê exatamente qual foto ele ainda deve |
 
 ---

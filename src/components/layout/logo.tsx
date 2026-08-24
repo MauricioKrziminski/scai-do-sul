@@ -9,18 +9,25 @@ import { cn } from "@/lib/cn";
  * PNG de 225 pixels com o verde chapado no fundo. O desenho segue a mesma
  * hierarquia do original: "Metalúrgica" pequeno em cima, o nome grande
  * embaixo. Ver CLAUDE.md seção 9.
+ *
+ * O `onClick` existe por causa do menu do celular: a logo é um link como
+ * qualquer outro do painel aberto e precisa fechá-lo ao ser tocada. O rodapé
+ * não passa nada e o comportamento continua o mesmo.
  */
 export function Logo({
   inverted = false,
   className,
+  onClick,
 }: {
   inverted?: boolean;
   className?: string;
+  onClick?: () => void;
 }) {
   return (
     <Link
       href="/"
       aria-label="Metalúrgica Scai do Sul, página inicial"
+      onClick={onClick}
       className={cn("inline-flex items-center gap-3.5", className)}
     >
       <MarcaScai
